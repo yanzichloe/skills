@@ -1,92 +1,92 @@
 ---
 name: data-visualization
-description: Comprehensive data visualization toolkit for creating charts, graphs, and interactive visualizations. Use when users request creating data visualizations, charts, graphs, dashboards, or data analysis visualizations. Supports multiple chart types (bar, line, pie, scatter, heatmap, etc.) and output formats (HTML, PNG, SVG, PDF). Works with various libraries including matplotlib, Plotly, D3.js, and Chart.js.
+description: 全面的数据可视化工具包，用于创建图表、图形和交互式可视化。当用户请求创建数据可视化、图表、图形、仪表板或数据分析可视化时使用。支持多种图表类型（柱状图、折线图、饼图、散点图、热力图等）和输出格式（HTML、PNG、SVG、PDF）。支持多种库，包括 matplotlib、Plotly、D3.js 和 Chart.js。
 ---
 
-# Data Visualization
+# 数据可视化
 
-## Overview
+## 概述
 
-This skill enables creating professional data visualizations including static charts, interactive graphs, and dashboard components. Supports multiple chart types, output formats, and visualization libraries.
+本技能支持创建专业的数据可视化，包括静态图表、交互式图形和仪表板组件。支持多种图表类型、输出格式和可视化库。
 
-## Quick Start
+## 快速开始
 
-### Chart Type Selection
+### 图表类型选择
 
-Choose the appropriate chart type based on data and purpose:
+根据数据和目的选择合适的图表类型：
 
-- **Bar/Column charts**: Compare categories, show rankings
-- **Line charts**: Show trends over time, continuous data
-- **Pie/Donut charts**: Show proportions, part-to-whole relationships
-- **Scatter plots**: Show correlations, relationships between variables
-- **Heatmaps**: Show density, correlations, or matrix data
-- **Area charts**: Show cumulative values over time
-- **Box plots**: Show distributions, quartiles, outliers
-- **Histograms**: Show frequency distributions
+- **柱状图/条形图**：比较类别，显示排名
+- **折线图**：显示时间趋势，连续数据
+- **饼图/环形图**：显示比例，部分与整体关系
+- **散点图**：显示相关性，变量之间的关系
+- **热力图**：显示密度、相关性或矩阵数据
+- **面积图**：显示随时间累积的值
+- **箱线图**：显示分布、四分位数、异常值
+- **直方图**：显示频率分布
 
-### Output Format Selection
+### 输出格式选择
 
-- **HTML**: Interactive charts (Plotly, Chart.js, D3.js) - best for web sharing
-- **PNG/JPG**: Static images (matplotlib, seaborn) - best for documents, presentations
-- **SVG**: Scalable vector graphics - best for web and print
-- **PDF**: Vector format - best for reports and documents
+- **HTML**：交互式图表（Plotly、Chart.js、D3.js）- 最适合网页分享
+- **PNG/JPG**：静态图片（matplotlib、seaborn）- 最适合文档、演示文稿
+- **SVG**：可缩放矢量图形 - 最适合网页和打印
+- **PDF**：矢量格式 - 最适合报告和文档
 
-### Library Selection
+### 库选择
 
-- **matplotlib/seaborn**: Python, static charts, publication-quality
-- **Plotly**: Python/JavaScript, interactive charts, dashboards
-- **Chart.js**: JavaScript, lightweight, web-friendly
-- **D3.js**: JavaScript, highly customizable, advanced visualizations
+- **matplotlib/seaborn**：Python，静态图表，出版质量
+- **Plotly**：Python/JavaScript，交互式图表，仪表板
+- **Chart.js**：JavaScript，轻量级，适合网页
+- **D3.js**：JavaScript，高度可定制，高级可视化
 
-## Creating Charts
+## 创建图表
 
 ### Python (matplotlib/seaborn)
 
-For static, publication-quality charts:
+用于创建静态、出版质量的图表：
 
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Set style
+# 设置样式
 sns.set_style("whitegrid")
 plt.figure(figsize=(10, 6))
 
-# Create chart based on type
-# Bar chart example
+# 根据类型创建图表
+# 柱状图示例
 plt.bar(x, y)
-plt.xlabel('X Label')
-plt.ylabel('Y Label')
-plt.title('Chart Title')
+plt.xlabel('X轴标签')
+plt.ylabel('Y轴标签')
+plt.title('图表标题')
 plt.tight_layout()
 plt.savefig('chart.png', dpi=300, bbox_inches='tight')
 ```
 
-See `references/matplotlib_guide.md` for detailed patterns and examples.
+详细模式和示例请参见 `references/matplotlib_guide.md`。
 
 ### Python (Plotly)
 
-For interactive charts and dashboards:
+用于创建交互式图表和仪表板：
 
 ```python
 import plotly.graph_objects as go
 import plotly.express as px
 
-# Express API (simpler)
-fig = px.bar(df, x='category', y='value', title='Chart Title')
+# Express API（更简单）
+fig = px.bar(df, x='category', y='value', title='图表标题')
 fig.write_html('chart.html')
 
-# Graph Objects API (more control)
+# Graph Objects API（更多控制）
 fig = go.Figure(data=[go.Bar(x=x, y=y)])
-fig.update_layout(title='Chart Title')
+fig.update_layout(title='图表标题')
 fig.write_html('chart.html')
 ```
 
-See `references/plotly_guide.md` for interactive chart patterns.
+交互式图表模式请参见 `references/plotly_guide.md`。
 
 ### JavaScript (Chart.js)
 
-For lightweight web charts:
+用于创建轻量级网页图表：
 
 ```html
 <canvas id="myChart"></canvas>
@@ -101,68 +101,68 @@ new Chart(ctx, {
 </script>
 ```
 
-See `references/chartjs_guide.md` for Chart.js patterns.
+Chart.js 模式请参见 `references/chartjs_guide.md`。
 
 ### JavaScript (D3.js)
 
-For highly customizable visualizations:
+用于创建高度可定制的可视化：
 
-See `references/d3_guide.md` for D3.js patterns and examples.
+请参见 `references/d3_guide.md` 了解 D3.js 模式和示例。
 
-## Chart Templates
+## 图表模板
 
-Pre-built templates are available in `assets/templates/`:
+预构建的模板位于 `assets/templates/`：
 
-- `bar_chart_template.html` - Interactive bar chart template
-- `line_chart_template.html` - Interactive line chart template
-- `dashboard_template.html` - Multi-chart dashboard template
-- `python_matplotlib_template.py` - Python matplotlib starter template
+- `bar_chart_template.html` - 交互式柱状图模板
+- `line_chart_template.html` - 交互式折线图模板
+- `dashboard_template.html` - 多图表仪表板模板
+- `python_matplotlib_template.py` - Python matplotlib 入门模板
 
-## Color Palette
+## 配色方案
 
-**Default Chart Palette**: Use the 12-color palette defined in `references/color_palettes.md` as the primary choice for all visualizations. This palette includes colors from chart01 (#69B1F4) through chart12 (#6B9CCA), providing consistent, professional styling across all charts.
+**默认图表配色方案**：使用 `references/color_palettes.md` 中定义的 12 色配色方案作为所有可视化的首选。该配色方案包括从 chart01 (#69B1F4) 到 chart12 (#6B9CCA) 的颜色，为所有图表提供一致、专业的样式。
 
-See `references/color_palettes.md` for the complete palette with usage examples for Python, JavaScript, and CSS.
+完整的配色方案及 Python、JavaScript 和 CSS 使用示例请参见 `references/color_palettes.md`。
 
-## Best Practices
+## 最佳实践
 
-1. **Choose appropriate chart type** for your data and message
-2. **Use consistent colors** - use the default chart palette from `references/color_palettes.md` as the primary choice
-3. **Label clearly** - include titles, axis labels, legends, data labels
-4. **Consider accessibility** - use colorblind-friendly palettes when needed, add alt text
-5. **Optimize for output** - HTML for interactivity, PNG for documents
-6. **Responsive design** - ensure charts work on different screen sizes
+1. **选择合适的图表类型** - 根据数据和要传达的信息选择
+2. **使用一致的配色** - 优先使用 `references/color_palettes.md` 中的默认图表配色方案
+3. **清晰标注** - 包含标题、轴标签、图例、数据标签
+4. **考虑可访问性** - 需要时使用色盲友好配色方案，添加替代文本
+5. **优化输出格式** - HTML 用于交互性，PNG 用于文档
+6. **响应式设计** - 确保图表在不同屏幕尺寸下正常工作
 
-## Advanced Features
+## 高级功能
 
-### Multi-chart Dashboards
+### 多图表仪表板
 
-Combine multiple charts into dashboards. See `references/dashboards.md` for dashboard patterns.
+将多个图表组合成仪表板。仪表板设计模式请参见 `references/dashboards.md`。
 
-### Data Processing
+### 数据处理
 
-Use scripts in `scripts/` for common data processing tasks:
-- `process_data.py` - Data cleaning and preparation utilities
-- `export_chart.py` - Chart export utilities
+使用 `scripts/` 中的脚本进行常见的数据处理任务：
+- `process_data.py` - 数据清理和准备工具
+- `export_chart.py` - 图表导出工具
 
-### Custom Styling
+### 自定义样式
 
-Apply themes and styling. See `references/styling_guide.md` for customization options.
+应用主题和样式。自定义选项请参见 `references/styling_guide.md`。
 
-## Resources
+## 资源
 
 ### scripts/
-- `process_data.py` - Data processing utilities
-- `export_chart.py` - Chart export helpers
+- `process_data.py` - 数据处理工具
+- `export_chart.py` - 图表导出辅助工具
 
 ### references/
-- `matplotlib_guide.md` - matplotlib/seaborn patterns and examples
-- `plotly_guide.md` - Plotly interactive chart patterns
-- `chartjs_guide.md` - Chart.js web chart patterns
-- `d3_guide.md` - D3.js advanced visualization patterns
-- `color_palettes.md` - Color scheme recommendations
-- `dashboards.md` - Dashboard design patterns
-- `styling_guide.md` - Chart styling and theming
+- `matplotlib_guide.md` - matplotlib/seaborn 模式和示例
+- `plotly_guide.md` - Plotly 交互式图表模式
+- `chartjs_guide.md` - Chart.js 网页图表模式
+- `d3_guide.md` - D3.js 高级可视化模式
+- `color_palettes.md` - 配色方案推荐
+- `dashboards.md` - 仪表板设计模式
+- `styling_guide.md` - 图表样式和主题
 
 ### assets/
-- `templates/` - Pre-built chart templates
+- `templates/` - 预构建的图表模板
