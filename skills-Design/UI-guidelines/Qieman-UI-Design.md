@@ -1,43 +1,43 @@
 ---
-version: 1.1   版本:1.1
-name: qieman-ui-design   名称:qieman-ui-design
+version: alpha
+name: qieman-ui-design
 license: Complete terms in LICENSE.txt
-description: >-   描述:在-description: >-   描述:在-
-  Use this skill to create high-fidelity Qieman / Yingmi financial UI prototypes,使用此技能创建高保真的齐曼/英米金融UI原型；
-  including mobile H5 pages, account review reports, fund-advisory dashboards,包括移动H5页面、账户审查报告、基金咨询仪表板，
-  strategy introduction pages, data visualization screens, coupon campaign pages,策略介绍页面、数据可视化屏幕、优惠券活动页面、
-  and responsive single-file HTML interfaces. The output must follow Qieman's和响应式的单文件HTML界面。输出必须遵循Qieman的
-  blue-first financial design language, use structured design tokens, preserve蓝首金融设计语言，使用结构化设计代币，保存
-  risk disclosure readability, and generate maintainable production-grade HTML/CSS/JS.风险披露可读性，并生成可维护的生产级HTML/CSS/JS。
+description: >-
+  Use this skill to create high-fidelity Qieman / Yingmi financial UI prototypes,
+  including mobile H5 pages, account review reports, fund-advisory dashboards,
+  strategy introduction pages, data visualization screens, coupon campaign pages,
+  and responsive single-file HTML interfaces. The output must follow Qieman's
+  blue-first financial design language, use structured design tokens, preserve
+  risk disclosure readability, and generate maintainable production-grade HTML/CSS/JS.
 
-colors:   颜色:
-  brand-primary: "#1B88EE"   brand-primary:“# 1 b88ee"brand-primary: "#1B88EE"；
-  brand-primary-pressed: "#0F78D4"brand-primary-pressed:“# 0 f78d4"brand-primary-pressed: "#0F78D4"；
-  brand-primary-focus: "#1580E0"brand-primary-focus:“# 1580 e0"brand-primary-focus:“# 1580E0"；
-  brand-poster: "#3180EC"   brand-poster:“# 3180 ec"brand-poster:“# 3180 ec"；
-  brand-primary-faded: "#F0F6FF"brand-primary-faded:“# F0F6FF"brand-primary-faded: "#F0F6FF"；
+colors:
+  brand-primary: "#1B88EE"
+  brand-primary-pressed: "#0F78D4"
+  brand-primary-focus: "#1580E0"
+  brand-poster: "#3180EC"
+  brand-primary-faded: "#F0F6FF"
 
-  text-primary: "#333333"   text-primary:“# 333333“;Text-primary: "#333333"；
-  text-secondary: "#606060"text-secondary:“# 606060“;
-  text-tertiary: "#999999"   text-tertiary:“# 999999“;
-  text-disabled: "#CCCCCC"   text-disabled:“# CCCCCC"
-  text-inverse: "#FFFFFF"   text-inverse:“# FFFFFF"
+  text-primary: "#333333"
+  text-secondary: "#606060"
+  text-tertiary: "#999999"
+  text-disabled: "#CCCCCC"
+  text-inverse: "#FFFFFF"
 
-  semantic-error: "#FA440C"语义错误:“# FA440C"semantic-error: "#FA440C"语义错误:“# FA440C"
-  semantic-warning: "#EA9500"semantic-warning:“# EA9500"semantic-warning: "#EA9500"semantic-warning:“# EA9500"
-  semantic-success: "#07AD8F"semantic-success:“# 07 ad8f"
-  semantic-error-faded: "#FEEDE9"semantic-error-faded:“# FEEDE9"
-  semantic-warning-faded: "#FFFAEF"semantic-warning-faded:“# FFFAEF"
+  semantic-error: "#FA440C"
+  semantic-warning: "#EA9500"
+  semantic-success: "#07AD8F"
+  semantic-error-faded: "#FEEDE9"
+  semantic-warning-faded: "#FFFAEF"
 
-  surface-page: "#F9FAFB"   surface-page:“# F9FAFB"
-  surface-card: "#FFFFFF"   surface-card:“# FFFFFF"
-  surface-card-subtle: "#F9FAFB"surface-card-subtle:“# F9FAFB"
-  surface-card-muted: "#F7F7F7"surface-card-muted:“# F7F7F7"
-  surface-summary: "#DBEBFF"surface-summary:“# DBEBFF"
+  surface-page: "#F9FAFB"
+  surface-card: "#FFFFFF"
+  surface-card-subtle: "#F9FAFB"
+  surface-card-muted: "#F7F7F7"
+  surface-summary: "#DBEBFF"
 
-  border-default: "#D8D8D8"border-default:“# D8D8D8"
-  border-primary: "#1B88EE"border-primary:“# 1 b88ee"
-  border-primary-subtle: "#9CCBF8"border-primary-subtle:“# 9 ccbf8"
+  border-default: "#D8D8D8"
+  border-primary: "#1B88EE"
+  border-primary-subtle: "#9CCBF8"
   border-warning-subtle: "#FFDC9E"
   border-error-subtle: "#FAB6A5"
 
@@ -48,7 +48,7 @@ colors:   颜色:
   chart-05: "#68E0F3"
   chart-06: "#ADAFE8"
   chart-07: "#3A7BB8"
-  chart-08: "#FAB6A5"   chart-08: "#FAB6A5"
+  chart-08: "#FAB6A5"
   chart-09: "#EDC273"
   chart-10: "#9CCBF8"
   chart-11: "#C8CAEF"
@@ -59,25 +59,25 @@ colors:   颜色:
 
 typography:
   hero-display:
-    fontFamily: "PingFang SC, MiSans, system-ui, -apple-system, sans-serif"fontFamily：“PingFang SC, MiSans, system-ui, -apple-system, sans-serif”
-    fontSize: 40px   字形大小:40像素
+    fontFamily: "PingFang SC, MiSans, system-ui, -apple-system, sans-serif"
+    fontSize: 40px
     fontWeight: 700
     lineHeight: 1.18
-    letterSpacing: -0.2px   类:-0.2 px
+    letterSpacing: -0.2px
   display-lg:
-    fontFamily: "PingFang SC, MiSans, system-ui, -apple-system, sans-serif"   版本:αfontFamily: " PingFang我MiSans system-ui、-apple-system sans-serif"版本:α
-    fontSize: 32px   字形大小:32像素
+    fontFamily: "PingFang SC, MiSans, system-ui, -apple-system, sans-serif"
+    fontSize: 32px
     fontWeight: 700
     lineHeight: 1.22
-    letterSpacing: -0.1px   类:-0.1 px
+    letterSpacing: -0.1px
   display-md:
-    fontFamily: "PingFang SC, MiSans, system-ui, -apple-system, sans-serif"fontFamily：“PingFang SC, MiSans, system-ui, -apple-system, sans-serif”
+    fontFamily: "PingFang SC, MiSans, system-ui, -apple-system, sans-serif"
     fontSize: 26px
     fontWeight: 600
     lineHeight: 1.28
-    letterSpacing: 0   类:0
+    letterSpacing: 0
   title-lg:
-    fontFamily: "PingFang SC, MiSans, system-ui, -apple-system, sans-serif"fontFamily：“PingFang SC, MiSans, system-ui, -apple-system, sans-serif”
+    fontFamily: "PingFang SC, MiSans, system-ui, -apple-system, sans-serif"
     fontSize: 24px
     fontWeight: 600
     lineHeight: 1.3
@@ -87,7 +87,7 @@ typography:
     fontSize: 20px
     fontWeight: 600
     lineHeight: 1.35
-    letterSpacing: 0   类:0
+    letterSpacing: 0
   title-sm:
     fontFamily: "PingFang SC, MiSans, system-ui, -apple-system, sans-serif"
     fontSize: 18px
