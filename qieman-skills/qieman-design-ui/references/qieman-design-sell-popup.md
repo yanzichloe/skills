@@ -2,7 +2,7 @@
 version: alpha
 extends: qieman-design-ui
 layer: L1
-spec-id: qieman-sell-popup-design
+spec-id: qieman-design-sell-popup
 title: qieman sell popup design
 license: Complete terms in LICENSE.txt
 description: >-
