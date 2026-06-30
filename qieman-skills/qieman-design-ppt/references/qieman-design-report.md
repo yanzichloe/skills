@@ -1,9 +1,7 @@
 ---
-version: alpha
 extends: qieman-design-ppt
 layer: L1
 spec-id: qieman-design-report
-title: qieman report slides design
 license: Complete terms in LICENSE.txt
 description: >-
   L1 scenario extension under qieman-design-ppt. HTML 16:9 wealth advisory report slides
@@ -226,18 +224,19 @@ components:
     typography: "{typography.caption}"
 ---
 
-# qieman report slides design
+# qieman-design-report
 
-| 项 | 说明 |
-|---|---|
-| **Spec ID** | `qieman-design-report` |
-| **层级** | L1 场景扩展（隶属 `qieman-design-ppt`） |
-| **完整规范** | 本文件 |
-| **前置依赖** | L2 [`../SKILL.md`](../SKILL.md)（含 L0 品牌色对齐） |
+| 字段 | 值 |
+|------|-----|
+| **ID** | `qieman-design-report` |
+| **层级** | L1 |
+| **规范** | 本文件 |
+| **依赖** | [`qieman-design-ppt`](../SKILL.md) |
+| **更新日期** | 2026-06-30 |
 
 ## 调用
 
-先加载 L2 `qieman-design-ppt`，再阅读本 L1 扩展：
+先加载 **qieman-design-ppt**，再阅读本 L1 扩展：
 
 ```bash
 npx openskills read qieman-design-ppt

@@ -1,7 +1,5 @@
 ---
-version: alpha
 name: qieman-design-vip
-title: qieman vip design
 description: >-
   Use this skill to create Qieman high-net-worth private-domain marketing visuals,
   including 9:16 vertical posters, 300万+ asset-threshold invitations, investment
@@ -190,14 +188,16 @@ components:
     shadow: "{shadow.card-soft}"
 ---
 
-# qieman vip design
+# qieman-design-vip
 
-| 项 | 说明 |
-|---|---|
-| **Skill ID** | `qieman-design-vip` |
-| **层级** | L2 场景层（VIP 私域海报） |
-| **完整规范** | 本文件 `SKILL.md` |
-| **前置依赖** | L0 [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
+| 字段 | 值 |
+|------|-----|
+| **ID** | `qieman-design-vip` |
+| **层级** | L2 |
+| **场景** | VIP 私域海报 |
+| **规范** | 本文件 `SKILL.md` |
+| **依赖** | [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
+| **更新日期** | 2026-06-30 |
 
 ## 调用
 

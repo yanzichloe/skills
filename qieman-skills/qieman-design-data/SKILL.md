@@ -1,7 +1,5 @@
 ---
-version: alpha
 name: qieman-design-data
-title: qieman data design
 layer: L2
 license: Complete terms in LICENSE.txt
 description: >-
@@ -11,14 +9,16 @@ description: >-
 extends: qieman-design-ui
 ---
 
-# qieman data design
+# qieman-design-data
 
-| 项 | 说明 |
-|---|---|
-| **Skill ID** | `qieman-design-data` |
-| **层级** | L2 场景层（数据可视化） |
-| **完整规范** | 本文件 `SKILL.md` |
-| **前置依赖** | L0 [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
+| 字段 | 值 |
+|------|-----|
+| **ID** | `qieman-design-data` |
+| **层级** | L2 |
+| **场景** | 数据可视化 |
+| **规范** | 本文件 `SKILL.md` |
+| **依赖** | [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
+| **更新日期** | 2026-06-30 |
 
 ## 调用
 

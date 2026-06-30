@@ -1,9 +1,7 @@
 ---
-version: alpha
 extends: qieman-design-ui
 layer: L1
 spec-id: qieman-design-sell-popup
-title: qieman design sell popup
 license: Complete terms in LICENSE.txt
 description: >-
   L1 scenario extension under qieman-design-ui. App bottom-sheet retention modals for
@@ -43,7 +41,6 @@ colors:
   transparent: "transparent"
 
 typography:
-  title:
     fontFamily: "PingFang SC, Microsoft YaHei, system-ui, -apple-system, sans-serif"
     fontSize: 24pt
     fontWeight: 600
@@ -254,18 +251,19 @@ components:
     marginTop: "{spacing.sm}"
 ---
 
-# qieman design sell popup
+# qieman-design-sell-popup
 
-| 项 | 说明 |
-|---|---|
-| **Spec ID** | `qieman-design-sell-popup` |
-| **层级** | L1 场景扩展（隶属 `qieman-design-ui`） |
-| **完整规范** | 本文件 |
-| **前置依赖** | L0 [`../SKILL.md`](../SKILL.md) |
+| 字段 | 值 |
+|------|-----|
+| **ID** | `qieman-design-sell-popup` |
+| **层级** | L1 |
+| **规范** | 本文件 |
+| **依赖** | [`qieman-design-ui`](../SKILL.md) |
+| **更新日期** | 2026-06-30 |
 
 ## 调用
 
-先加载 L0，再阅读本 L1 扩展：
+先加载 **qieman-design-ui**，再阅读本 L1 扩展：
 
 ```bash
 npx openskills read qieman-design-ui

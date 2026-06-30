@@ -1,7 +1,5 @@
 ---
-version: alpha
 name: qieman-design-h5
-title: qieman h5 design
 license: Complete terms in LICENSE.txt
 description: >-
   Qieman in-app marketing H5 design skill for activity pages, strategy introductions,
@@ -12,14 +10,16 @@ layer: L2
 extends: qieman-design-ui
 ---
 
-# qieman h5 design
+# qieman-design-h5
 
-| 项 | 说明 |
-|---|---|
-| **Skill ID** | `qieman-design-h5` |
-| **层级** | L2 场景层（营销 H5） |
-| **完整规范** | 本文件 `SKILL.md` |
-| **前置依赖** | L0 [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
+| 字段 | 值 |
+|------|-----|
+| **ID** | `qieman-design-h5` |
+| **层级** | L2 |
+| **场景** | 营销 H5 |
+| **规范** | 本文件 `SKILL.md` |
+| **依赖** | [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
+| **更新日期** | 2026-06-30 |
 
 ## 调用
 
@@ -204,7 +204,6 @@ body {
 - 风险提示可使用 343px 内容宽度，也可作为正文底部弱化文本区
 
 ---
-
 
 ---
 
@@ -1089,7 +1088,6 @@ font-family: "MiSans", "DIN Alternate", "PingFang SC", system-ui, sans-serif;
 - 首卡圆角建议：16px–20px。
 - 首卡与头图之间应是“承接”，不是“断开”。
 
-
 ### 6.4.4 Hero Layered Gradient Rules
 
 为增强首屏视觉层次感，头部氛围图不得只使用单一浅色填充。Hero 需要通过深浅渐变、前中景层次和底部过渡建立空间感。
@@ -1292,7 +1290,6 @@ Hero 底部必须与首张卡片或页面背景自然衔接。
 - 是否存在明显占位感、拼贴感、粗糙感？
 
 ---
-
 
 ---
 
@@ -1536,7 +1533,6 @@ Hero 底部必须和首张内容卡片形成视觉承接。
 
 如果以上检查不通过，应重新生成 Hero，不应继续沿用当前视觉。
 
-
 ---
 
 ### 6.4.10 Strategy Hero Must Not Be Empty
@@ -1612,7 +1608,6 @@ Hero 底部必须和首张内容卡片形成视觉承接。
 - 页面是否避免了“信息卡片页”而不是“营销 H5”的问题？
 
 如果检查不通过，应优先重做 Hero，而不是只调整文字或卡片。
-
 
 ---
 
@@ -1761,7 +1756,6 @@ Hero 中间或底部不允许存在大面积无效空白区域。
 - 同一页面 icon 透视、粗细、色彩必须统一。
 
 ---
-
 
 ---
 
@@ -1940,7 +1934,6 @@ Remix Icon 适合 UI 辅助，不适合作为所有营销主视觉。
 - 插画色彩与页面背景割裂
 
 ---
-
 
 ---
 
@@ -2272,7 +2265,6 @@ Remix Icon 用于常规 UI 辅助，AI 3D / 精细化素材用于营销主视觉
 - 不使用粗糙 CSS 拼接造成锯齿、断层或错位。
 
 ---
-
 
 ## 6.10 Chart System for Marketing H5
 
@@ -3648,7 +3640,6 @@ Hero 首屏
 
 ---
 
-
 ---
 
 ## 14.1 Strategy Hero First Screen Optimization Prompt
@@ -3671,7 +3662,6 @@ Hero 首屏
 5. 不要只保留装饰波浪和背景留白。
 6. 保持且慢浅蓝营销风格，避免变成纯功能详情页。
 ```
-
 
 ---
 

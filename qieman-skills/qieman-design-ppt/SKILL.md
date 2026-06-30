@@ -1,7 +1,5 @@
 ---
-version: alpha
 name: qieman-design-ppt
-title: qieman ppt design
 layer: L2
 license: Complete terms in LICENSE.txt
 description: >-
@@ -11,15 +9,17 @@ description: >-
 extends: qieman-design-ui
 ---
 
-# qieman ppt design
+# qieman-design-ppt
 
-| 项 | 说明 |
-|---|---|
-| **Skill ID** | `qieman-design-ppt` |
-| **层级** | L2 场景层（演示文稿：原生 PPT + HTML 报告） |
-| **完整规范** | 本文件 `SKILL.md` |
-| **L1 扩展** | [qieman-design-report.md](./references/qieman-design-report.md)（HTML 16:9 投顾报告幻灯片） |
-| **前置依赖** | L0 [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
+| 字段 | 值 |
+|------|-----|
+| **ID** | `qieman-design-ppt` |
+| **层级** | L2 |
+| **场景** | 演示文稿（原生 PPT + HTML 报告） |
+| **规范** | 本文件 `SKILL.md` |
+| **L1 扩展** | [qieman-design-report.md](./references/qieman-design-report.md) |
+| **依赖** | [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
+| **更新日期** | 2026-06-30 |
 
 ## 调用
 

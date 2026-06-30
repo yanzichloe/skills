@@ -1,7 +1,5 @@
 ---
-version: alpha
 name: qieman-design-ui
-title: qieman ui design
 layer: L0
 license: Complete terms in LICENSE.txt
 description: >-
@@ -365,14 +363,15 @@ components:
     padding: 24px
 ---
 
-# qieman ui design
+# qieman-design-ui
 
-| 项 | 说明 |
-|---|---|
-| **Skill ID** | `qieman-design-ui` |
-| **层级** | L0 基础层 |
-| **完整规范** | 本文件 `SKILL.md` |
+| 字段 | 值 |
+|------|-----|
+| **ID** | `qieman-design-ui` |
+| **层级** | L0 |
+| **规范** | 本文件 `SKILL.md` |
 | **L1 扩展** | [qieman-design-sell-popup.md](./references/qieman-design-sell-popup.md) |
+| **更新日期** | 2026-06-30 |
 
 ## 调用
 
@@ -403,7 +402,7 @@ qieman ui design 是一个面向 **盈米基金 / 且慢** 金融产品设计任
 |------|------|-------------|------|
 | **L0 基础层** | `qieman-design-ui` | 本目录 `SKILL.md` | 品牌色、字体、间距、圆角、阴影、`components`、Remix Icon、通用页面 Pattern、输出与合规约束 |
 | **L1 场景扩展层** | 同目录扩展规范 | 见下表 | 在 L0 之上定义 **单一高频 App 组件/流程** 的专用 token 与 Pattern；**不单独建 skill 目录** |
-| **L2 独立场景层** | 兄弟 skill 目录 | `../qieman-design-*/SKILL.md` | 完整垂直场景（营销 H5、VIP 海报、报告幻灯片、PDF、原生 PPT 等） |
+| **L2 独立场景层** | 兄弟 skill 目录 | `../qieman-design-*/SKILL.md` | 完整垂直场景（营销 H5、VIP 海报、PDF、演示文稿 PPT 等） |
 
 ### L1 场景扩展（本目录内）
 
@@ -419,9 +418,8 @@ qieman ui design 是一个面向 **盈米基金 / 且慢** 金融产品设计任
 |--------------------|------------|----------|
 | `qieman-design-h5` | 叠加 L0 | App 内营销 H5、活动页、策略介绍页 |
 | `qieman-design-vip` | `extends` L0 | 9:16 高净值私域海报、九宫格 |
-| `qieman-design-report` | 对齐 L0 色板 | HTML 16:9 投顾报告幻灯片 |
 | `qieman-design-pdf` | 对齐 L0 色板 | A4 / 可打印 PDF 报告 |
-| `qieman-design-ppt` | 对齐 L0 色板 | PowerPoint 原生演示稿 |
+| `qieman-design-ppt` | `extends` L0 | 原生 PowerPoint；**L1** `qieman-design-report` = HTML 16:9 投顾报告幻灯片 |
 | `qieman-design-data` | 图表色可引用 L0 `chart-*` | 独立图表与可视化 |
 
 ### 选用流程
@@ -430,8 +428,8 @@ qieman ui design 是一个面向 **盈米基金 / 且慢** 金融产品设计任
 2. **卖出挽留、赎回确认等底部弹窗** → **L0 + L1** `qieman-design-sell-popup`。
 3. **营销 H5 / 活动长页** → **L0 + L2** `qieman-design-h5`（H5 内若含卖出弹窗，再叠 **L1**）。
 4. **VIP 私域海报** → **L0 + L2** `qieman-design-vip`。
-5. **客户报告幻灯片 / PDF / PPTX** → **L2** `qieman-design-report` / `qieman-design-pdf` / `qieman-design-ppt`；品牌色与 L0 对齐。
-
+5. **HTML 投顾报告幻灯片 / 合并 deck** → **L0 + L2** `qieman-design-ppt` **+ L1** `qieman-design-report`（见 `qieman-design-ppt/references/qieman-design-report.md`）。
+6. **可打印 PDF 报告** → **L2** `qieman-design-pdf`；**原生 .pptx** → **L2** `qieman-design-ppt`；品牌色与 L0 对齐。
 
 ## When to Use
 
