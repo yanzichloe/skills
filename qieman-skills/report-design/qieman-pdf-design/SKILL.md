@@ -1,29 +1,29 @@
 ---
-name: qieman-design-pdf
+name: qieman-pdf-design
 license: Complete terms in LICENSE.txt
 description: >-
   Qieman brand PDF design and delivery spec for family wealth planning, advisory reports,
   product documentation, and research briefs. Includes RemixIcon, Apache ECharts chart colors,
   color tokens, layout templates, chart specifications, and delivery checklists.
 layer: L2
-extends: qieman-design-ui
+extends: app-ui
 ---
 
-# qieman-design-pdf
+# qieman-pdf-design
 
 | 字段 | 值 |
 |------|-----|
-| **ID** | `qieman-design-pdf` |
+| **ID** | `qieman-pdf-design` |
 | **层级** | L2 |
 | **场景** | PDF 报告与文档 |
 | **规范** | 本文件 `SKILL.md` |
-| **依赖** | [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
-| **更新日期** | 2026-06-30 |
+| **依赖** | [`app-ui`](../app-ui/SKILL.md) |
+| **更新日期** | 2026-07-01 |
 
 ## 调用
 
 ```bash
-npx openskills read qieman-design-pdf
+npx openskills read qieman-pdf-design
 ```
 
 ---

@@ -1,32 +1,44 @@
 ---
-name: qieman-design-data
+name: qieman-chart-design
 layer: L2
 license: Complete terms in LICENSE.txt
 description: >-
-  全面的数据可视化工具包，用于创建图表、图形和交互式可视化。当用户请求创建数据可视化、图表、图形、
-  仪表板或数据分析可视化时使用。支持多种图表类型与输出格式（HTML、PNG、SVG、PDF），
-  以及 matplotlib、Plotly、D3.js、Chart.js 等库。
-extends: qieman-design-ui
+  且慢 App 图表与数据可视化（L2，extends qieman-ui-design）。当用户提及
+  图表设计、曲线、走势图、饼图、柱状图、折线图、数据可视化时，在 qieman-ui-design 之上叠加本 skill。
+extends: qieman-ui-design
 ---
 
-# qieman-design-data
+# qieman-chart-design
 
 | 字段 | 值 |
 |------|-----|
-| **ID** | `qieman-design-data` |
+| **ID** | `qieman-chart-design` |
 | **层级** | L2 |
 | **场景** | 数据可视化 |
 | **规范** | 本文件 `SKILL.md` |
-| **依赖** | [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
-| **更新日期** | 2026-06-30 |
+| **依赖** | [`qieman-ui-design`](../qieman-ui-design/SKILL.md) |
+| **更新日期** | 2026-07-02 |
 
 ## 调用
 
 ```bash
-npx openskills read qieman-design-data
+npx openskills read qieman-ui-design
+npx openskills read qieman-chart-design
 ```
 
 ---
+
+## When to Use
+
+在已加载 **L0 `qieman-ui-design`** 的前提下，当用户提出以下需求时 **叠加本 L2 规范**：
+
+- **图表设计、数据可视化、数据图表**
+- **曲线、走势图、折线图、净值走势、收益曲线**
+- **饼图、柱状图、环形图、面积图、K 线**
+- App 页内持仓分布、资产配置图、业绩对比图
+- 需要 ECharts / Chart.js / Plotly 等且慢品牌色图表
+
+若同时涉及 **弹窗设计、卖出挽留弹窗**，再叠 **L1** `qieman-sell-popup-design`。
 
 ## 概述
 
@@ -143,14 +155,14 @@ Chart.js 模式请参见 `references/chartjs_guide.md`。
 
 ## 配色方案
 
-**默认图表配色方案**：使用 `references/color_palettes.md` 中定义的 12 色配色方案作为所有可视化的首选。该配色方案包括从 chart01 (#69B1F4) 到 chart12 (#6B9CCA) 的颜色，为所有图表提供一致、专业的样式。
+**默认图表配色方案**：使用 `references/color-palettes.md` 中定义的 12 色配色方案作为所有可视化的首选。该配色方案包括从 chart01 (#69B1F4) 到 chart12 (#6B9CCA) 的颜色，为所有图表提供一致、专业的样式。
 
-完整的配色方案及 Python、JavaScript 和 CSS 使用示例请参见 `references/color_palettes.md`。
+完整的配色方案及 Python、JavaScript 和 CSS 使用示例请参见 `references/color-palettes.md`。
 
 ## 最佳实践
 
 1. **选择合适的图表类型** - 根据数据和要传达的信息选择
-2. **使用一致的配色** - 优先使用 `references/color_palettes.md` 中的默认图表配色方案
+2. **使用一致的配色** - 优先使用 `references/color-palettes.md` 中的默认图表配色方案
 3. **清晰标注** - 包含标题、轴标签、图例、数据标签
 4. **考虑可访问性** - 需要时使用色盲友好配色方案，添加替代文本
 5. **优化输出格式** - HTML 用于交互性，PNG 用于文档
@@ -183,7 +195,7 @@ Chart.js 模式请参见 `references/chartjs_guide.md`。
 - `plotly_guide.md` - Plotly 交互式图表模式
 - `chartjs_guide.md` - Chart.js 网页图表模式
 - `d3_guide.md` - D3.js 高级可视化模式
-- `color_palettes.md` - 配色方案推荐
+- `color-palettes.md` - 配色方案推荐
 - `dashboards.md` - 仪表板设计模式
 - `styling_guide.md` - 图表样式和主题
 

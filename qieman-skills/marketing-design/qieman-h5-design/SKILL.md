@@ -1,37 +1,47 @@
 ---
-name: qieman-design-h5
+name: qieman-h5-design
 license: Complete terms in LICENSE.txt
 description: >-
-  Qieman in-app marketing H5 design skill for activity pages, strategy introductions,
-  equity pages, DCA, diagnosis, reports, feature launches, and education topics.
-  375px mobile marketing pages with page frameworks, visual rules, pattern library,
-  and generation checklists. Layer on top of qieman-design-ui (L0).
+  且慢 App 内营销 H5（L2，extends qieman-ui-design）。当用户提及
+  H5 页面设计、活动页设计、营销页设计、策略介绍页、权益页时，先读 qieman-ui-design 再读本 skill。
 layer: L2
-extends: qieman-design-ui
+extends: qieman-ui-design
 ---
 
-# qieman-design-h5
+# qieman-h5-design
 
 | 字段 | 值 |
 |------|-----|
-| **ID** | `qieman-design-h5` |
+| **ID** | `qieman-h5-design` |
 | **层级** | L2 |
 | **场景** | 营销 H5 |
 | **规范** | 本文件 `SKILL.md` |
-| **依赖** | [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
-| **更新日期** | 2026-06-30 |
+| **依赖** | [`qieman-ui-design`](../../app-design/qieman-ui-design/SKILL.md) |
+| **更新日期** | 2026-07-02 |
 
 ## 调用
 
 ```bash
-npx openskills read qieman-design-h5
+npx openskills read qieman-ui-design
+npx openskills read qieman-h5-design
 ```
 
 ---
 
+## When to Use
+
+在已加载 **L0 `qieman-ui-design`** 的前提下，当用户提出以下需求时 **叠加本 L2 规范**：
+
+- **H5 页面设计、H5 设计、营销 H5**
+- **活动页设计、活动页、营销活动页**
+- **营销页设计、营销页、策略介绍页**
+- App 内权益页、投教专题、功能上线页、年度账单页
+
+若 H5 内嵌 **卖出挽留弹窗**，再叠 **L1** `qieman-sell-popup-design`。
+
 ## Overview
 
-qieman h5 design 负责营销 H5 的页面逻辑、内容框架、视觉氛围、转化路径与营销 Pattern。生成营销 H5 时，应先遵守 **L0 `qieman-design-ui`**，再叠加本 **L2** 规范（分层说明见 `../qieman-design-ui/SKILL.md`）。
+qieman h5 design 负责营销 H5 的页面逻辑、内容框架、视觉氛围、转化路径与营销 Pattern。生成营销 H5 时，应先遵守 **L0 `qieman-ui-design`**，再叠加本 **L2** 规范（分层说明见 `../../app-design/qieman-ui-design/SKILL.md`）。
 
 ---
 
@@ -69,11 +79,11 @@ qieman h5 design 适用于：
 
 ### 1.3 与规范分层的关系
 
-本 skill 属于 **L2 独立场景**（见 `../qieman-design-ui/SKILL.md` → Skill Layering）：
+本 skill 属于 **L2 独立场景**（见 `../../app-design/qieman-ui-design/SKILL.md` → Skill Layering）：
 
-- **L0 `qieman-design-ui`**：品牌色、字体、按钮、卡片、App 容器、常规交互。
-- **L2 `qieman-design-h5`（本规范）**：营销 H5 页面逻辑、内容框架、视觉氛围、转化路径与 Pattern。
-- **L1 `qieman-design-sell-popup`**：若 H5 内嵌卖出挽留弹窗，另读 [`../qieman-design-ui/references/qieman-design-sell-popup.md`](../qieman-design-ui/references/qieman-design-sell-popup.md)。
+- **L0 `qieman-ui-design`**：品牌色、字体、按钮、卡片、App 容器、常规交互。
+- **L2 `qieman-h5-design`（本规范）**：营销 H5 页面逻辑、内容框架、视觉氛围、转化路径与 Pattern。
+- **L1 `qieman-sell-popup-design`**：若 H5 内嵌卖出挽留弹窗，另读 [`../../app-design/qieman-sell-popup-design/SKILL.md`](../../app-design/qieman-sell-popup-design/SKILL.md)。
 
 生成营销 H5 时：**先 L0，再本 L2**；含挽留弹窗时 **再叠 L1**。
 
@@ -3622,7 +3632,7 @@ Hero 首屏
 ## 14. Example Cursor Prompt
 
 ```txt
-请使用 qieman-design-h5 skill 生成一个且慢 App 内营销 H5 页面。
+请使用 qieman-h5-design skill 生成一个且慢 App 内营销 H5 页面。
 
 要求：
 1. 先判断页面类型，并选择最合适的 Pattern。

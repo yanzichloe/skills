@@ -1,51 +1,61 @@
 ---
-name: qieman-design-ppt
+name: qieman-ppt-design
 layer: L2
 license: Complete terms in LICENSE.txt
 description: >-
-  且慢 PPT 设计（L2）：原生 PowerPoint 创建/编辑/分析，及 HTML 16:9 投顾报告幻灯片
-  （L1 扩展 qieman-design-report）。含 VIP 投顾报告规范（16:9、低饱和、无渐变、母版与交付清单）。
-  当需要且慢品牌演示文稿、VIP 投顾客户报告或 HTML 报告 deck 时使用。
-extends: qieman-design-ui
+  且慢 PPT 与演示文稿（L2，extends qieman-ui-design）。当用户提及
+  PPT、ppt、幻灯片设计、PowerPoint、演示文稿、原生 .pptx 时，先读 qieman-ui-design 再读本 skill。
+extends: qieman-ui-design
 ---
 
-# qieman-design-ppt
+# qieman-ppt-design
 
 | 字段 | 值 |
 |------|-----|
-| **ID** | `qieman-design-ppt` |
+| **ID** | `qieman-ppt-design` |
 | **层级** | L2 |
 | **场景** | 演示文稿（原生 PPT + HTML 报告） |
 | **规范** | 本文件 `SKILL.md` |
-| **L1 扩展** | [qieman-design-report.md](./references/qieman-design-report.md) |
-| **依赖** | [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
-| **更新日期** | 2026-06-30 |
+| **L1 扩展** | [qieman-report-design.md](../qieman-report-design/SKILL.md) |
+| **依赖** | [`qieman-ui-design`](../../app-design/qieman-ui-design/SKILL.md) |
+| **更新日期** | 2026-07-02 |
 
 ## 调用
 
 ```bash
-npx openskills read qieman-design-ppt
+npx openskills read qieman-ui-design
+npx openskills read qieman-ppt-design
 ```
 
 ---
+
+## When to Use
+
+在已加载 **L0 `qieman-ui-design`** 的前提下，当用户提出以下需求时 **使用本 L2 规范**：
+
+- **PPT、ppt、PowerPoint、演示文稿**
+- **幻灯片设计、幻灯片、演示页、汇报 PPT**
+- 且慢品牌 PPT、金融演示文稿、投顾汇报、原生 `.pptx` 编辑
+
+若需 **HTML 16:9 财富报告 deck**（家庭财富报告、财富报告书），再叠 **L1** `qieman-report-design`。
 
 ## Skill Layering（PPT 细分场景）
 
 | 层级 | spec-id / 标识 | 文件 | 适用任务 |
 |------|----------------|------|----------|
-| **L2** | `qieman-design-ppt` | 本文件 `SKILL.md` | 原生 `.pptx` 创建/编辑、品牌母版、VIP 投顾报告 PPT 附录规范 |
-| **L1** | `qieman-design-report` | [qieman-design-report.md](./references/qieman-design-report.md) | HTML 16:9 投顾报告幻灯片（720pt×405pt）、合并 deck、导出 PDF/PPT 还原 |
+| **L2** | `qieman-ppt-design` | 本文件 `SKILL.md` | 原生 `.pptx` 创建/编辑、品牌母版、VIP 投顾报告 PPT 附录规范 |
+| **L1** | `qieman-report-design` | [qieman-report-design.md](../qieman-report-design/SKILL.md) | HTML 16:9 投顾报告幻灯片（720pt×405pt）、合并 deck、导出 PDF/PPT 还原 |
 
 **选用：**
 1. **原生 PowerPoint / .pptx** → 仅读本 L2 `SKILL.md`（及 `claude/skills/pptx/` 脚本）。
-2. **HTML 报告幻灯片 / 合并 deck** → **L2 + L1**：先 `qieman-design-ppt`，再 `references/qieman-design-report.md`。
-3. 品牌色与风险表达与 **L0 `qieman-design-ui`** 对齐；画布与卡片规则以 L1 报告规范为准。
+2. **HTML 报告幻灯片 / 合并 deck** → **L2 + L1**：先 `qieman-ppt-design`，再 `../qieman-report-design/SKILL.md`。
+3. 品牌色与风险表达与 **L0 `qieman-ui-design`** 对齐；画布与卡片规则以 L1 报告规范为准。
 
 ---
 
 ## 概述
 
-本技能是且慢体系下的 **演示文稿 L2 入口**：覆盖原生 PowerPoint 与 HTML 16:9 投顾报告两类产出；后者通过 L1 扩展 [qieman-design-report.md](./references/qieman-design-report.md) 定义版式与 token。
+本技能是且慢体系下的 **演示文稿 L2 入口**：覆盖原生 PowerPoint 与 HTML 16:9 投顾报告两类产出；后者通过 L1 扩展 [qieman-report-design.md](../qieman-report-design/SKILL.md) 定义版式与 token。
 
 **关键词**：且慢PPT、Qieman演示文稿、品牌演示、金融报告、数据可视化、且慢设计规范、盈米基金
 

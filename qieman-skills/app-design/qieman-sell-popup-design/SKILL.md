@@ -1,12 +1,11 @@
 ---
-extends: qieman-design-ui
+name: qieman-sell-popup-design
 layer: L1
-spec-id: qieman-design-sell-popup
+extends: qieman-ui-design
 license: Complete terms in LICENSE.txt
 description: >-
-  L1 scenario extension under qieman-design-ui. App bottom-sheet retention modals for
-  sell / redeem / exit at 375×812: full-width bottom, adaptive height, no close button,
-  themed gradients. Read ../SKILL.md (qieman-design-ui) first, then this file.
+  L1 App bottom-sheet retention modals under qieman-ui-design. Invoke when the user asks for
+  弹窗设计、营销类弹窗、卖出挽留弹窗、赎回确认、退出策略弹窗. Read qieman-ui-design first.
 
 colors:
   brand-primary: "#1B88EE"
@@ -41,6 +40,7 @@ colors:
   transparent: "transparent"
 
 typography:
+  title:
     fontFamily: "PingFang SC, Microsoft YaHei, system-ui, -apple-system, sans-serif"
     fontSize: 24pt
     fontWeight: 600
@@ -251,30 +251,30 @@ components:
     marginTop: "{spacing.sm}"
 ---
 
-# qieman-design-sell-popup
+# qieman-sell-popup-design
 
 | 字段 | 值 |
 |------|-----|
-| **ID** | `qieman-design-sell-popup` |
+| **ID** | `qieman-sell-popup-design` |
 | **层级** | L1 |
 | **规范** | 本文件 |
-| **依赖** | [`qieman-design-ui`](../SKILL.md) |
-| **更新日期** | 2026-06-30 |
+| **依赖** | [`qieman-ui-design`](../qieman-ui-design/SKILL.md) |
+| **更新日期** | 2026-07-02 |
 
 ## 调用
 
-先加载 **qieman-design-ui**，再阅读本 L1 扩展：
+先加载 **qieman-ui-design**，再阅读本 L1 扩展：
 
 ```bash
-npx openskills read qieman-design-ui
-# 然后阅读 references/qieman-design-sell-popup.md
+npx openskills read qieman-ui-design
+npx openskills read qieman-sell-popup-design
 ```
 
 ---
 
 ## Overview
 
-`qieman-design-sell-popup` 是 **qieman-design-ui（L0）下的 L1 场景扩展规范**，文件位于 `references/qieman-design-sell-popup.md`。它定义 App 内卖出、赎回、退出策略、暂停计划等关键动作前的 **轻量确认与理性陪伴弹窗**，不是独立 openskills 目录。
+`qieman-sell-popup-design` 是 **qieman-ui-design（L0）下的 L1 场景扩展规范**，文件位于 `SKILL.md`。它定义 App 内卖出、赎回、退出策略、暂停计划等关键动作前的 **轻量确认与理性陪伴弹窗**，独立 skill 目录（`name` = 文件夹名）。
 
 视觉核心是：**375 × 812px App 画布、底部全宽弹窗、顶部圆角 24px、高度自适应、24pt 居中标题、15pt 左对齐正文、11pt 左对齐辅助说明**。弹窗要像一次专业投顾提醒，语气克制、可信、温和，不做强营销、不制造焦虑。
 
@@ -289,15 +289,14 @@ npx openskills read qieman-design-ui
 
 ## When to Use
 
-在已加载 **L0 `qieman-design-ui`** 的前提下，当用户提出以下需求时 **叠加本 L1 规范**：
+在已加载 **L0 `qieman-ui-design`** 的前提下，当用户提出以下需求时 **叠加本 L1 规范**：
 
-- 生成且慢 UI 弹窗。
-- 设计 App 弹窗。
-- 设计卖出挽留、赎回确认、退出策略提醒、卖出前风险提示。
-- 生成基于 `375 × 812px` 的 App 底部弹窗 HTML。
-- 需要底部全宽弹窗、高度自适应、顶部圆角 24px。
-- 需要根据主题随机配置蓝 / 黄 / 紫 / 红 / 橙渐变背景。
-- 需要结合且慢投顾、基金、策略、持有陪伴、市场波动等场景进行卖出前提示。
+- **弹窗设计、App 弹窗、底部弹窗**
+- **营销类弹窗、营销弹窗**
+- **卖出挽留弹窗、卖出挽留、赎回确认、退出策略弹窗**
+- 生成基于 `375 × 812px` 的 App 底部弹窗 HTML
+- 需要底部全宽弹窗、高度自适应、顶部圆角 24px、无关闭按钮
+- 需要根据主题配置蓝 / 黄 / 紫 / 红 / 橙渐变背景
 
 不要用于：
 
@@ -358,15 +357,15 @@ npx openskills read qieman-design-ui
 
 | 项目 | 说明 |
 |------|------|
-| 基础层 | `qieman-design-ui` — 品牌色、字体、按钮气质、风险表达 |
-| 本层 | **L1** `spec-id: qieman-design-sell-popup` — 弹窗几何、主题渐变、挽留文案结构、双 CTA |
+| 基础层 | `qieman-ui-design` — 品牌色、字体、按钮气质、风险表达 |
+| 本层 | **L1** `name: qieman-sell-popup-design` — 弹窗几何、主题渐变、挽留文案结构、双 CTA |
 | 冲突处理 | 尺寸 / 圆角 / 无关闭按钮 → **以本文件为准**；主色 `#1B88EE`、金融克制气质 → **以 L0 为准** |
 
 生成任务路径：**L0 token 映射 → 读本文件 YAML → 输出 375×812 单文件 HTML**。
 
 ### 与 L0 token 的继承关系
 
-必须优先继承 **qieman-design-ui**（同目录 [`../SKILL.md`](../SKILL.md)）：
+必须优先继承 **qieman-ui-design**（[`qieman-ui-design`](../qieman-ui-design/SKILL.md)）：
 
 - 且慢品牌蓝 `#1B88EE`、App 字体栈、CTA 主按钮规范。
 - 卡片圆角、轻量留白、互联网金融简洁风格。
@@ -1179,14 +1178,14 @@ button:active {
 3. 生成**固定居中**的 24pt 标题，表达核心提醒。
 4. 生成 1–3 行 15pt **左对齐**正文，解释具体影响。
 5. 生成最多 3 条证据或替代方案；设置主次按钮与 11pt 风险提示。
-6. 检查尺寸、圆角、无关闭按钮，并确认已叠加 L0 `qieman-design-ui`。
+6. 检查尺寸、圆角、无关闭按钮，并确认已叠加 L0 `qieman-ui-design`。
 7. 先固定弹窗骨架，再调整文案和主题色。
 8. 主题色只在 5 组渐变中选择，不额外发明新渐变。
 9. 用户反馈「太营销」时减少插图和夸张数字；反馈「像阻断」时提升次按钮可见性。
 
 ## Known Gaps
 
-- qieman design sell popup 不定义完整交易链路，只定义卖出前弹窗（`qieman-design-sell-popup`）。
+- qieman design sell popup 不定义完整交易链路，只定义卖出前弹窗（`qieman-sell-popup-design`）。
 - qieman design sell popup 不处理交易合规条款全文展示；如需展示长条款，应跳转二级页面或底部弹层。
 - qieman design sell popup 不定义真实投顾建议算法，仅定义建议内容的视觉与文案呈现方式。
 - qieman design sell popup 不适用于 PC、H5 长页面或全屏交易确认页。

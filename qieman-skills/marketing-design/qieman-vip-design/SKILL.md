@@ -1,18 +1,15 @@
 ---
-name: qieman-design-vip
+name: qieman-vip-design
 description: >-
-  Use this skill to create Qieman high-net-worth private-domain marketing visuals,
-  including 9:16 vertical posters, 300万+ asset-threshold invitations, investment
-  circle graphics, research-viewpoint spreads, advisor WeChat Moments assets,
-  and nine-grid social campaigns. Output must follow blue-gold / black-gold VIP
-  aesthetics, structured design tokens, risk disclosure rules, and AI image
-  prompt workflows compatible with mainstream generative tools.
-extends: qieman-design-ui
+  且慢高净值 VIP 私域视觉（L2，extends qieman-ui-design）。当用户提及
+  且慢高净值私域宣传海报、VIP 视觉设计、高客营销设计、顾问设计、九宫格传播时，
+  先读 qieman-ui-design 再读本 skill。
+extends: qieman-ui-design
 layer: L2
 license: Complete terms in LICENSE.txt
 
 colors:
-  # VIP core palette — inherits brand-primary from qieman-design-ui
+  # VIP core palette — inherits brand-primary from qieman-ui-design
   brand-primary: "#1B88EE"
   brand-blue: "#1B88EE"
   navy-deep: "#0A1F3D"
@@ -188,21 +185,22 @@ components:
     shadow: "{shadow.card-soft}"
 ---
 
-# qieman-design-vip
+# qieman-vip-design
 
 | 字段 | 值 |
 |------|-----|
-| **ID** | `qieman-design-vip` |
+| **ID** | `qieman-vip-design` |
 | **层级** | L2 |
 | **场景** | VIP 私域海报 |
 | **规范** | 本文件 `SKILL.md` |
-| **依赖** | [`qieman-design-ui`](../qieman-design-ui/SKILL.md) |
-| **更新日期** | 2026-06-30 |
+| **依赖** | [`qieman-ui-design`](../../app-design/qieman-ui-design/SKILL.md) |
+| **更新日期** | 2026-07-02 |
 
 ## 调用
 
 ```bash
-npx openskills read qieman-design-vip
+npx openskills read qieman-ui-design
+npx openskills read qieman-vip-design
 ```
 
 ---
@@ -211,7 +209,7 @@ npx openskills read qieman-design-vip
 
 qieman vip design 是一个面向 **且慢高净值用户私域传播** 的营销视觉生成规范。它用于把高净值门槛、圈层邀请、投研观点、严选机会、全球视野等私域传播需求，转化为专业、克制、高端、可信的 9:16 竖版海报与九宫格传播物料，并适配市面主流 AI 生图工具。
 
-本 Skill **继承并扩展** [qieman-design-ui](../qieman-design-ui/SKILL.md) 的基础品牌 token（如 `{colors.brand-primary}` #1B88EE），在此基础上定义 VIP 私域专属的蓝金 / 黑金视觉体系、海报版式结构、文案逻辑、AI 生图提示词和九宫格传播方法。
+本 Skill **继承并扩展** [qieman-ui-design](../../app-design/qieman-ui-design/SKILL.md) 的基础品牌 token（如 `{colors.brand-primary}` #1B88EE），在此基础上定义 VIP 私域专属的蓝金 / 黑金视觉体系、海报版式结构、文案逻辑、AI 生图提示词和九宫格传播方法。
 
 **Version:** V0.1.2
 
@@ -237,6 +235,14 @@ Source Han Serif CN 标题
 ```
 
 ## When to Use
+
+在已加载 **L0 `qieman-ui-design`** 的前提下，当用户提出以下需求时 **叠加本 L2 规范**：
+
+- **且慢高净值私域宣传海报、高净值私域海报**
+- **VIP 视觉设计、VIP 设计、VIP 海报**
+- **高客营销设计、高净值营销、高客海报**
+- **顾问设计、顾问朋友圈、投顾私域传播**
+- 300 万+ 门槛邀请、九宫格传播、投研观点海报、AI 生图提示词
 
 ### 适用范围
 
@@ -277,14 +283,14 @@ Source Han Serif CN 标题
 
 ### Token 使用规则
 
-- 所有颜色必须来自 `colors:`；基础品牌蓝 `{colors.brand-primary}` 继承自 qieman-design-ui。
+- 所有颜色必须来自 `colors:`；基础品牌蓝 `{colors.brand-primary}` 继承自 qieman-ui-design。
 - 所有字号、字体、行高必须来自 `typography:`。
 - 所有画幅尺寸必须来自 `canvas:`。
 - 所有模块间距与版式比例优先来自 `spacing:`。
 - 所有固定文案（slogan、风险提示、Logo 文字）必须来自 `copy:`。
 - 所有常用组件优先来自 `components:`。
 - 生成 HTML/CSS 或设计稿时，将 YAML token 映射为 CSS variables；不要在组件 CSS 中反复硬编码十六进制色值。
-- VIP 海报与九宫格不使用 qieman-design-ui 的 `{rounded.*}` 圆角体系作为核心表达；层级优先通过色彩、留白、光影建立。
+- VIP 海报与九宫格不使用 qieman-ui-design 的 `{rounded.*}` 圆角体系作为核心表达；层级优先通过色彩、留白、光影建立。
 
 ### Token 引用语法
 
@@ -309,14 +315,14 @@ Source Han Serif CN 标题
 - `zone-*`：海报各区域占画布高度的比例。
 - `threshold-*`：300万+ 门槛相关组件与关键词。
 
-### 与 qieman-design-ui 的关系
+### 与 qieman-ui-design 的关系
 
 | 层级 | Skill | 职责 |
 |---|---|---|
-| 基础层 | qieman-design-ui | 品牌蓝 `{colors.brand-primary}`、基础文本语义色、App/H5 UI 组件 |
-| 扩展层 | qieman-design-vip（本 Skill） | VIP 蓝金/黑金配色、思源宋体标题、海报/九宫格版式、私域文案、AI 生图流程 |
+| 基础层 | qieman-ui-design | 品牌蓝 `{colors.brand-primary}`、基础文本语义色、App/H5 UI 组件 |
+| 扩展层 | qieman-vip-design（本 Skill） | VIP 蓝金/黑金配色、思源宋体标题、海报/九宫格版式、私域文案、AI 生图流程 |
 
-当任务同时涉及 App UI 与 VIP 海报时，UI 部分引用 qieman-design-ui，海报部分引用本 Skill。
+当任务同时涉及 App UI 与 VIP 海报时，UI 部分引用 qieman-ui-design，海报部分引用本 Skill。
 
 ## Colors
 
@@ -1912,4 +1918,4 @@ text, Chinese characters, garbled text, wrong logo, deformed logo, watermark, gr
 - 思源宋体 / 思源黑体在 AI 生图工具中无法直接渲染；正式交付须在设计软件中叠加准确字体。
 - 且慢 Logo 图形尚未提供 SVG 资产引用路径；后期叠加须使用官方 Logo 文件。
 - 九宫格局部拼接大标题的跨格对齐规则尚未提供像素级模板；当前为策略级描述。
-- `{extends: qieman-design-ui}` 关系已声明，但跨 Skill token 自动合并尚未在 openskills 运行时验证。
+- `{extends: qieman-ui-design}` 关系已声明，但跨 Skill token 自动合并尚未在 openskills 运行时验证。

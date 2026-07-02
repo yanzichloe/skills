@@ -43,6 +43,6 @@ assets/
 ## 使用规范
 
 - 优先使用 SVG，保证缩放清晰
-- 颜色与尺寸遵循 `qieman-design-ui` 中的 `{colors.*}` 与排版 token
+- 颜色与尺寸遵循 `qieman-ui-design` 中的 `{colors.*}` 与排版 token
 - 确保 Logo 在目标背景下有足够对比度
 - 文件名与上表保持一致，避免使用泛称 `logo.svg` / `logo.png`

@@ -1,6 +1,6 @@
 # qieman h5 design（正式版）
 
-本目录为 **qieman-design-h5** 的唯一正式版本目录，用于且慢营销 H5 设计相关任务的规范管理、参考文档沉淀与素材组织。
+本目录为 **qieman-h5-design** 的唯一正式版本目录，用于且慢营销 H5 设计相关任务的规范管理、参考文档沉淀与素材组织。
 
 ## 目录说明
 
@@ -19,7 +19,7 @@
 
 ## 不纳入正式仓库的内容
 
-以下内容不应纳入 `qieman-design-h5` 的正式版本控制：
+以下内容不应纳入 `qieman-h5-design` 的正式版本控制：
 
 - `output/`
 - HTML demo
@@ -31,14 +31,14 @@
 
 ## 使用与维护
 
-- 后续仅维护本目录 `qieman-design-h5`
+- 后续仅维护本目录 `qieman-h5-design`
 - 若本地为了预览需要使用 `output/` 或 HTML demo，应保留在本地工作目录中，不同步到正式仓库
 - 所有 references 与 assets 的正式更新，均以本目录为准
 
 ## 推荐目录结构
 
 ```text
-qieman-design-h5/
+qieman-h5-design/
 ├── README.md
 ├── SKILL.md
 ├── assets/

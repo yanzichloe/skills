@@ -1,12 +1,12 @@
 ---
-extends: qieman-design-ppt
+name: qieman-report-design
 layer: L1
-spec-id: qieman-design-report
+extends: qieman-ppt-design
 license: Complete terms in LICENSE.txt
 description: >-
-  L1 scenario extension under qieman-design-ppt. HTML 16:9 wealth advisory report slides
-  (720pt×405pt) for PPT/PDF export: light-blue canvas, borderless white cards, restrained charts.
-  Read ../SKILL.md (qieman-design-ppt) first, then this file.
+  且慢 HTML 16:9 财富报告幻灯片（L1，extends qieman-ppt-design）。当用户提及
+  家庭财富报告、财富报告书、投顾报告 deck、16:9 合并报告页时，
+  先读 qieman-ui-design、qieman-ppt-design 再读本 skill。
 
 colors:
   brand-primary: "#1B88EE"
@@ -224,30 +224,31 @@ components:
     typography: "{typography.caption}"
 ---
 
-# qieman-design-report
+# qieman-report-design
 
 | 字段 | 值 |
 |------|-----|
-| **ID** | `qieman-design-report` |
+| **ID** | `qieman-report-design` |
 | **层级** | L1 |
 | **规范** | 本文件 |
-| **依赖** | [`qieman-design-ppt`](../SKILL.md) |
-| **更新日期** | 2026-06-30 |
+| **依赖** | [`qieman-ppt-design`](../qieman-ppt-design/SKILL.md) |
+| **更新日期** | 2026-07-02 |
 
 ## 调用
 
-先加载 **qieman-design-ppt**，再阅读本 L1 扩展：
+先加载 **L0 `qieman-ui-design`** 与 **L2 `qieman-ppt-design`**，再阅读本 L1 扩展：
 
 ```bash
-npx openskills read qieman-design-ppt
-# 然后阅读 references/qieman-design-report.md
+npx openskills read qieman-ui-design
+npx openskills read qieman-ppt-design
+npx openskills read qieman-report-design
 ```
 
 ---
 
 ## Overview
 
-`qieman-design-report` 是 **qieman-design-ppt（L2）下的 L1 场景扩展规范**，文件位于 `references/qieman-design-report.md`。它定义 **PPT 还原优先** 的 HTML 16:9 报告设计语言，服务于账户诊断、周/月度复盘、财富目标规划、资产配置建议、投顾策略说明和高净值客户报告。它不是营销 H5，也不是后台数据看板，而是面向客户阅读与顾问讲解的 16:9 报告页；**不是独立 openskills 目录**。
+`qieman-report-design` 是 **qieman-ppt-design（L2）下的 L1 场景扩展规范**，文件位于 `../qieman-report-design/SKILL.md`。它定义 **PPT 还原优先** 的 HTML 16:9 报告设计语言，服务于账户诊断、周/月度复盘、财富目标规划、资产配置建议、投顾策略说明和高净值客户报告。它不是营销 H5，也不是后台数据看板，而是面向客户阅读与顾问讲解的 16:9 报告页；**独立 skill 目录（`name` = 文件夹名）**。
 
 视觉核心是：浅蓝报告画布、无描边白色卡片、克制的金融图表、清晰的页眉页脚、可解释的数字重点。页面应该像一份专业投顾团队输出的财富报告，安静、可信、克制，但仍有且慢品牌的亲和与科技感。
 
@@ -261,6 +262,13 @@ npx openskills read qieman-design-ppt
 - 所有输出必须能被截图、导出 PDF 或转成 PPT 后保持版式稳定。
 
 ## When to Use
+
+在已加载 **L0 `qieman-ui-design`** 与 **L2 `qieman-ppt-design`** 的前提下，当用户提出以下需求时 **叠加本 L1 规范**：
+
+- **家庭财富报告、财富报告书、财富报告**
+- 投顾报告、资产配置报告、账户复盘报告、目标规划报告
+- HTML 16:9 报告幻灯片、合并 deck、客户提案幻灯片
+- 720pt×405pt 且慢报告页、导出 PDF/PPT 还原
 
 使用 qieman report slides design 生成以下类型的 HTML 幻灯片：
 

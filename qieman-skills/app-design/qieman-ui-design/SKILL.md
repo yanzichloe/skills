@@ -1,14 +1,11 @@
 ---
-name: qieman-design-ui
+name: qieman-ui-design
 layer: L0
 license: Complete terms in LICENSE.txt
 description: >-
-  Use this skill to create high-fidelity Qieman / Yingmi financial UI prototypes,
-  including mobile H5 pages, account review reports, fund-advisory dashboards,
-  strategy introduction pages, data visualization screens, coupon campaign pages,
-  and responsive single-file HTML interfaces. The output must follow Qieman's
-  blue-first financial design language, use structured design tokens, preserve
-  risk disclosure readability, and generate maintainable production-grade HTML/CSS/JS.
+  Use this skill when the user asks for UI interface, UI design, 且慢 App design,
+  App pages, forms, lists, or Qieman/Yingmi financial mobile UI prototypes.
+  For popups use qieman-sell-popup-design; for charts use qieman-chart-design on top of this L0.
 
 colors:
   brand-primary: "#1B88EE"
@@ -363,20 +360,20 @@ components:
     padding: 24px
 ---
 
-# qieman-design-ui
+# qieman-ui-design
 
 | 字段 | 值 |
 |------|-----|
-| **ID** | `qieman-design-ui` |
+| **ID** | `qieman-ui-design` |
 | **层级** | L0 |
 | **规范** | 本文件 `SKILL.md` |
-| **L1 扩展** | [qieman-design-sell-popup.md](./references/qieman-design-sell-popup.md) |
-| **更新日期** | 2026-06-30 |
+| **L1 扩展** | [qieman-sell-popup-design.md](../qieman-sell-popup-design/SKILL.md) |
+| **更新日期** | 2026-07-02 |
 
 ## 调用
 
 ```bash
-npx openskills read qieman-design-ui
+npx openskills read qieman-ui-design
 ```
 
 ---
@@ -396,51 +393,88 @@ qieman ui design 是一个面向 **盈米基金 / 且慢** 金融产品设计任
 
 ## Skill Layering（规范分层）
 
-且慢设计 skill 采用 **「L0 基础 → L1 场景扩展 → L2 独立场景」** 三层结构。生成界面时先确定层级，再按需叠加；**下层 token 优先，上层只补充场景差异**。
+且慢设计 skill 按 **业务域分类** 组织，每类下 **文件夹名 = `SKILL.md` 的 `name` 字段**。生成界面时先确定分类与层级，再按需叠加；**L0 token 优先，上层只补充场景差异**。
 
-| 层级 | 标识 | 入口 / 文件 | 职责 |
-|------|------|-------------|------|
-| **L0 基础层** | `qieman-design-ui` | 本目录 `SKILL.md` | 品牌色、字体、间距、圆角、阴影、`components`、Remix Icon、通用页面 Pattern、输出与合规约束 |
-| **L1 场景扩展层** | 同目录扩展规范 | 见下表 | 在 L0 之上定义 **单一高频 App 组件/流程** 的专用 token 与 Pattern；**不单独建 skill 目录** |
-| **L2 独立场景层** | 兄弟 skill 目录 | `../qieman-design-*/SKILL.md` | 完整垂直场景（营销 H5、VIP 海报、PDF、演示文稿 PPT 等） |
+### 分类总览
 
-### L1 场景扩展（本目录内）
+```
+qieman-skills/
+├── app-design/                  App 界面与组件
+│   ├── qieman-ui-design         L0  基础 UI、token、组件
+│   ├── qieman-sell-popup-design L1  卖出/赎回挽留弹窗
+│   └── qieman-chart-design      L2  图表与数据可视化
+├── marketing-design/              营销传播
+│   ├── qieman-h5-design         L2  营销 H5
+│   └── qieman-vip-design        L2  VIP 私域海报
+└── report-design/               报告与演示
+    ├── qieman-ppt-design        L2  原生 PowerPoint
+    └── qieman-report-design     L1  HTML 16:9 投顾报告幻灯片
+```
 
-| spec-id | 文件 | 适用任务 |
-|---------|------|----------|
-| `qieman-design-sell-popup` | [qieman-design-sell-popup.md](./references/qieman-design-sell-popup.md) | App 内 **卖出 / 赎回 / 退出策略** 底部全宽挽留弹窗（375×812、无关闭按钮、主题渐变） |
+| 层级 | 含义 | 依赖关系 |
+|------|------|----------|
+| **L0** | 品牌基础 token、组件、通用 Pattern | 无 |
+| **L1** | 单一高频场景扩展 | `extends` 同域父级或 L0 |
+| **L2** | 完整垂直场景 | `extends` L0 `qieman-ui-design` |
 
-> L1 规范均在 frontmatter 声明 `extends: qieman-design-ui`。与 L0 冲突时：**几何尺寸、弹窗交互以 L1 为准**；品牌主色、字体气质、风险表达以 L0 为准。
+### app-design（本类）
 
-### L2 独立场景（兄弟 skill）
+| `name` | 层级 | 路径 | 适用任务 |
+|--------|------|------|----------|
+| `qieman-ui-design` | L0 | 本目录 `SKILL.md` | 标准 App 页、看板、表单、列表 |
+| `qieman-sell-popup-design` | L1 | [`../qieman-sell-popup-design/SKILL.md`](../qieman-sell-popup-design/SKILL.md) | 卖出/赎回/退出策略底部挽留弹窗 |
+| `qieman-chart-design` | L2 | [`../qieman-chart-design/SKILL.md`](../qieman-chart-design/SKILL.md) | 独立图表、仪表板、数据可视化 |
 
-| 文件夹（= `name`） | 与 L0 关系 | 典型产出 |
-|--------------------|------------|----------|
-| `qieman-design-h5` | 叠加 L0 | App 内营销 H5、活动页、策略介绍页 |
-| `qieman-design-vip` | `extends` L0 | 9:16 高净值私域海报、九宫格 |
-| `qieman-design-pdf` | 对齐 L0 色板 | A4 / 可打印 PDF 报告 |
-| `qieman-design-ppt` | `extends` L0 | 原生 PowerPoint；**L1** `qieman-design-report` = HTML 16:9 投顾报告幻灯片 |
-| `qieman-design-data` | 图表色可引用 L0 `chart-*` | 独立图表与可视化 |
+### marketing-design
 
-### 选用流程
+| `name` | 层级 | 路径 | 典型产出 |
+|--------|------|------|----------|
+| `qieman-h5-design` | L2 | `../../marketing-design/qieman-h5-design/SKILL.md` | 营销 H5、活动页（触发词见 [`../../marketing-design/README.md`](../../marketing-design/README.md)） |
+| `qieman-vip-design` | L2 | `../../marketing-design/qieman-vip-design/SKILL.md` | VIP 海报、九宫格（触发词见 [`../../marketing-design/README.md`](../../marketing-design/README.md)） |
 
-1. **标准 App 页 / 看板 / 表单 / 列表** → 仅 **L0** `qieman-design-ui`。
-2. **卖出挽留、赎回确认等底部弹窗** → **L0 + L1** `qieman-design-sell-popup`。
-3. **营销 H5 / 活动长页** → **L0 + L2** `qieman-design-h5`（H5 内若含卖出弹窗，再叠 **L1**）。
-4. **VIP 私域海报** → **L0 + L2** `qieman-design-vip`。
-5. **HTML 投顾报告幻灯片 / 合并 deck** → **L0 + L2** `qieman-design-ppt` **+ L1** `qieman-design-report`（见 `qieman-design-ppt/references/qieman-design-report.md`）。
-6. **可打印 PDF 报告** → **L2** `qieman-design-pdf`；**原生 .pptx** → **L2** `qieman-design-ppt`；品牌色与 L0 对齐。
+### report-design
+
+| `name` | 层级 | 路径 | 典型产出 |
+|--------|------|------|----------|
+| `qieman-ppt-design` | L2 | `../../report-design/qieman-ppt-design/SKILL.md` | PPT、幻灯片（触发词见 [`../../report-design/README.md`](../../report-design/README.md)） |
+| `qieman-report-design` | L1 | `../../report-design/qieman-report-design/SKILL.md` | 家庭财富报告、财富报告书（触发词见 [`../../report-design/README.md`](../../report-design/README.md)） |
+
+### 选用流程（Agent 路由）
+
+按用户指令 / 提示词关键词选择 skill（详见 [`../README.md`](../README.md)）：
+
+| 触发词 | 调用 |
+|--------|------|
+| **UI 界面、UI 设计、且慢 App 设计** | **L0** `qieman-ui-design` |
+| **弹窗设计、营销类弹窗、卖出挽留弹窗** | **L0 + L1** `qieman-ui-design` → `qieman-sell-popup-design` |
+| **UI 类 + 图表设计、曲线、走势图、饼图等** | **L0 + L2** `qieman-ui-design` → `qieman-chart-design` |
+
+组合示例：图表页含卖出挽留弹窗 → 三者叠加。
+
+### 选用流程（场景细分）
+
+1. **标准 App 页 / 看板 / 表单 / 列表** → **L0** `qieman-ui-design`。
+2. **卖出挽留弹窗 / 营销类弹窗** → **L0 + L1** `qieman-sell-popup-design`。
+3. **App 内图表 / 曲线 / 饼图 / 走势图** → **L0 + L2** `qieman-chart-design`。
+4. **营销 H5 / 活动页**（H5 页面设计、活动页设计、营销页设计）→ **L0 + L2** `qieman-h5-design`。
+5. **VIP 私域海报**（高净值私域宣传、VIP 视觉、高客营销、顾问设计）→ **L0 + L2** `qieman-vip-design`。
+6. **PPT / 幻灯片设计** → **L0 + L2** `qieman-ppt-design`。
+7. **家庭财富报告 / 财富报告书** → **L0 + L2** `qieman-ppt-design` **+ L1** `qieman-report-design`。
 
 ## When to Use
 
-使用本 Skill 当用户提出以下需求：
+使用本 Skill 当用户提出以下需求（**仅 L0，不含弹窗专用规范与独立图表规范**）：
 
-- 生成且慢 / 盈米基金风格的网页、H5、App 页面或 UI 原型。
-- 设计账户复盘、基金报告、低回撤策略筛选报告、财富规划报告。
-- 设计策略介绍页、投顾组合卡、基金诊断看板、资产配置图表。
-- 设计营销活动页、优惠券卡、权益页、活动海报型 H5。
-- 需要输出完整单文件 HTML、CSS、JS、ECharts 图表或可视化页面。
-- 用户明确要求遵守“且慢设计规范”“Qieman UI”“金融 APP 浅蓝风格”。
+- **UI 界面、UI 设计、界面设计、且慢 App 设计、且慢 app 设计**
+- 生成且慢 / 盈米基金风格的 App 页面或 UI 原型（不含营销 H5 长页，见 `qieman-h5-design`）
+- 设计账户复盘看板、策略介绍页、投顾组合卡、表单、列表等标准 App 页
+- 需要输出完整单文件 HTML、CSS、JS 的 App 界面
+- 用户明确要求遵守「且慢设计规范」「Qieman UI」「金融 APP 浅蓝风格」
+
+**叠加其他 app-design skill：**
+
+- 出现 **弹窗设计、营销类弹窗、卖出挽留弹窗** → 再读 `qieman-sell-popup-design`
+- 出现 **图表设计、曲线、走势图、饼图、柱状图、数据可视化** → 再读 `qieman-chart-design`
 
 不要使用本 Skill 处理与且慢金融 UI 无关的纯文本写作、论文写作、通用插画生成、照片编辑或非品牌视觉任务。
 
@@ -1078,7 +1112,7 @@ Remix Icon 通过 `<i>` 标签 + 类名使用。类名格式为 `ri-{name}-{styl
 
 - 本 Skill 不定义完整品牌 Logo 使用规范；Logo 位置和尺寸需根据实际品牌文件确定。
 - 本 Skill 不包含暗色模式；默认浅色金融界面。
-- **底部挽留 / 卖出确认弹窗** → 使用 L1 扩展 [qieman-design-sell-popup.md](./references/qieman-design-sell-popup.md)，不要仅在 L0 临时拼凑弹窗样式。
+- **底部挽留 / 卖出确认弹窗** → 使用 L1 扩展 [qieman-sell-popup-design.md](../qieman-sell-popup-design/SKILL.md)，不要仅在 L0 临时拼凑弹窗样式。
 - 本 Skill 不包含 Toast、Tab、导航栏、复杂表单等其它组件的完整规范；需要时在 L0 token 上扩展或沉淀为新的 L1 文件。
 - 图表参数只定义原则和色板，具体坐标轴、tooltip、legend 需按页面场景补充。
 - 字体族不包含字体文件；若生产环境缺少品牌字体，使用系统 fallback。

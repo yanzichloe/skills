@@ -1,6 +1,6 @@
 # Marketing H5 References
 
-本目录为 **`qieman-design-h5`** 主规范的参考文档集合，供按需查阅与引用，不单独作为 Skill 使用。
+本目录为 **`qieman-h5-design`** 主规范的参考文档集合，供按需查阅与引用，不单独作为 Skill 使用。
 
 ## Files
 
@@ -26,4 +26,4 @@
 
 ## Notes
 
-主入口为 **`qieman-design-h5/SKILL.md`**。本目录下的 reference 文档由主规范按任务需要加载，不建议单独作为 Skill 使用。
+主入口为 **`qieman-h5-design/SKILL.md`**。本目录下的 reference 文档由主规范按任务需要加载，不建议单独作为 Skill 使用。
