@@ -1,0 +1,5611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="slide-size" content="720pt×405pt ×22, gap 16px, sorted by report page no.">
+  <title>家庭资产分析规划报告 · … · 夫妻养老金补充 · 私募投资流程 · 封底</title>
+  <style>
+    /* 且慢报告幻灯片：白色卡片/面板禁止灰色描边（border: none） */
+    :root {
+      --brand: #1B88EE;
+      --text: #333333;
+      --text-subtle: #606060;
+      --text-muted: #999999;
+      --bg-page: #E3EFFE;
+      --bg-card: #FFFFFF;
+      --border: #EDEDED;
+      --summary-bg: #DBEBFF;
+      --clock-stagflation: #F3F0F9;
+      --clock-overheat: #FDECEC;
+      --clock-recovery: #FFF8E6;
+      --clock-recession: #E6F4FA;
+      --row-recovery: #E8F6F2;
+      --row-prosperity: #FDF0F0;
+      --row-stagflation: #F3F0FA;
+      --row-recession: #EBF5FB;
+      --clock-center: #1A2D4A;
+      --badge-top: #7EB8F5;
+      --badge-bottom: #C8E4FC;
+      --deck-gap: 16px;
+      --goal-essential-client: #D6EBF8;
+      --goal-essential-advisor: #9CCBF8;
+      --goal-expect-client: #E8DDD0;
+      --goal-expect-advisor: #9CCBF8;
+      --goal-dream-client: #E5DDF0;
+      --goal-dream-advisor: #9CCBF8;
+      --risk-warn: #FA440C;
+      --risk-warn-bg: #FFF5F0;
+      --needs-person: #408EE0;
+      --needs-person-bg: #E0EFFA;
+      --needs-family: #A088D1;
+      --needs-family-bg: #EDE8F5;
+      --needs-enterprise: #D8B689;
+      --needs-enterprise-bg: #F5EDE0;
+      --chart-platform: #1890FF;
+      --chart-vip: #F5A2A2;
+      --cover-bg: #1875D1;
+      --cover-wave-light: rgba(255, 255, 255, 0.1);
+      --cover-wave-dark: rgba(0, 0, 0, 0.08);
+      --font: "PingFang SC", "Microsoft YaHei", "Source Han Sans CN", sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { background: #555; width: 100%; }
+
+    body {
+      font-family: var(--font);
+      background: #555;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 16px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .deck-viewport {
+      width: 100%;
+      max-width: calc(720pt + 32px);
+      display: flex;
+      justify-content: center;
+    }
+
+    .deck {
+      display: flex;
+      flex-direction: column;
+      gap: var(--deck-gap);
+      transform-origin: top center;
+    }
+
+    .slide {
+      width: 720pt;
+      height: 405pt;
+      flex-shrink: 0;
+      background: var(--bg-page);
+      padding: 18pt 32px 12pt;
+      overflow: hidden;
+    }
+
+    /* —— 致客户的一封信 —— */
+    .slide--letter {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 8pt;
+    }
+
+    .slide--letter .main {
+      grid-area: main;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .letter-card {
+      --letter-line: 21pt;
+      height: 100%;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 10pt;
+      padding: 12pt 16pt 10pt;
+      position: relative;
+      overflow: hidden;
+      font-size: 7.5pt;
+      color: var(--text-subtle);
+      line-height: var(--letter-line);
+    }
+
+    .letter-card::before {
+      content: "";
+      position: absolute;
+      left: 16pt;
+      right: 16pt;
+      top: 12pt;
+      bottom: 10pt;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='21' viewBox='0 0 720 21'%3E%3Cline x1='0' y1='20.75' x2='720' y2='20.75' stroke='%23ECECEC' stroke-width='0.5' stroke-dasharray='8 5'/%3E%3C/svg%3E");
+      background-repeat: repeat-y;
+      background-size: 100% var(--letter-line);
+      background-position: left top;
+    }
+
+    .letter-card__body {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .letter-salutation {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .letter-intro {
+      margin-top: 0;
+      text-align: justify;
+    }
+
+    .letter-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .letter-item {
+      display: grid;
+      grid-template-columns: 22pt 1fr;
+      gap: 7pt;
+      align-items: start;
+    }
+
+    .letter-item__num {
+      width: 18pt;
+      height: 18pt;
+      margin-top: 2pt;
+      border-radius: 50%;
+      background: var(--summary-bg);
+      color: var(--brand);
+      font-size: 7.5pt;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .letter-item__text {
+      text-align: justify;
+    }
+
+    .letter-highlight {
+      font-weight: 600;
+      color: var(--text);
+      background: #E0EFFA;
+      padding: 0 3pt;
+      border-radius: 2pt;
+    }
+
+    .letter-close {
+      text-align: justify;
+    }
+
+    .letter-sign {
+      margin-top: auto;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      gap: 10pt;
+      padding-top: 4pt;
+    }
+
+    .letter-sign__text {
+      font-size: 7.5pt;
+      color: var(--text);
+      line-height: var(--letter-line);
+      text-align: right;
+    }
+
+    .letter-sign__label {
+      color: var(--text-subtle);
+      font-weight: 400;
+    }
+
+    .letter-stamp {
+      width: 68pt;
+      height: 52pt;
+      flex-shrink: 0;
+      opacity: 0.32;
+      color: var(--brand);
+    }
+
+    /* —— VIP 投顾介绍（目录前，按设计稿 720×405） —— */
+    .slide.slide--advisor {
+      padding: 0 32px 0 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 12px;
+      background: var(--bg-page);
+      overflow: hidden;
+    }
+
+    .advisor-sidebar {
+      position: relative;
+      flex: 0 0 204pt;
+      width: 204pt;
+      max-width: 204pt;
+      background: var(--brand);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .advisor-sidebar__hero {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .advisor-sidebar__info {
+      position: relative;
+      z-index: 1;
+      margin-top: auto;
+      padding: 16pt 14pt 12pt;
+    }
+
+    .advisor-name {
+      font-size: 20pt;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+    }
+
+    .advisor-role {
+      margin-top: 6pt;
+      font-size: 7pt;
+      font-weight: 400;
+      line-height: 1.5;
+      opacity: 0.96;
+    }
+
+    .advisor-id {
+      margin-top: 4pt;
+      font-size: 6.5pt;
+      opacity: 0.88;
+      line-height: 1.35;
+    }
+
+    .advisor-creds {
+      margin-top: 9pt;
+      padding-top: 7pt;
+      border-top: 1pt solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 6pt;
+    }
+
+    .advisor-cred {
+      display: grid;
+      grid-template-columns: 13pt 1fr;
+      gap: 5pt;
+      align-items: start;
+      font-size: 6pt;
+      line-height: 1.4;
+      opacity: 0.94;
+    }
+
+    .advisor-cred svg {
+      width: 11pt;
+      height: 11pt;
+      margin-top: 0.5pt;
+      flex-shrink: 0;
+    }
+
+    .advisor-main {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      min-height: 0;
+      background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      gap: 4pt;
+      padding: 18pt 0 12pt;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .advisor-content {
+      flex: 1 1 0;
+      width: 100%;
+      min-width: 0;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4pt;
+      align-items: stretch;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .advisor-content > .advisor-row--stats,
+    .advisor-content > .advisor-panel,
+    .advisor-content > .advisor-row--bottom {
+      align-self: stretch;
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .advisor-row--stats {
+      width: 100%;
+      min-width: 0;
+      flex-shrink: 0;
+    }
+
+    .advisor-stats {
+      width: 100%;
+      min-width: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      gap: 4pt;
+      box-sizing: border-box;
+    }
+
+    .advisor-stat {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      max-width: none;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 5pt 4pt 5pt;
+      text-align: center;
+      box-shadow: 0 1pt 3pt rgba(27, 136, 238, 0.06);
+      box-sizing: border-box;
+    }
+
+    .advisor-stat__label {
+      font-size: 5.5pt;
+      color: var(--text-muted);
+      line-height: 1.3;
+      min-height: 12pt;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .advisor-stat__value {
+      margin-top: 2pt;
+      font-size: 12pt;
+      font-weight: 600;
+      color: var(--brand);
+      line-height: 1.1;
+    }
+
+    .advisor-row--intro {
+      width: 100%;
+      min-width: 0;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .advisor-row--intro .advisor-panel__head {
+      margin-bottom: 4pt;
+    }
+
+    .advisor-panel {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 6pt 8pt;
+      box-shadow: 0 1pt 3pt rgba(27, 136, 238, 0.06);
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .advisor-panel__head {
+      display: flex;
+      align-items: center;
+      gap: 4pt;
+      margin-bottom: 5pt;
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .advisor-panel__icon {
+      width: 13pt;
+      height: 13pt;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .advisor-panel__icon svg {
+      width: 7pt;
+      height: 7pt;
+    }
+
+    .advisor-intro__text {
+      font-size: 6.5pt;
+      color: var(--text-subtle);
+      line-height: 1.42;
+      text-align: justify;
+    }
+
+    .advisor-row--bottom {
+      flex: 1 1 0;
+      width: 100%;
+      min-width: 0;
+      min-height: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      gap: 4pt;
+    }
+
+    .advisor-row--bottom .advisor-panel {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      max-width: none;
+      height: auto;
+      align-self: stretch;
+    }
+
+    .advisor-chart {
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 4pt;
+      align-items: end;
+      padding: 0;
+    }
+
+    .advisor-chart__col {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      height: 100%;
+      min-height: 52pt;
+      max-height: 72pt;
+    }
+
+    .advisor-chart__pct {
+      font-size: 7pt;
+      font-weight: 600;
+      color: var(--brand);
+      line-height: 1;
+      margin-bottom: 3pt;
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .advisor-chart__track {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: stretch;
+      min-height: 0;
+    }
+
+    .advisor-chart__bar {
+      width: 100%;
+      border-radius: 3pt 3pt 0 0;
+      background: linear-gradient(180deg, #7EC4FA 0%, #1B88EE 100%);
+      min-height: 4pt;
+    }
+
+    .advisor-chart__label {
+      margin-top: 4pt;
+      font-size: 6pt;
+      color: var(--text-subtle);
+      text-align: center;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .advisor-tags {
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 3pt;
+      align-content: start;
+      box-sizing: border-box;
+    }
+
+    .advisor-tag {
+      width: 100%;
+      min-width: 0;
+      font-size: 5.5pt;
+      color: var(--brand);
+      background: #E0EFFA;
+      border: none;
+      border-radius: 3pt;
+      padding: 3pt 4pt;
+      line-height: 1.15;
+      text-align: center;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    .slide--advisor .footer.advisor-footer {
+      flex-shrink: 0;
+      align-self: stretch;
+      width: 100%;
+      min-width: 0;
+      border-top: none;
+      padding-top: 0;
+      font-size: 5.25pt;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: var(--text-muted);
+      overflow: visible;
+    }
+
+    .advisor-footer__line {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8pt;
+      white-space: nowrap;
+    }
+
+    .advisor-footer__decl {
+      flex: 1 1 auto;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .advisor-footer__meta {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    /* —— 第 2 页：目录 —— */
+    .slide--toc {
+      background: #FFFFFF;
+      padding: 36pt 40pt 12pt;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) 20pt;
+      grid-template-areas: "toc-head" "toc-main" "footer";
+      gap: 18pt;
+    }
+
+    .toc-head {
+      grid-area: toc-head;
+      display: flex;
+      align-items: baseline;
+      gap: 14pt;
+    }
+
+    .toc-head__title {
+      font-size: 18pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    .toc-head__en {
+      font-size: 11pt;
+      font-weight: 400;
+      color: #CCCCCC;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .toc-main {
+      grid-area: toc-main;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+
+    .toc-list {
+      list-style: none;
+      width: 100%;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20pt;
+      padding: 9pt 0 8pt;
+      border-bottom: 1pt solid #EEEEEE;
+    }
+
+    .toc-item:first-child {
+      border-top: 1pt solid #EEEEEE;
+    }
+
+    .toc-num {
+      flex-shrink: 0;
+      width: 32pt;
+      font-size: 18pt;
+      font-weight: 500;
+      color: var(--brand);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .toc-title {
+      flex: 1;
+      font-size: 11pt;
+      font-weight: 400;
+      color: var(--text);
+      text-align: right;
+      line-height: 1.35;
+    }
+
+    .slide--toc .footer {
+      grid-area: footer;
+    }
+
+    /* —— 第 1 页：封面 —— */
+    .slide--cover {
+      padding: 0;
+      background: var(--cover-bg);
+      color: #FFFFFF;
+      position: relative;
+    }
+
+    .cover-waves {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.2;
+    }
+
+    .cover-inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 26pt 32pt 22pt;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 0;
+    }
+
+    .cover-brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+
+    .cover-brand__logo {
+      height: 22pt;
+      width: auto;
+      display: block;
+    }
+
+    .cover-hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-bottom: 8pt;
+      max-width: 78%;
+    }
+
+    .cover-title-cn {
+      font-size: 34pt;
+      font-weight: 600;
+      line-height: 1.22;
+      letter-spacing: 0.02em;
+    }
+
+    .cover-title-en {
+      margin-top: 10pt;
+      font-size: 13pt;
+      font-weight: 400;
+      line-height: 1.35;
+      opacity: 0.92;
+      letter-spacing: 0.01em;
+    }
+
+    .cover-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16pt;
+    }
+
+    .cover-meta {
+      border-left: 2pt solid rgba(255, 255, 255, 0.88);
+      padding-left: 10pt;
+      font-size: 10.5pt;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .cover-meta p + p {
+      margin-top: 2pt;
+    }
+
+    .cover-confidential {
+      flex-shrink: 0;
+      font-size: 7.5pt;
+      font-weight: 400;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.62);
+      text-align: right;
+      max-width: 168pt;
+    }
+
+    /* —— 封底（与封面同背景） —— */
+    .slide--back-cover {
+      padding: 0;
+      background: var(--cover-bg);
+      color: #FFFFFF;
+      position: relative;
+    }
+
+    .back-cover-inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 26pt 32pt 24pt;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 0;
+      box-sizing: border-box;
+    }
+
+    .back-cover-brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+
+    .back-cover-brand__logo {
+      height: 22pt;
+      width: auto;
+      display: block;
+    }
+
+    .back-cover-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 0;
+    }
+
+    .back-cover-thanks {
+      font-size: 52pt;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .back-cover-slogan {
+      margin-top: 18pt;
+      font-size: 17pt;
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing: 0.28em;
+      opacity: 0.95;
+    }
+
+    .back-cover-foot {
+      text-align: center;
+      font-size: 10pt;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    /* —— 章节扉页（与封面同背景） —— */
+    .slide--section {
+      padding: 0;
+      background: var(--cover-bg);
+      color: #FFFFFF;
+      position: relative;
+    }
+
+    .section-inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 24pt 32pt 28pt;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 0;
+    }
+
+    .section-topbrand {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 6pt;
+      max-width: 100%;
+      font-size: 8pt;
+      font-weight: 400;
+      line-height: 1.3;
+      color: rgba(255, 255, 255, 0.92);
+      white-space: nowrap;
+    }
+
+    .section-topbrand__logo {
+      height: 14pt;
+      width: auto;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .section-topbrand__sep {
+      opacity: 0.55;
+      padding: 0 2pt;
+    }
+
+    .section-hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 0;
+      padding-left: 2pt;
+    }
+
+    .section-num {
+      font-size: 52pt;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title-cn {
+      margin-top: 6pt;
+      font-size: 38pt;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+    }
+
+    .section-line {
+      width: 100%;
+      max-width: 300pt;
+      height: 2pt;
+      margin-top: 10pt;
+      border: none;
+      border-radius: 1pt;
+      background: linear-gradient(90deg, #56DEFE 0%, rgba(255, 255, 255, 0.98) 100%);
+    }
+
+    .section-title-en {
+      margin-top: 10pt;
+      font-size: 12pt;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    /* —— 第 3 页：全市场领先的基金代销和投顾机构 —— */
+    .slide--yingmi {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 8pt;
+    }
+
+    .slide--yingmi .main {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 41% 59%;
+      gap: 10pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .kpi-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 6pt;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .kpi-card {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 54pt 1fr 1fr;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .kpi-card__label {
+      background: #EEF5FC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4pt 5pt;
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .kpi-metric {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4pt 6pt;
+      gap: 2pt;
+      min-width: 0;
+    }
+
+    .kpi-value {
+      font-size: 15pt;
+      font-weight: 600;
+      color: var(--brand);
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .kpi-caption {
+      font-size: 6.5pt;
+      color: var(--text-subtle);
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .rank-panel {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 8pt 10pt 6pt;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .rank-panel__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 5pt;
+      flex-shrink: 0;
+      gap: 8pt;
+    }
+
+    .rank-panel__title {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .rank-panel__hint {
+      font-size: 7pt;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .rank-table-wrap {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .rank-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 6.5pt;
+    }
+
+    .rank-table th {
+      background: #F7F7F7;
+      font-weight: 500;
+      color: var(--text-subtle);
+      padding: 3pt 2pt;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .rank-table th:first-child { width: 8%; }
+    .rank-table th:nth-child(2) { width: 34%; text-align: left; }
+    .rank-table td:nth-child(2) { text-align: left; padding-left: 4pt; }
+
+    .rank-table td {
+      padding: 2.5pt 2pt;
+      text-align: center;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .rank-table tbody tr + tr td {
+      box-shadow: inset 0 1pt 0 #F5F5F5;
+    }
+
+    .rank-table tr.is-yingmi {
+      background: #DBEBFF;
+    }
+
+    .rank-table tr.is-yingmi td {
+      font-weight: 500;
+    }
+
+    .rank-num-badge {
+      display: inline-block;
+      min-width: 14pt;
+      padding: 0 3pt;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 2pt;
+      font-weight: 600;
+      font-size: 6.5pt;
+      line-height: 1.4;
+    }
+
+    .rank-source {
+      flex-shrink: 0;
+      margin-top: 4pt;
+      font-size: 6.5pt;
+      color: var(--text-muted);
+    }
+
+    /* —— 第 4 页：四大业务 & 三大支持体系 —— */
+    .slide--bizsys {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 8pt;
+    }
+
+    .slide--bizsys .main {
+      grid-area: main;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .biz-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8pt;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .biz-col {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 10pt;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .biz-col--blue .biz-col__head {
+      background: linear-gradient(180deg, #DBEBFF 0%, #FFFFFF 58%);
+    }
+
+    .biz-col--purple .biz-col__head {
+      background: linear-gradient(180deg, #EDE8F5 0%, #FFFFFF 58%);
+    }
+
+    .biz-col__head {
+      padding: 10pt 7pt 7pt;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .biz-col__icon {
+      width: 34pt;
+      height: 34pt;
+      border-radius: 50%;
+      background: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 5pt;
+      color: #fff;
+    }
+
+    .biz-col__icon svg {
+      width: 18pt;
+      height: 18pt;
+      fill: currentColor;
+    }
+
+    .biz-col__title {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .biz-col__body {
+      flex: 1;
+      min-height: 0;
+      padding: 2pt 7pt 9pt;
+      display: flex;
+      flex-direction: column;
+      gap: 5pt;
+      overflow: hidden;
+    }
+
+    .biz-item {
+      background: #FFFFFF;
+      border: none;
+      border-radius: 6pt;
+      padding: 6pt 5pt;
+      text-align: center;
+      font-size: 7pt;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.3;
+      flex-shrink: 0;
+      box-shadow: 0 1pt 4pt rgba(27, 136, 238, 0.06);
+    }
+
+    .biz-item--brand {
+      padding: 5pt 6pt 6pt;
+    }
+
+    .biz-brand-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 15pt;
+      min-width: 48pt;
+      margin-bottom: 3pt;
+      padding: 2pt 6pt;
+      background: #FFFFFF;
+      border-radius: 4pt;
+    }
+
+    .biz-brand-logo img {
+      max-height: 13pt;
+      max-width: 54pt;
+      width: auto;
+      object-fit: contain;
+      vertical-align: middle;
+      background: #FFFFFF;
+    }
+
+    /* 黑底 PNG logo 在白底上显示 */
+    .biz-brand-logo img[src*="assets/brands/"] {
+      mix-blend-mode: lighten;
+    }
+
+    .biz-brand-name {
+      font-size: 7.5pt;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .biz-brand-desc {
+      font-size: 6pt;
+      color: var(--text-muted);
+      margin-top: 2pt;
+      line-height: 1.25;
+    }
+
+    .biz-item--support {
+      padding: 5pt 6pt;
+    }
+
+    .biz-item__title {
+      font-size: 7pt;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .biz-item__sub {
+      font-size: 6pt;
+      color: var(--text-muted);
+      margin-top: 2pt;
+      line-height: 1.25;
+    }
+
+    /* —— 第 5 页：投顾服务成绩 —— */
+    .slide--score {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 8pt;
+    }
+
+    .slide--score .main {
+      grid-area: main;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .chart-panel {
+      height: 100%;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 10pt;
+      padding: 10pt 14pt 8pt;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .chart-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10pt;
+      flex-shrink: 0;
+      margin-bottom: 8pt;
+    }
+
+    .chart-title {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 12pt;
+      flex-shrink: 0;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 4pt;
+      font-size: 7pt;
+      color: var(--text-subtle);
+    }
+
+    .legend-swatch {
+      width: 8pt;
+      height: 8pt;
+      border-radius: 1pt;
+      flex-shrink: 0;
+    }
+
+    .legend-swatch--platform { background: var(--chart-platform); }
+    .legend-swatch--vip { background: var(--chart-vip); }
+
+    .chart-body {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 26pt 1fr;
+      gap: 6pt;
+    }
+
+    .y-axis {
+      position: relative;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .y-axis-scale {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 16pt;
+      font-size: 6.5pt;
+      color: var(--text-muted);
+      text-align: right;
+      line-height: 1;
+    }
+
+    .y-axis-scale span {
+      position: absolute;
+      right: 0;
+      transform: translateY(-50%);
+      white-space: nowrap;
+    }
+
+    .y-axis-scale span:nth-child(1) { top: 0%; }
+    .y-axis-scale span:nth-child(2) { top: 20%; }
+    .y-axis-scale span:nth-child(3) { top: 40%; }
+    .y-axis-scale span:nth-child(4) { top: 60%; }
+    .y-axis-scale span:nth-child(5) { top: 80%; }
+    .y-axis-scale span:nth-child(6) { top: 100%; }
+
+    .chart-plot {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .chart-plot-area {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .chart-grid-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .h-grid-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 0;
+      border-top: 1px dashed #E8E8E8;
+    }
+
+    .h-grid-line--100 { top: 0%; }
+    .h-grid-line--80 { top: 20%; }
+    .h-grid-line--60 { top: 40%; }
+    .h-grid-line--40 { top: 60%; }
+    .h-grid-line--20 { top: 80%; }
+    .h-grid-line--0 { top: 100%; }
+
+    .bar-groups {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      width: 100%;
+      height: 100%;
+      padding: 0 4pt;
+    }
+
+    .bar-group {
+      display: flex;
+      gap: 5pt;
+      align-items: flex-end;
+      justify-content: center;
+      flex: 1;
+      max-width: 72pt;
+      height: 100%;
+    }
+
+    .bar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      width: 16pt;
+      height: 100%;
+    }
+
+    .bar-val {
+      font-size: 6pt;
+      color: var(--text-muted);
+      margin-bottom: 2pt;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .bar {
+      width: 100%;
+      border-radius: 2pt 2pt 0 0;
+      min-height: 2pt;
+    }
+
+    .bar--platform { background: var(--chart-platform); }
+    .bar--vip { background: var(--chart-vip); }
+
+    .x-axis {
+      flex-shrink: 0;
+      height: 16pt;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 4pt;
+      font-size: 6.5pt;
+      color: var(--text-muted);
+      line-height: 1;
+    }
+
+    .x-axis span {
+      flex: 1;
+      text-align: center;
+      max-width: 72pt;
+    }
+
+    .chart-source {
+      flex-shrink: 0;
+      margin-top: 6pt;
+      font-size: 6.5pt;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* —— 第 11 页：财务需求图谱 —— */
+    .slide--needsmap {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 8pt;
+    }
+
+    .slide--needsmap .main {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 72pt 1fr 1fr 1fr;
+      gap: 8pt;
+      min-height: 0;
+      overflow: hidden;
+      align-items: stretch;
+    }
+
+    .entity-col {
+      display: grid;
+      grid-template-rows: 1fr auto 1fr auto 1fr;
+      gap: 3pt;
+      min-height: 0;
+      padding: 4pt 0;
+    }
+
+    .entity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5pt;
+      border-radius: 8pt;
+      color: #fff;
+      font-size: 9pt;
+      font-weight: 600;
+      min-height: 0;
+      padding: 6pt 4pt;
+    }
+
+    .entity--person { background: var(--needs-person); }
+    .entity--family { background: var(--needs-family); }
+    .entity--enterprise { background: var(--needs-enterprise); }
+
+    .entity-icon {
+      width: 16pt;
+      height: 16pt;
+      flex-shrink: 0;
+    }
+
+    .entity-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: #fff;
+    }
+
+    .entity-arrow {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 10pt;
+      line-height: 1;
+      padding: 0 2pt;
+    }
+
+    .needs-card {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 10pt;
+      padding: 8pt 7pt 7pt;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .needs-card__title {
+      font-size: 11pt;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 6pt;
+      flex-shrink: 0;
+      line-height: 1.2;
+    }
+
+    .needs-tiers {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 5pt;
+    }
+
+    .needs-tier {
+      display: flex;
+      flex-direction: column;
+      gap: 4pt;
+      min-height: 0;
+    }
+
+    .need-block {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6pt;
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.25;
+      padding: 4pt 5pt;
+    }
+
+    .need-block--person { background: var(--needs-person-bg); }
+    .need-block--family { background: var(--needs-family-bg); }
+    .need-block--enterprise { background: var(--needs-enterprise-bg); }
+
+    .need-block--tall { flex: 1.15; }
+
+    .need-row-split {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4pt;
+    }
+
+    .need-stack {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: repeat(5, 1fr);
+      gap: 3pt;
+    }
+
+    .need-stack .need-block {
+      font-size: 6.5pt;
+      padding: 2pt 4pt;
+      border-radius: 4pt;
+    }
+
+    /* —— 第 12 页：财务规划流程 —— */
+    .slide--process {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 8pt;
+    }
+
+    .slide--process .main {
+      grid-area: main;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+      gap: 6pt;
+    }
+
+    .process-arrow {
+      display: flex;
+      flex-shrink: 0;
+      height: 26pt;
+      filter: drop-shadow(0 1pt 2pt rgba(27, 136, 238, 0.12));
+    }
+
+    .arrow-seg {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7pt;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      text-align: center;
+      padding: 0 6pt 0 10pt;
+      margin-left: -7pt;
+      clip-path: polygon(0 0, calc(100% - 9pt) 0, 100% 50%, calc(100% - 9pt) 100%, 0 100%, 9pt 50%);
+    }
+
+    .arrow-seg:first-child {
+      margin-left: 0;
+      padding-left: 5pt;
+      clip-path: polygon(0 0, calc(100% - 9pt) 0, 100% 50%, calc(100% - 9pt) 100%, 0 100%);
+      border-radius: 4pt 0 0 4pt;
+    }
+
+    .arrow-seg:last-child {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 9pt 50%);
+      border-radius: 0 4pt 4pt 0;
+      padding-right: 5pt;
+    }
+
+    .arrow-seg--1 { background: #3A7FD4; z-index: 6; }
+    .arrow-seg--2 { background: #5B9AE0; z-index: 5; }
+    .arrow-seg--3 { background: #8FB5D6; z-index: 4; }
+    .arrow-seg--4 { background: #C4B0BA; z-index: 3; }
+    .arrow-seg--5 { background: #E5A8B0; z-index: 2; }
+    .arrow-seg--6 { background: #DE7A88; z-index: 1; }
+
+    .process-columns {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 5pt;
+    }
+
+    .process-col {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .process-card {
+      flex: 1;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt 8pt 6pt 6pt;
+      padding: 5pt 4pt 3pt;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .process-list {
+      flex: 1;
+      min-height: 0;
+      list-style: none;
+      overflow: hidden;
+    }
+
+    .process-list li {
+      display: grid;
+      grid-template-columns: 10pt 1fr;
+      gap: 1pt;
+      margin-bottom: 2.5pt;
+      font-size: 6.5pt;
+      color: var(--text-subtle);
+      line-height: 1.3;
+    }
+
+    .process-list .num {
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 6.5pt;
+    }
+
+    .process-icon {
+      flex-shrink: 0;
+      height: 34pt;
+      margin-top: auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0.32;
+      color: var(--brand);
+    }
+
+    .process-icon svg {
+      width: 100%;
+      max-width: 52pt;
+      height: auto;
+      max-height: 30pt;
+    }
+
+    /* —— 第 24 页：财务分析总结 —— */
+    .slide--summary {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) 20pt;
+      grid-template-areas: "headblock" "cards" "footer";
+      gap: 6pt;
+    }
+
+    .slide--summary .risk-cards {
+      grid-area: cards;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8pt;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .risk-card {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .risk-card__head {
+      padding: 6pt 7pt 5pt;
+      background: var(--risk-warn-bg);
+      flex-shrink: 0;
+    }
+
+    .risk-card__title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 4pt;
+      margin-bottom: 3pt;
+    }
+
+    .risk-icon {
+      width: 14pt;
+      height: 14pt;
+      border-radius: 50%;
+      background: var(--risk-warn);
+      color: #fff;
+      font-size: 9pt;
+      font-weight: 700;
+      line-height: 14pt;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .risk-card__title {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .risk-card__desc {
+      font-size: 7pt;
+      color: var(--text-subtle);
+      line-height: 1.35;
+      text-align: justify;
+    }
+
+    .strategy-banner {
+      display: flex;
+      align-items: center;
+      gap: 4pt;
+      padding: 4pt 7pt;
+      background: var(--brand);
+      color: #fff;
+      font-size: 7.5pt;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .strategy-banner__icon {
+      font-size: 9pt;
+      line-height: 1;
+    }
+
+    .strategy-body {
+      flex: 1;
+      min-height: 0;
+      padding: 5pt 7pt 6pt;
+      overflow: hidden;
+    }
+
+    .strategy-item {
+      display: grid;
+      grid-template-columns: 10pt 1fr;
+      gap: 4pt;
+      margin-bottom: 4pt;
+    }
+
+    .strategy-item:last-child { margin-bottom: 0; }
+
+    .check-icon {
+      width: 9pt;
+      height: 9pt;
+      border-radius: 2pt;
+      background: var(--brand);
+      color: #fff;
+      font-size: 6pt;
+      line-height: 9pt;
+      text-align: center;
+      margin-top: 1pt;
+    }
+
+    .strategy-item__title {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: var(--brand);
+      line-height: 1.3;
+      margin-bottom: 2pt;
+    }
+
+    .strategy-item__text {
+      font-size: 6.5pt;
+      color: var(--text-subtle);
+      line-height: 1.35;
+      text-align: justify;
+    }
+
+    .strategy-item__text + .strategy-item__text {
+      margin-top: 2pt;
+    }
+
+    .strategy-note {
+      font-size: 6.5pt;
+      color: var(--brand);
+      line-height: 1.35;
+      margin-top: 2pt;
+    }
+
+    /* —— 第 26 页：家庭财务目标清单 —— */
+    .slide--goals {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) 20pt;
+      grid-template-areas: "headblock" "board" "footer";
+      gap: 6pt;
+    }
+
+    .headblock { grid-area: headblock; }
+
+    .head-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .page-subtitle {
+      margin-top: 4pt;
+      padding-left: 12pt;
+      font-size: 8pt;
+      font-weight: 400;
+      color: var(--text-subtle);
+      line-height: 1.4;
+    }
+
+    .page-subtitle strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .goal-board {
+      grid-area: board;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 8pt 10pt;
+      display: flex;
+      flex-direction: column;
+      gap: 6pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .goal-row {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 108pt 1fr 1fr;
+      gap: 0;
+      background: #FAFCFF;
+      border: none;
+      border-radius: 6pt;
+      overflow: hidden;
+    }
+
+    .goal-type {
+      padding: 6pt 8pt;
+      display: flex;
+      flex-direction: column;
+      gap: 3pt;
+      border-right: none;
+      position: relative;
+    }
+
+    .goal-row--essential .goal-type { background: linear-gradient(90deg, #F0FAF6 0%, #FAFCFF 100%); }
+    .goal-row--expect .goal-type { background: linear-gradient(90deg, #FBF6F0 0%, #FAFCFF 100%); }
+    .goal-row--dream .goal-type { background: linear-gradient(90deg, #F6F2FA 0%, #FAFCFF 100%); }
+
+    .goal-icon {
+      width: 22pt;
+      height: 22pt;
+      border-radius: 4pt;
+      background: var(--bg-card);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12pt;
+      line-height: 1;
+    }
+
+    .goal-name {
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .goal-desc {
+      font-size: 7.5pt;
+      color: var(--text-subtle);
+      line-height: 1.35;
+    }
+
+    .goal-col {
+      display: grid;
+      grid-template-columns: 16pt 1fr;
+      min-height: 0;
+      border-left: none;
+    }
+
+    .col-label {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.05em;
+      padding: 4pt 0;
+    }
+
+    .goal-row--essential .goal-col--client .col-label { background: var(--goal-essential-client); }
+    .goal-row--essential .goal-col--advisor .col-label { background: var(--goal-essential-advisor); color: #fff; }
+    .goal-row--expect .goal-col--client .col-label { background: var(--goal-expect-client); }
+    .goal-row--expect .goal-col--advisor .col-label { background: var(--goal-expect-advisor); color: #fff; }
+    .goal-row--dream .goal-col--client .col-label { background: var(--goal-dream-client); }
+    .goal-row--dream .goal-col--advisor .col-label { background: var(--goal-dream-advisor); color: #fff; }
+
+    .goal-list {
+      list-style: none;
+      padding: 5pt 8pt 5pt 6pt;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .goal-list li {
+      font-size: 7.5pt;
+      color: var(--text-subtle);
+      line-height: 1.35;
+      padding-left: 8pt;
+      position: relative;
+    }
+
+    .goal-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 3pt;
+      height: 3pt;
+      border-radius: 50%;
+      background: #C5D0DC;
+    }
+
+    .goal-list li strong,
+    .goal-list .em {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* —— 第 37 页：宏观周期 —— */
+    .slide--macro {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) auto 20pt;
+      grid-template-areas: "header" "main" "principle" "footer";
+      gap: 8pt;
+    }
+
+    /* —— 第 41 页：风险承受能力评估 —— */
+    .slide--risk-assess {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 6pt;
+    }
+
+    .slide--risk-assess .main {
+      grid-area: main;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 6pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .risk-level-band {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 8pt 10pt 8pt 8pt;
+      display: flex;
+      align-items: center;
+      gap: 8pt;
+      box-shadow: 0 1pt 4pt rgba(27, 136, 238, 0.06);
+      flex-shrink: 0;
+    }
+
+    .risk-level-band__bar {
+      width: 3pt;
+      height: 18pt;
+      background: var(--brand);
+      border-radius: 2pt;
+      flex-shrink: 0;
+    }
+
+    .risk-level-band__text {
+      font-size: 10pt;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .risk-level-band__text strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .risk-assess-cols {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 34%;
+      gap: 8pt;
+      overflow: hidden;
+    }
+
+    .risk-card-panel {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 10pt;
+      padding: 8pt 9pt 7pt;
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1pt 4pt rgba(27, 136, 238, 0.06);
+    }
+
+    .risk-card-panel__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6pt;
+      margin-bottom: 6pt;
+      flex-shrink: 0;
+    }
+
+    .risk-card-panel__title {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .risk-card-panel__score {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--brand);
+      white-space: nowrap;
+    }
+
+    .risk-slider-block {
+      flex-shrink: 0;
+      margin-bottom: 6pt;
+    }
+
+    .risk-slider__ends {
+      display: flex;
+      justify-content: space-between;
+      font-size: 6pt;
+      color: var(--text-muted);
+      margin-bottom: 3pt;
+    }
+
+    .risk-slider__track {
+      position: relative;
+      height: 6pt;
+      background: #E8E8E8;
+      border-radius: 3pt;
+    }
+
+    .risk-slider__thumb {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 10pt;
+      height: 10pt;
+      border-radius: 50%;
+      background: var(--brand);
+      border: 2pt solid #FFFFFF;
+      box-shadow: 0 1pt 3pt rgba(27, 136, 238, 0.35);
+    }
+
+    .risk-slider__bubble {
+      position: absolute;
+      bottom: calc(100% + 5pt);
+      transform: translateX(-50%);
+      padding: 2pt 5pt;
+      background: var(--brand);
+      color: #fff;
+      font-size: 7pt;
+      font-weight: 600;
+      line-height: 1.2;
+      border-radius: 3pt;
+      white-space: nowrap;
+    }
+
+    .risk-slider__bubble::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -3pt;
+      transform: translateX(-50%);
+      border: 3pt solid transparent;
+      border-top-color: var(--brand);
+    }
+
+    .risk-range__zone-label {
+      position: absolute;
+      bottom: calc(100% + 4pt);
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 6pt;
+      color: var(--brand);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .risk-range__zone {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background: #C8E4FC;
+      border-radius: 3pt;
+    }
+
+    .risk-range__ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4pt;
+      font-size: 6pt;
+      color: var(--text-muted);
+      position: relative;
+      height: 10pt;
+    }
+
+    .risk-range__ticks span:nth-child(2) { position: absolute; left: 40%; transform: translateX(-50%); }
+    .risk-range__ticks span:nth-child(3) { position: absolute; left: 55%; transform: translateX(-50%); }
+
+    .risk-sections {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 5pt;
+    }
+
+    .risk-section__title {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2pt;
+      line-height: 1.2;
+    }
+
+    .risk-section__text {
+      font-size: 6.5pt;
+      color: var(--text-subtle);
+      line-height: 1.42;
+      text-align: justify;
+    }
+
+    .risk-section__hl {
+      color: #E8913A;
+      font-weight: 500;
+    }
+
+    .risk-match-box {
+      margin-top: 6pt;
+      padding: 6pt 7pt;
+      background: #F5F8FC;
+      border-radius: 6pt;
+      flex-shrink: 0;
+    }
+
+    .risk-match-box__title {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3pt;
+    }
+
+    .risk-match-box__text {
+      font-size: 6.5pt;
+      color: var(--text-subtle);
+      line-height: 1.42;
+      text-align: justify;
+    }
+
+    /* —— 第 46 页：市场可投资资产及常用配置工具 —— */
+    .slide--invest-tools {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 8pt;
+    }
+
+    .slide--invest-tools .main {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 38% 62%;
+      gap: 8pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .invest-panel {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 10pt;
+      padding: 8pt 8pt 7pt;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+      box-shadow: 0 1pt 4pt rgba(27, 136, 238, 0.06);
+    }
+
+    .invest-panel__title {
+      font-size: 10pt;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 6pt;
+      flex-shrink: 0;
+      line-height: 1.2;
+    }
+
+    .invest-assets {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5pt;
+    }
+
+    .invest-asset {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 28pt 28pt 1fr;
+      gap: 5pt;
+      align-items: center;
+      padding: 5pt 6pt;
+      border-radius: 6pt;
+      border: none;
+    }
+
+    .invest-asset--stock { background: linear-gradient(90deg, #FDE8E8 0%, #FFF8F8 100%); }
+    .invest-asset--bond { background: linear-gradient(90deg, #FFF3E0 0%, #FFFBF5 100%); }
+    .invest-asset--commodity { background: linear-gradient(90deg, #E3F2FC 0%, #F5FAFF 100%); }
+    .invest-asset--alt { background: linear-gradient(90deg, #EDE8F5 0%, #FAF8FC 100%); }
+
+    .invest-asset__icon {
+      width: 24pt;
+      height: 24pt;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .invest-asset__icon svg {
+      width: 22pt;
+      height: 22pt;
+    }
+
+    .invest-asset__name {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .invest-asset__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3pt;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .invest-tag {
+      font-size: 6pt;
+      color: var(--text-subtle);
+      background: #FFFFFF;
+      border: none;
+      border-radius: 3pt;
+      padding: 2pt 5pt;
+      line-height: 1.2;
+      white-space: nowrap;
+      box-shadow: 0 0 0 0.5pt rgba(0, 0, 0, 0.06);
+    }
+
+    .invest-table-wrap {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 4pt;
+    }
+
+    .invest-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 6pt;
+      line-height: 1.35;
+    }
+
+    .invest-table thead th {
+      background: var(--brand);
+      color: #FFFFFF;
+      font-weight: 600;
+      text-align: center;
+      padding: 5pt 4pt;
+      vertical-align: middle;
+      border: none;
+    }
+
+    .invest-table thead th:nth-child(1) { width: 14%; }
+    .invest-table thead th:nth-child(2) { width: 12%; }
+    .invest-table thead th:nth-child(3) { width: 11%; }
+    .invest-table thead th:nth-child(4) { width: 22%; }
+    .invest-table thead th:nth-child(5) { width: 41%; }
+
+    .invest-table tbody td {
+      padding: 4pt 4pt;
+      text-align: center;
+      vertical-align: middle;
+      color: var(--text-subtle);
+      border: none;
+    }
+
+    .invest-table tbody tr:nth-child(even) td {
+      background: #F5FAFF;
+    }
+
+    .invest-table tbody tr:nth-child(odd) td {
+      background: #FFFFFF;
+    }
+
+    .invest-table tbody td:first-child {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .invest-cycle--long { color: #D4A017; font-weight: 600; }
+    .invest-cycle--short,
+    .invest-cycle--mid { color: #E8913A; font-weight: 600; }
+
+    /* —— 第 50 页：家庭资产配置方案 —— */
+    .slide--alloc-plan {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 6pt;
+    }
+
+    .slide--alloc-plan .main {
+      grid-area: main;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .alloc-card {
+      height: 100%;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 10pt;
+      padding: 8pt 8pt 6pt;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+      box-shadow: 0 1pt 4pt rgba(27, 136, 238, 0.06);
+    }
+
+    .alloc-card__lead {
+      flex-shrink: 0;
+      font-size: 9pt;
+      color: var(--text);
+      margin-bottom: 6pt;
+      line-height: 1.3;
+    }
+
+    .alloc-card__lead strong {
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--brand);
+    }
+
+    .alloc-table-wrap {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 4pt;
+    }
+
+    .alloc-table {
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 5.5pt;
+      line-height: 1.35;
+    }
+
+    .alloc-table thead th {
+      background: var(--brand);
+      color: #FFFFFF;
+      font-weight: 600;
+      text-align: center;
+      padding: 4pt 3pt;
+      vertical-align: middle;
+      border: none;
+    }
+
+    .alloc-table thead th:nth-child(1) { width: 11%; }
+    .alloc-table thead th:nth-child(2) { width: 11%; }
+    .alloc-table thead th:nth-child(3) { width: 8%; }
+    .alloc-table thead th:nth-child(4) { width: 16%; }
+    .alloc-table thead th:nth-child(5) { width: 18%; }
+    .alloc-table thead th:nth-child(6) { width: 20%; }
+    .alloc-table thead th:nth-child(7) { width: 10%; }
+
+    .alloc-table tbody td {
+      padding: 4pt 3pt;
+      text-align: center;
+      vertical-align: middle;
+      color: var(--text-subtle);
+      border: none;
+      background: #FFFFFF;
+    }
+
+    .alloc-table tbody tr.alloc-row--cash td { background: #FFFFFF; }
+    .alloc-table tbody tr.alloc-row--short td { background: #F7FBFF; }
+    .alloc-table tbody tr.alloc-row--long td,
+    .alloc-table tbody tr.alloc-row--long td[rowspan] { background: #F7FBFF; }
+    .alloc-table tbody tr.alloc-row--guard td { background: #FFFFFF; }
+
+    .alloc-table tbody td.alloc-amt {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .alloc-cat {
+      position: relative;
+      padding-left: 7pt;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+    }
+
+    .alloc-cat__bar {
+      position: absolute;
+      left: 0;
+      top: 3pt;
+      bottom: 3pt;
+      width: 2.5pt;
+      border-radius: 2pt;
+    }
+
+    .alloc-cat--cash .alloc-cat__bar { background: #F5C842; }
+    .alloc-cat--short .alloc-cat__bar { background: #69B1F4; }
+    .alloc-cat--long .alloc-cat__bar { background: #F5A2A2; }
+    .alloc-cat--guard .alloc-cat__bar { background: #A088D1; }
+
+    .alloc-table tbody td[rowspan] {
+      vertical-align: middle;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* —— 第 56 页：定制账户服务体系 —— */
+    .slide--vip-service {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 6pt;
+    }
+
+    .vip-service-main {
+      grid-area: main;
+      position: relative;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0;
+      padding: 4pt 0 2pt;
+      overflow: hidden;
+    }
+
+    .vip-service-main::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 200pt;
+      height: 200pt;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 228, 252, 0.55) 0%, rgba(227, 239, 254, 0) 68%);
+      pointer-events: none;
+    }
+
+    .vip-service-col {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10pt;
+      min-height: 0;
+    }
+
+    .vip-service-col--right {
+      align-items: flex-end;
+    }
+
+    .vip-service-item {
+      display: grid;
+      grid-template-columns: 34pt 1fr;
+      gap: 6pt;
+      align-items: center;
+      width: 100%;
+      max-width: 248pt;
+      padding: 6pt 10pt 6pt 8pt;
+      border-radius: 8pt;
+      border: none;
+      background: linear-gradient(90deg, #DBEBFF 0%, rgba(255, 255, 255, 0.75) 88%);
+      box-shadow: 0 1pt 3pt rgba(27, 136, 238, 0.08);
+    }
+
+    .vip-service-col--right .vip-service-item {
+      grid-template-columns: 1fr 34pt;
+      padding: 6pt 8pt 6pt 10pt;
+      background: linear-gradient(270deg, #DBEBFF 0%, rgba(255, 255, 255, 0.75) 88%);
+      text-align: right;
+    }
+
+    .vip-service-item__icon {
+      width: 32pt;
+      height: 32pt;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .vip-service-col--right .vip-service-item__icon {
+      order: 2;
+    }
+
+    .vip-service-col--right .vip-service-item__body {
+      order: 1;
+    }
+
+    .vip-service-item__icon svg {
+      width: 30pt;
+      height: 30pt;
+    }
+
+    .vip-service-item__title {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .vip-service-item__desc {
+      margin-top: 2pt;
+      font-size: 6.5pt;
+      color: var(--text-subtle);
+      line-height: 1.35;
+    }
+
+    .vip-service-core {
+      position: relative;
+      z-index: 2;
+      width: 132pt;
+      height: 132pt;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #0F6BB8 0%, #1B88EE 100%);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12pt;
+      box-shadow: 0 4pt 14pt rgba(15, 107, 184, 0.28);
+      flex-shrink: 0;
+    }
+
+    .vip-service-core__brand {
+      font-size: 11pt;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .vip-service-core__line {
+      font-size: 9.5pt;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-top: 3pt;
+    }
+
+    .vip-service-core__sub {
+      font-size: 7.5pt;
+      font-weight: 400;
+      line-height: 1.35;
+      margin-top: 4pt;
+      opacity: 0.95;
+    }
+
+    /* —— 第 57 页：股票对冲策略 —— */
+    .slide--stock-hedge {
+      display: grid;
+      grid-template-rows: 34pt minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "main" "footer";
+      gap: 6pt;
+    }
+
+    .slide--stock-hedge .main {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 43% 57%;
+      gap: 8pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .stock-hedge-panel {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 8pt 9pt 7pt;
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1pt 4pt rgba(27, 136, 238, 0.06);
+    }
+
+    .stock-hedge-panel__title {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.25;
+      flex-shrink: 0;
+      margin-bottom: 5pt;
+    }
+
+    .stock-hedge-intro {
+      font-size: 6.5pt;
+      color: var(--text-subtle);
+      line-height: 1.42;
+      text-align: justify;
+      flex-shrink: 0;
+    }
+
+    .stock-hedge-subtitle {
+      margin-top: 6pt;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .stock-hedge-formula {
+      margin-top: 4pt;
+      text-align: center;
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+    }
+
+    .hedge-flow {
+      margin-top: 6pt;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 3pt;
+    }
+
+    .hedge-flow__op {
+      display: flex;
+      align-items: center;
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      padding: 0 1pt;
+    }
+
+    .hedge-box {
+      flex: 1;
+      min-width: 0;
+      max-width: 72pt;
+      display: flex;
+      flex-direction: column;
+      border-radius: 6pt;
+      overflow: hidden;
+      background: #F7FBFF;
+    }
+
+    .hedge-box__head {
+      padding: 4pt 3pt;
+      font-size: 6pt;
+      font-weight: 600;
+      color: #FFFFFF;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .hedge-box--long .hedge-box__head { background: #1B88EE; }
+    .hedge-box--short .hedge-box__head { background: #8FA8C4; }
+    .hedge-box--net .hedge-box__head { background: #69B1F4; }
+
+    .hedge-box__body {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3pt;
+      padding: 5pt 4pt 4pt;
+    }
+
+    .hedge-box__icon svg {
+      width: 22pt;
+      height: 18pt;
+    }
+
+    .hedge-box__text {
+      font-size: 5.5pt;
+      color: var(--text-subtle);
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .hedge-box__foot {
+      padding: 3pt 4pt;
+      font-size: 5.5pt;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .hedge-box--long .hedge-box__foot { background: #DBEBFF; color: var(--brand); }
+    .hedge-box--short .hedge-box__foot { background: #E8F0F8; color: #5B7A9A; }
+    .hedge-box--net .hedge-box__foot { background: #DBEBFF; color: var(--brand); }
+
+    .stock-hedge-right {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 6pt;
+      min-height: 0;
+      min-width: 0;
+      overflow: visible;
+      border-radius: 8pt;
+    }
+
+    .stock-hedge-right > .stock-hedge-panel {
+      border-radius: 8pt;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .stock-hedge-right > .stock-hedge-panel:first-child {
+      border-top-right-radius: 8pt;
+      border-bottom-right-radius: 8pt;
+    }
+
+    .stock-hedge-right > .stock-hedge-panel:last-child {
+      border-top-right-radius: 8pt;
+      border-bottom-right-radius: 8pt;
+    }
+
+    .hedge-tree {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+      gap: 6pt;
+      overflow: hidden;
+    }
+
+    .hedge-tree__root {
+      flex-shrink: 0;
+      width: 52pt;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6pt 4pt;
+      border-radius: 6pt;
+      background: linear-gradient(180deg, #0F6BB8 0%, #1B88EE 100%);
+      color: #FFFFFF;
+      font-size: 6pt;
+      font-weight: 600;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .hedge-tree__rows {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 3pt;
+    }
+
+    .hedge-tree__row {
+      display: flex;
+      align-items: center;
+      gap: 4pt;
+      min-height: 0;
+    }
+
+    .hedge-tree__line {
+      width: 14pt;
+      height: 2pt;
+      border-radius: 1pt;
+      flex-shrink: 0;
+    }
+
+    .hedge-tree__line--neutral { background: #1B88EE; }
+    .hedge-tree__line--ls { background: #F07850; }
+    .hedge-tree__line--quant { background: #E8A030; }
+    .hedge-tree__line--event { background: #A088D1; }
+
+    .hedge-tree__node {
+      flex-shrink: 0;
+      min-width: 52pt;
+      padding: 3pt 6pt;
+      border-radius: 4pt;
+      font-size: 6pt;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.2;
+      color: #FFFFFF;
+    }
+
+    .hedge-tree__node--neutral { background: #69B1F4; }
+    .hedge-tree__node--ls { background: #F07850; }
+    .hedge-tree__node--quant { background: #E8A030; color: #5C4200; }
+    .hedge-tree__node--event { background: #A088D1; }
+
+    .hedge-tree__tags {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2pt;
+      align-items: center;
+    }
+
+    .hedge-tree__tag {
+      font-size: 5.5pt;
+      padding: 2pt 4pt;
+      border-radius: 3pt;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .hedge-tree__tag--neutral { background: #E0EFFA; color: #2A6BB5; }
+    .hedge-tree__tag--ls { background: #FDECE8; color: #C45A30; }
+    .hedge-tree__tag--quant { background: #FFF3E0; color: #B87A10; }
+    .hedge-tree__tag--event { background: #EDE8F5; color: #7A5FA8; }
+
+    .hedge-line-chart {
+      flex: 1;
+      min-height: 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      padding-right: 8pt;
+    }
+
+    .hedge-line-chart__head {
+      flex-shrink: 0;
+      margin-bottom: 4pt;
+    }
+
+    .hedge-line-legend {
+      grid-area: legend;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3pt;
+      align-items: flex-start;
+      min-width: 0;
+      padding-left: 2pt;
+    }
+
+    .hedge-line-legend__item {
+      display: flex;
+      align-items: center;
+      gap: 4pt;
+      font-size: 5.5pt;
+      color: var(--text-subtle);
+      line-height: 1.2;
+    }
+
+    .hedge-line-legend__swatch {
+      width: 12pt;
+      height: 0;
+      border-top-width: 1.5pt;
+      border-top-style: solid;
+      flex-shrink: 0;
+    }
+
+    .hedge-line-legend__swatch--sf { border-color: var(--chart-platform); }
+    .hedge-line-legend__swatch--m2 {
+      border-color: #FA8C16;
+      border-top-style: dashed;
+    }
+
+    .hedge-line-legend__swatch--lpr {
+      border-color: #BFBFBF;
+      border-top-style: dotted;
+    }
+
+    .hedge-line-chart__body {
+      flex: 1;
+      min-height: 0;
+      min-width: 0;
+      display: grid;
+      grid-template-areas:
+        "yaxis plot legend"
+        ". xaxis legend";
+      grid-template-columns: 20pt minmax(0, 1fr) 42pt;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 2pt 5pt;
+      align-items: stretch;
+    }
+
+    .hedge-line-y {
+      grid-area: yaxis;
+      position: relative;
+      font-size: 5.5pt;
+      color: var(--text-muted);
+      text-align: right;
+      min-height: 0;
+    }
+
+    .hedge-line-y span {
+      position: absolute;
+      right: 0;
+      transform: translateY(-50%);
+      white-space: nowrap;
+    }
+
+    .hedge-line-y span:nth-child(1) { top: 0%; }
+    .hedge-line-y span:nth-child(2) { top: 20%; }
+    .hedge-line-y span:nth-child(3) { top: 40%; }
+    .hedge-line-y span:nth-child(4) { top: 60%; }
+    .hedge-line-y span:nth-child(5) { top: 80%; }
+    .hedge-line-y span:nth-child(6) { top: 100%; }
+
+    .hedge-line-plot {
+      grid-area: plot;
+      min-height: 0;
+      min-width: 0;
+      position: relative;
+    }
+
+    .hedge-line-plot__area {
+      position: absolute;
+      inset: 0;
+      min-width: 0;
+    }
+
+    .hedge-line-grid {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent calc(20% - 0.5pt),
+        #E8E8E8 calc(20% - 0.5pt),
+        #E8E8E8 20%
+      );
+      background-size: 100% 100%;
+      pointer-events: none;
+    }
+
+    .hedge-line-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
+
+    .hedge-line-x {
+      grid-area: xaxis;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0;
+      padding-top: 2pt;
+      font-size: 5.5pt;
+      color: var(--text-muted);
+      line-height: 1;
+      min-width: 0;
+    }
+
+    .hedge-line-x span {
+      text-align: center;
+      white-space: nowrap;
+      overflow: visible;
+    }
+
+    .hedge-line-x span:first-child { text-align: left; }
+    .hedge-line-x span:last-child { text-align: right; }
+
+    /* —— 第 64 页：夫妻养老金补充 - 分红储蓄险 —— */
+    .slide--pension-ins {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) 20pt;
+      grid-template-areas: "headblock" "main" "footer";
+      gap: 5pt;
+    }
+
+    .slide--pension-ins .main {
+      grid-area: main;
+      display: flex;
+      flex-direction: column;
+      gap: 6pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .pension-ins-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6pt;
+      flex-shrink: 0;
+    }
+
+    .pension-top-card {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 7pt 8pt;
+      min-height: 44pt;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 1pt 4pt rgba(27, 136, 238, 0.06);
+    }
+
+    .pension-top-card--dashed {
+      border: 1pt dashed #69B1F4;
+      box-shadow: none;
+    }
+
+    .pension-top-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4pt;
+      align-items: center;
+    }
+
+    .pension-tag {
+      font-size: 6pt;
+      color: var(--text-subtle);
+      background: #F5F7FA;
+      border-radius: 10pt;
+      padding: 3pt 6pt;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .pension-top-card__row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6pt;
+      min-width: 0;
+    }
+
+    .pension-top-card__main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pension-top-card__label {
+      font-size: 6pt;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .pension-top-card__title {
+      margin-top: 2pt;
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--brand);
+      line-height: 1.25;
+    }
+
+    .pension-top-card__title--lg {
+      font-size: 10.5pt;
+      letter-spacing: 0.02em;
+    }
+
+    .pension-top-card__aside {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4pt;
+    }
+
+    .pension-badge {
+      font-size: 6pt;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: var(--brand);
+      border-radius: 3pt;
+      padding: 3pt 5pt;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .pension-ins-table-wrap {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 6pt;
+    }
+
+    .pension-compare {
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 5.5pt;
+      line-height: 1.38;
+    }
+
+    .pension-compare thead th {
+      background: var(--brand);
+      color: #FFFFFF;
+      font-weight: 600;
+      text-align: center;
+      padding: 5pt 4pt;
+      vertical-align: middle;
+      border: none;
+    }
+
+    .pension-compare thead th:first-child {
+      width: 9%;
+      background: transparent;
+    }
+
+    .pension-compare thead th:nth-child(2) { width: 31%; }
+    .pension-compare thead th:nth-child(3) { width: 31%; }
+    .pension-compare thead th:nth-child(4) { width: 29%; }
+
+    .pension-compare tbody th {
+      font-size: 7pt;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      vertical-align: middle;
+      padding: 6pt 3pt;
+      border: none;
+      width: 9%;
+    }
+
+    .pension-row--cn th { background: #E0EFFA; }
+    .pension-row--os th { background: #FFF8E6; }
+
+    .pension-compare tbody td {
+      padding: 5pt 6pt;
+      vertical-align: top;
+      color: var(--text-subtle);
+      border: none;
+      background: #FFFFFF;
+    }
+
+    .pension-row--cn td { background: #FAFCFF; }
+    .pension-row--os td { background: #FFFDF8; }
+
+    .pension-compare ul {
+      margin: 0;
+      padding: 0 0 0 8pt;
+      list-style: disc;
+    }
+
+    .pension-compare li + li {
+      margin-top: 2pt;
+    }
+
+    /* —— 第 76 页：私募投资流程 —— */
+    .slide--pe-flow {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) 20pt;
+      grid-template-areas: "headblock" "main" "footer";
+      gap: 5pt;
+    }
+
+    .slide--pe-flow .main {
+      grid-area: main;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: 6pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .pe-flow {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      min-height: 0;
+    }
+
+    .pe-step {
+      flex: 1;
+      min-width: 0;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 6pt 5pt 5pt;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1pt 4pt rgba(27, 136, 238, 0.06);
+    }
+
+    .pe-flow__arrow {
+      flex: 0 0 10pt;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #69B1F4;
+      font-size: 12pt;
+      font-weight: 600;
+      line-height: 1;
+      padding-bottom: 8pt;
+    }
+
+    .pe-step__badge {
+      width: 20pt;
+      height: 20pt;
+      border-radius: 50%;
+      background: #DBEBFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7pt;
+      font-weight: 600;
+      color: var(--brand);
+      flex-shrink: 0;
+    }
+
+    .pe-step__title {
+      margin-top: 4pt;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .pe-step__body {
+      margin-top: 4pt;
+      font-size: 5.5pt;
+      color: var(--text-subtle);
+      line-height: 1.4;
+      text-align: justify;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .pe-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .pe-detail-card {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 7pt 8pt;
+      min-height: 0;
+      overflow: hidden;
+      box-shadow: 0 1pt 4pt rgba(27, 136, 238, 0.06);
+    }
+
+    .pe-detail-card__title {
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 4pt;
+    }
+
+    .pe-detail-card__body {
+      font-size: 5.5pt;
+      color: var(--text-subtle);
+      line-height: 1.42;
+      text-align: justify;
+    }
+
+    .pe-detail-card__list {
+      margin: 4pt 0 0;
+      padding: 0 0 0 9pt;
+      font-size: 5.5pt;
+      color: var(--text-subtle);
+      line-height: 1.42;
+    }
+
+    .pe-detail-card__list li + li {
+      margin-top: 2pt;
+    }
+
+    /* —— 第 42 页：国内股票市场展望 —— */
+    .slide--market {
+      display: grid;
+      grid-template-rows: 34pt auto minmax(0, 1fr) 20pt;
+      grid-template-areas: "header" "hero" "content" "footer";
+      gap: 6pt;
+    }
+
+    .header { grid-area: header; display: flex; align-items: center; justify-content: space-between; }
+    .title-wrap { display: flex; align-items: center; gap: 8pt; min-width: 0; flex: 1; }
+    .title-bar { width: 4pt; height: 20pt; background: var(--brand); border-radius: 2pt; flex-shrink: 0; }
+    .title {
+      font-size: 18pt;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+      min-width: 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      height: 20pt;
+      width: auto;
+      display: block;
+    }
+
+    .slide--macro .main {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 8pt 10pt 6pt;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      min-height: 0;
+      overflow: hidden;
+      container-type: size;
+    }
+
+    .panel-title {
+      font-size: clamp(13pt, 5.5cqh, 16pt);
+      font-weight: 500;
+      margin-bottom: 4pt;
+      line-height: 1.2;
+    }
+
+    .panel-body {
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 2pt;
+    }
+
+    .panel--clock .panel-body { container-type: size; }
+
+    .clock-diagram {
+      position: relative;
+      width: min(100cqw, 100cqh);
+      height: min(100cqw, 100cqh);
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .clock-axes { position: absolute; inset: 14%; pointer-events: none; }
+    .clock-axes::before, .clock-axes::after { content: ""; position: absolute; background: #D8D8D8; }
+    .clock-axes::before { left: 50%; top: 0; bottom: 0; width: 1pt; transform: translateX(-50%); }
+    .clock-axes::after { top: 50%; left: 0; right: 0; height: 1pt; transform: translateY(-50%); }
+
+    .axis-label {
+      position: absolute;
+      font-size: clamp(8pt, 2.8cqh, 10pt);
+      color: var(--text-muted);
+      white-space: nowrap;
+      line-height: 1.1;
+    }
+
+    .axis-label.top { top: 0; left: 50%; transform: translateX(-50%); }
+    .axis-label.bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
+    .axis-label.right { right: 0; top: 50%; transform: translateY(-50%); }
+    .axis-label.left { left: 0; top: 50%; transform: translateY(-50%); }
+
+    .clock-grid {
+      position: absolute;
+      inset: 14%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 2pt;
+    }
+
+    .quadrant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3pt 2pt;
+      text-align: center;
+    }
+
+    .quadrant .phase { font-size: clamp(10pt, 4cqh, 13pt); font-weight: 500; margin-bottom: 2pt; line-height: 1.15; }
+    .quadrant .asset { font-size: clamp(9pt, 3.2cqh, 11pt); color: var(--text-subtle); line-height: 1.15; }
+
+    .q-stagflation { background: var(--clock-stagflation); border-radius: 6pt 0 0 0; }
+    .q-overheat { background: var(--clock-overheat); border-radius: 0 6pt 0 0; }
+    .q-recession { background: var(--clock-recession); border-radius: 0 0 0 6pt; }
+    .q-recovery { background: var(--clock-recovery); border-radius: 0 0 6pt 0; }
+
+    .clock-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 28%;
+      height: 28%;
+      min-width: 36pt;
+      min-height: 36pt;
+      max-width: 48pt;
+      max-height: 48pt;
+      border-radius: 50%;
+      background: var(--clock-center);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(9pt, 3cqh, 11pt);
+      font-weight: 600;
+      z-index: 2;
+      line-height: 1.2;
+    }
+
+    .asset-list {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-rows: repeat(4, minmax(0, 1fr));
+      gap: 4pt;
+      min-height: 0;
+    }
+
+    .asset-row {
+      display: grid;
+      grid-template-columns: 22% 1fr;
+      gap: 6pt;
+      align-items: center;
+      padding: 3pt 6pt;
+      border-radius: 5pt;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .asset-row.recovery { background: var(--row-recovery); }
+    .asset-row.prosperity { background: var(--row-prosperity); }
+    .asset-row.stagflation { background: var(--row-stagflation); }
+    .asset-row.recession { background: var(--row-recession); }
+
+    .phase-tag {
+      font-size: clamp(9pt, 3.8cqh, 11pt);
+      font-weight: 600;
+      padding: 2pt 4pt;
+      border-radius: 4pt;
+      text-align: center;
+      line-height: 1.15;
+    }
+
+    .asset-row.recovery .phase-tag { background: #C8EBE4; }
+    .asset-row.prosperity .phase-tag { background: #F5D4D4; }
+    .asset-row.stagflation .phase-tag { background: #DDD6EE; }
+    .asset-row.recession .phase-tag { background: #C5E3F2; }
+
+    .asset-content { min-width: 0; }
+    .asset-content .line1 {
+      font-size: clamp(8pt, 3cqh, 10pt);
+      color: var(--text-subtle);
+      margin-bottom: 1pt;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .asset-content .line2 {
+      font-size: clamp(9pt, 3.4cqh, 11pt);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .principle {
+      grid-area: principle;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      overflow: hidden;
+    }
+
+    .principle-head {
+      background: var(--summary-bg);
+      padding: 4pt 12pt;
+      font-size: 11pt;
+      font-weight: 500;
+      border-bottom: 1pt solid #9CCBF8;
+      line-height: 1.2;
+    }
+
+    .principle-body { padding: 4pt 12pt 3pt; }
+    .principle-text { font-size: 8.5pt; line-height: 1.35; color: var(--text-subtle); text-align: justify; }
+    .principle-source { margin-top: 2pt; font-size: 7.5pt; color: var(--text-muted); }
+
+    .slide--market .hero { grid-area: hero; padding-right: 8pt; }
+    .hero-heading { font-size: 19pt; font-weight: 600; line-height: 1.25; }
+    .hero-heading .hl { color: var(--brand); font-weight: 600; }
+    .hero-intro { margin-top: 4pt; font-size: 8.5pt; color: var(--text-subtle); line-height: 1.4; text-align: justify; }
+
+    .content-card {
+      grid-area: content;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-card);
+      border: none;
+      border-radius: 8pt;
+      padding: 10pt 14pt 8pt;
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .points-grid {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 14pt;
+      align-content: start;
+    }
+
+    .points-col { display: flex; flex-direction: column; }
+
+    .point-item {
+      display: grid;
+      grid-template-columns: 24pt 1fr;
+      gap: 8pt;
+      align-items: start;
+      padding: 5pt 0;
+      border-bottom: none;
+    }
+
+    .points-col .point-item:last-child { border-bottom: none; }
+
+    .point-num {
+      width: 22pt;
+      height: 32pt;
+      border-radius: 4pt;
+      background: linear-gradient(180deg, var(--badge-top) 0%, var(--badge-bottom) 100%);
+      color: #fff;
+      font-size: 13pt;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .point-title { font-size: 9.5pt; font-weight: 600; line-height: 1.3; margin-bottom: 2pt; }
+    .point-desc { font-size: 8pt; color: var(--text-subtle); line-height: 1.35; text-align: justify; }
+
+    .footer {
+      grid-area: footer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10pt;
+      font-size: 6.5pt;
+      color: var(--text-muted);
+      line-height: 1;
+      border-top: 1pt solid var(--border);
+      padding-top: 3pt;
+      white-space: nowrap;
+    }
+
+    .disclaimer { flex: 1; min-width: 0; letter-spacing: -0.02em; }
+    .meta { display: flex; gap: 10pt; flex-shrink: 0; }
+
+    @media print {
+      body { padding: 0; background: none; overflow: visible; }
+      .deck-viewport { max-width: none; }
+      .deck { gap: var(--deck-gap); transform: none !important; }
+      .slide { page-break-after: always; break-after: page; }
+      .slide:last-child { page-break-after: auto; break-after: auto; }
+      @page { size: 338.67mm 190.5mm; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-viewport">
+    <div class="deck">
+      <!-- 第 1 页：封面 -->
+      <article class="slide slide--cover">
+        <img class="cover-waves" src="assets/cover-bg-pattern.svg" alt="" aria-hidden="true">
+        <div class="cover-inner">
+          <a class="cover-brand" href="https://qieman.com" aria-label="且慢">
+            <img class="cover-brand__logo" src="assets/logos/且慢logo-cover.svg" width="181" height="69" alt="">
+          </a>
+          <div class="cover-hero">
+            <h1 class="cover-title-cn">家庭资产分析规划报告</h1>
+            <p class="cover-title-en">Family Assets Analysis and Planning Report</p>
+          </div>
+          <div class="cover-bottom">
+            <div class="cover-meta">
+              <p>客户名字：阮心</p>
+              <p>风险测评等级：C3</p>
+              <p>且慢VIP顾问：黎紫瑜</p>
+              <p>报告时间：2026年3月</p>
+            </div>
+            <p class="cover-confidential">仅供特定客户专享 · 请勿转发或传阅</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 致客户的一封信 -->
+      <article class="slide slide--letter">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">致客户的一封信</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <section class="letter-card">
+            <div class="letter-card__body">
+              <p class="letter-salutation">尊敬的阮心女士：</p>
+              <p class="letter-intro">感谢您选择且慢。我们深知，每一份托付都承载着您与家人对未来的期盼。盈米基金将始终坚持以客户利益为核心，以专业能力与长期陪伴，助您在复杂多变的市场环境中做出更清晰的财富决策。</p>
+              <ol class="letter-list">
+                <li class="letter-item">
+                  <span class="letter-item__num">01</span>
+                  <p class="letter-item__text"><span class="letter-highlight">严格遵循买方投顾理念</span>，我们的服务不以销售为导向，而是基于您的实际需求，提供量身定制的资产配置方案。</p>
+                </li>
+                <li class="letter-item">
+                  <span class="letter-item__num">02</span>
+                  <p class="letter-item__text"><span class="letter-highlight">严格遵循买方投顾理念</span>，我们的服务不以销售为导向，而是基于您的实际需求，提供量身定制的资产配置方案。</p>
+                </li>
+                <li class="letter-item">
+                  <span class="letter-item__num">03</span>
+                  <p class="letter-item__text"><span class="letter-highlight">严格遵循买方投顾理念</span>，我们的服务不以销售为导向，而是基于您的实际需求，提供量身定制的资产配置方案。</p>
+                </li>
+              </ol>
+              <p class="letter-close">期待与您携手，共同实现您的财务目标！</p>
+              <div class="letter-sign">
+                <div class="letter-sign__text">
+                  <p class="letter-sign__label">此致</p>
+                  <p>盈米基金且慢团队</p>
+                </div>
+                <svg class="letter-stamp" viewBox="0 0 80 60" fill="none" aria-hidden="true">
+                  <path d="M12 38c8-14 22-22 36-18 6 2 10 6 12 10" stroke="currentColor" stroke-width="1.2" fill="none" opacity=".8"/>
+                  <path d="M8 28c6-10 18-16 30-12" stroke="currentColor" stroke-width="1" fill="none" opacity=".5"/>
+                  <ellipse cx="52" cy="22" rx="14" ry="10" stroke="currentColor" stroke-width="1" fill="none" opacity=".6"/>
+                  <path d="M46 22c4-6 10-8 14-4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                  <line x1="6" y1="48" x2="74" y2="48" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3" opacity=".4"/>
+                  <line x1="10" y1="52" x2="70" y2="52" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4" opacity=".35"/>
+                </svg>
+              </div>
+            </div>
+          </section>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>2 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- VIP 投顾介绍 -->
+      <article class="slide slide--advisor">
+        <aside class="advisor-sidebar" aria-label="顾问信息">
+          <img class="advisor-sidebar__hero" src="assets/advisor-li-ziyu-sidebar.png" alt="" aria-hidden="true">
+          <div class="advisor-sidebar__info">
+            <h1 class="advisor-name">黎紫瑜</h1>
+            <p class="advisor-role">盈米基金 且慢VIP投顾 资深综合资产配置规划师</p>
+            <p class="advisor-id">基金执业编号：F226000000264</p>
+            <div class="advisor-creds">
+              <div class="advisor-cred">
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 6h6M5 9h4" stroke="currentColor" stroke-width="1"/></svg>
+                <span>基金执业编号：F226000000264</span>
+              </div>
+              <div class="advisor-cred">
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 12L8 3l5 9" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><path d="M2 12.5h12" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="5" r="1.2" fill="currentColor"/></svg>
+                <span>RFP注册财务策划师、AMAC</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <div class="advisor-main">
+          <div class="advisor-content">
+            <div class="advisor-row advisor-row--stats">
+              <div class="advisor-stats">
+                <div class="advisor-stat">
+                  <p class="advisor-stat__label">个人累计管户规模</p>
+                  <p class="advisor-stat__value">2亿+</p>
+                </div>
+                <div class="advisor-stat">
+                  <p class="advisor-stat__label">累计服务家庭</p>
+                  <p class="advisor-stat__value">2000+</p>
+                </div>
+                <div class="advisor-stat">
+                  <p class="advisor-stat__label">客户续约率</p>
+                  <p class="advisor-stat__value">100%</p>
+                </div>
+                <div class="advisor-stat">
+                  <p class="advisor-stat__label">金融从业年限</p>
+                  <p class="advisor-stat__value">12年</p>
+                </div>
+              </div>
+            </div>
+            <section class="advisor-panel advisor-row advisor-row--intro">
+              <div class="advisor-panel__head">
+                <span class="advisor-panel__icon" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 1a5 5 0 100 10A5 5 0 006 1zm0 1.2a.8.8 0 110 1.6.8.8 0 010-1.6zm-2.2 6.4h4.4l-.7-2.8H4.5l-.7 2.8z"/></svg>
+                </span>
+                顾问简介
+              </div>
+              <p class="advisor-intro__text">金融从业超过10年，曾就职头部第三方财富管理机构。具有丰富的理财知识与实战经验，熟悉多种金融工具，精通运用各类资产和策略的特点及其功能。帮助客户树立理财目标，根据市场变化，提供个性化理财方案服务。</p>
+            </section>
+            <div class="advisor-row advisor-row--bottom">
+              <section class="advisor-panel">
+                <div class="advisor-panel__head">
+                  <span class="advisor-panel__icon" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="4.5"/></svg>
+                  </span>
+                  服务家庭分布
+                </div>
+                <div class="advisor-chart" role="img" aria-label="服务家庭分布：高净值35%、富裕50%、中产15%">
+                  <div class="advisor-chart__col">
+                    <span class="advisor-chart__pct">35%</span>
+                    <div class="advisor-chart__track"><div class="advisor-chart__bar" style="height: 70%;"></div></div>
+                    <span class="advisor-chart__label">高净值客户</span>
+                  </div>
+                  <div class="advisor-chart__col">
+                    <span class="advisor-chart__pct">50%</span>
+                    <div class="advisor-chart__track"><div class="advisor-chart__bar" style="height: 100%;"></div></div>
+                    <span class="advisor-chart__label">富裕客户</span>
+                  </div>
+                  <div class="advisor-chart__col">
+                    <span class="advisor-chart__pct">15%</span>
+                    <div class="advisor-chart__track"><div class="advisor-chart__bar" style="height: 30%;"></div></div>
+                    <span class="advisor-chart__label">中产客户</span>
+                  </div>
+                </div>
+              </section>
+              <section class="advisor-panel">
+                <div class="advisor-panel__head">
+                  <span class="advisor-panel__icon" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 1.5l1.2 3.6h3.8L8.9 7.4l1.2 3.6L6 9.6 3.9 11l1.2-3.6L.9 5.1h3.8L6 1.5z"/></svg>
+                  </span>
+                  专长领域
+                </div>
+                <div class="advisor-tags">
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                  <span class="advisor-tag">资产配置规划</span>
+                </div>
+              </section>
+            </div>
+          </div>
+          <footer class="footer advisor-footer">
+            <p class="advisor-footer__line">
+              <span class="advisor-footer__decl">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</span>
+              <span class="advisor-footer__meta">（客户：阮心 | 顾问：黎紫瑜）3 / 85</span>
+            </p>
+          </footer>
+        </div>
+      </article>
+
+      <!-- 第 2 页：目录 -->
+      <article class="slide slide--toc">
+        <header class="toc-head">
+          <h1 class="toc-head__title">目录</h1>
+          <span class="toc-head__en">CONTENTS</span>
+        </header>
+        <div class="toc-main">
+          <ol class="toc-list">
+            <li class="toc-item">
+              <span class="toc-num">01</span>
+              <span class="toc-title">关于我们</span>
+            </li>
+            <li class="toc-item">
+              <span class="toc-num">02</span>
+              <span class="toc-title">财务规划与投顾服务</span>
+            </li>
+            <li class="toc-item">
+              <span class="toc-num">03</span>
+              <span class="toc-title">家庭财务分析</span>
+            </li>
+            <li class="toc-item">
+              <span class="toc-num">04</span>
+              <span class="toc-title">家庭财务目标规划</span>
+            </li>
+            <li class="toc-item">
+              <span class="toc-num">05</span>
+              <span class="toc-title">资产配置的核心逻辑和必要性</span>
+            </li>
+            <li class="toc-item">
+              <span class="toc-num">06</span>
+              <span class="toc-title">投资规划与策略介绍</span>
+            </li>
+            <li class="toc-item">
+              <span class="toc-num">07</span>
+              <span class="toc-title">投资流程及安全性</span>
+            </li>
+          </ol>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>4 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 章节扉页：01 关于我们 -->
+      <article class="slide slide--section slide--section-about">
+        <img class="cover-waves" src="assets/cover-bg-pattern.svg" alt="" aria-hidden="true">
+        <div class="section-inner">
+          <div class="section-topbrand">
+            <img class="section-topbrand__logo" src="assets/logos/且慢logo-cover.svg" width="181" height="69" alt="">
+            <span class="section-topbrand__sep">|</span>
+            <span>安放财富 · 静待花开</span>
+          </div>
+          <div class="section-hero">
+            <p class="section-num">01</p>
+            <h1 class="section-title-cn">关于我们</h1>
+            <div class="section-line" aria-hidden="true"></div>
+            <p class="section-title-en">ABOUT US</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 第 3 页 -->
+      <article class="slide slide--yingmi">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">全市场领先的基金代销和投顾机构</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <div class="kpi-stack">
+            <article class="kpi-card">
+              <div class="kpi-card__label">保有规模</div>
+              <div class="kpi-metric">
+                <p class="kpi-value">1880亿</p>
+                <p class="kpi-caption">整体保有规模超</p>
+              </div>
+              <div class="kpi-metric">
+                <p class="kpi-value">80%</p>
+                <p class="kpi-caption">非货币基金占比超</p>
+              </div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-card__label">行业排名</div>
+              <div class="kpi-metric">
+                <p class="kpi-value">第 27 名</p>
+                <p class="kpi-caption">全市场代销机构中排名</p>
+              </div>
+              <div class="kpi-metric">
+                <p class="kpi-value">第 4 名</p>
+                <p class="kpi-caption">独立三方销售机构排名</p>
+              </div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-card__label">产品供应</div>
+              <div class="kpi-metric">
+                <p class="kpi-value">20000+只</p>
+                <p class="kpi-caption">接入 168 家基金公司</p>
+              </div>
+              <div class="kpi-metric">
+                <p class="kpi-value">第 2 名</p>
+                <p class="kpi-caption">代销基金公司数量位列全市场</p>
+              </div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-card__label">投顾规模</div>
+              <div class="kpi-metric">
+                <p class="kpi-value">500 亿</p>
+                <p class="kpi-caption">基金投顾资产规模超</p>
+              </div>
+              <div class="kpi-metric">
+                <p class="kpi-value">第一</p>
+                <p class="kpi-caption">在 60 家投顾机构中排名</p>
+              </div>
+            </article>
+          </div>
+          <section class="rank-panel" aria-labelledby="rank-table-title">
+            <div class="rank-panel__head">
+              <h2 class="rank-panel__title" id="rank-table-title">基金销售机构保有规模百强榜单</h2>
+              <span class="rank-panel__hint">盈米所在行高亮</span>
+            </div>
+            <div class="rank-table-wrap">
+              <table class="rank-table">
+                <thead>
+                  <tr>
+                    <th scope="col">序号</th>
+                    <th scope="col">机构名称</th>
+                    <th scope="col">权益基金<br>(亿元)</th>
+                    <th scope="col">非货币市场<br>(亿元)</th>
+                    <th scope="col">股票指数<br>(亿元)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>蚂蚁(杭州)基金销售有限公司</td><td>8,229</td><td>15,675</td><td>3,910</td></tr>
+                  <tr><td>2</td><td>招商银行股份有限公司</td><td>4,180</td><td>5,660</td><td>388</td></tr>
+                  <tr><td>3</td><td>上海天天基金销售有限公司</td><td>3,496</td><td>6,374</td><td>964</td></tr>
+                  <tr><td>4</td><td>中国工商银行股份有限公司</td><td>1,980</td><td>3,410</td><td>196</td></tr>
+                  <tr><td>5</td><td>中国建设银行股份有限公司</td><td>1,840</td><td>2,870</td><td>174</td></tr>
+                  <tr><td>8</td><td>招商证券股份有限公司</td><td>1,310</td><td>1,980</td><td>412</td></tr>
+                  <tr><td>11</td><td>中信证券股份有限公司</td><td>950</td><td>1,340</td><td>388</td></tr>
+                  <tr><td>14</td><td>腾安基金销售(深圳)有限公司</td><td>824</td><td>3,277</td><td>309</td></tr>
+                  <tr><td>19</td><td>华泰证券股份有限公司</td><td>612</td><td>1,108</td><td>226</td></tr>
+                  <tr><td>23</td><td>中信建投证券股份有限公司</td><td>488</td><td>920</td><td>188</td></tr>
+                  <tr class="is-yingmi">
+                    <td><span class="rank-num-badge">27</span></td>
+                    <td>珠海盈米基金销售有限公司</td>
+                    <td>432</td>
+                    <td>1,080</td>
+                    <td>205</td>
+                  </tr>
+                  <tr><td>30</td><td>国泰君安证券股份有限公司</td><td>360</td><td>690</td><td>142</td></tr>
+                  <tr><td>33</td><td>北京雪球基金销售有限公司</td><td>300</td><td>390</td><td>134</td></tr>
+                  <tr><td>38</td><td>广发证券股份有限公司</td><td>246</td><td>480</td><td>96</td></tr>
+                  <tr><td>45</td><td>平安银行股份有限公司</td><td>188</td><td>360</td><td>72</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="rank-source">数据来源：基金业协会 2025 年 6 月公告，单位：亿元</p>
+          </section>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>3 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 4 页 -->
+      <article class="slide slide--bizsys">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">四大业务&amp;三大支持体系</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <div class="biz-columns">
+            <section class="biz-col biz-col--blue">
+              <div class="biz-col__head">
+                <div class="biz-col__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 20c0-4.5 3.5-7 7-7s7 2.5 7 7"/></svg>
+                </div>
+                <h2 class="biz-col__title">用户</h2>
+              </div>
+              <div class="biz-col__body">
+                <div class="biz-item">个人投资者 (toC)</div>
+                <div class="biz-item">机构 (toB)</div>
+                <div class="biz-item">理财团队 (toA)</div>
+              </div>
+            </section>
+            <section class="biz-col biz-col--purple">
+              <div class="biz-col__head">
+                <div class="biz-col__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 10v4h4l6 5V5L8 10H4zm11.5 2.5a4.5 4.5 0 000-5l1.4-1.4a6.5 6.5 0 010 7.8l-1.4-1.4z"/></svg>
+                </div>
+                <h2 class="biz-col__title">业务</h2>
+              </div>
+              <div class="biz-col__body">
+                <div class="biz-item">C端基金投顾</div>
+                <div class="biz-item">家庭保障管理</div>
+                <div class="biz-item">机构投顾服务</div>
+                <div class="biz-item">独立投顾解决方案</div>
+              </div>
+            </section>
+            <section class="biz-col biz-col--blue">
+              <div class="biz-col__head">
+                <div class="biz-col__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8.2 7.5l3.6 2M15.8 7.5l-3.6 2M9.5 15.5l2.5-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                </div>
+                <h2 class="biz-col__title">A+B+C业务体系</h2>
+              </div>
+              <div class="biz-col__body">
+                <div class="biz-item biz-item--brand">
+                  <div class="biz-brand-logo">
+                    <img src="../Qieman Design/skills-Design/Qieman UI-guidelines/assets/logos/且慢logo-Regular.svg" alt="且慢">
+                  </div>
+                  <p class="biz-brand-desc">安放财富，静待花开</p>
+                </div>
+                <div class="biz-item biz-item--brand">
+                  <div class="biz-brand-logo">
+                    <img src="assets/brands/稳行.png" alt="稳行">
+                  </div>
+                  <p class="biz-brand-desc">家庭保障管理服务</p>
+                </div>
+                <div class="biz-item biz-item--brand">
+                  <div class="biz-brand-logo">
+                    <img src="assets/brands/蜂鸟.png" alt="蜂鸟">
+                  </div>
+                  <p class="biz-brand-desc">机构投顾服务</p>
+                </div>
+                <div class="biz-item biz-item--brand">
+                  <div class="biz-brand-logo">
+                    <img src="assets/brands/启明.png" alt="启明">
+                  </div>
+                  <p class="biz-brand-desc">独立投顾解决方案</p>
+                </div>
+              </div>
+            </section>
+            <section class="biz-col biz-col--purple">
+              <div class="biz-col__head">
+                <div class="biz-col__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 8h16v3H4zm0 5h10v3H4zm0 5h14v3H4z" opacity=".95"/></svg>
+                </div>
+                <h2 class="biz-col__title">支持体系</h2>
+              </div>
+              <div class="biz-col__body">
+                <div class="biz-item biz-item--support">
+                  <p class="biz-item__title">盈米基金研究院</p>
+                  <p class="biz-item__sub">资产配置，大类研究</p>
+                </div>
+                <div class="biz-item biz-item--support">
+                  <p class="biz-item__title">盈米核心交易平台</p>
+                  <p class="biz-item__sub">资产配置，大类研究</p>
+                </div>
+                <div class="biz-item biz-item--support">
+                  <p class="biz-item__title">数据智能团队</p>
+                  <p class="biz-item__sub">资产配置，大类研究</p>
+                </div>
+                <div class="biz-item biz-item--support">
+                  <p class="biz-item__title">合规风控体系</p>
+                  <p class="biz-item__sub">资产配置，大类研究</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>4 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 5 页 -->
+      <article class="slide slide--score">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">投顾服务成绩</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <section class="chart-panel" aria-labelledby="chart-title-score">
+            <div class="chart-head">
+              <h2 class="chart-title" id="chart-title-score">全平台用户 vs 投顾用户-年度盈利占比对比</h2>
+              <div class="chart-legend">
+                <span class="legend-item"><span class="legend-swatch legend-swatch--platform" aria-hidden="true"></span>全平台用户</span>
+                <span class="legend-item"><span class="legend-swatch legend-swatch--vip" aria-hidden="true"></span>VIP用户</span>
+              </div>
+            </div>
+            <div class="chart-body">
+              <div class="y-axis" aria-hidden="true">
+                <div class="y-axis-scale">
+                  <span>100%</span>
+                  <span>80%</span>
+                  <span>60%</span>
+                  <span>40%</span>
+                  <span>20%</span>
+                  <span>0%</span>
+                </div>
+              </div>
+              <div class="chart-plot">
+                <div class="chart-plot-area">
+                  <div class="chart-grid-lines" aria-hidden="true">
+                    <div class="h-grid-line h-grid-line--100"></div>
+                    <div class="h-grid-line h-grid-line--80"></div>
+                    <div class="h-grid-line h-grid-line--60"></div>
+                    <div class="h-grid-line h-grid-line--40"></div>
+                    <div class="h-grid-line h-grid-line--20"></div>
+                    <div class="h-grid-line h-grid-line--0"></div>
+                  </div>
+                  <div class="bar-groups">
+                    <div class="bar-group">
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--platform" style="height: 60%;"></div>
+                      </div>
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--vip" style="height: 95%;"></div>
+                      </div>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--platform" style="height: 35%;"></div>
+                      </div>
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--vip" style="height: 60%;"></div>
+                      </div>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--platform" style="height: 50%;"></div>
+                      </div>
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--vip" style="height: 80%;"></div>
+                      </div>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--platform" style="height: 85%;"></div>
+                      </div>
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--vip" style="height: 95%;"></div>
+                      </div>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--platform" style="height: 95%;"></div>
+                      </div>
+                      <div class="bar-col">
+                        <span class="bar-val">70%</span>
+                        <div class="bar bar--vip" style="height: 95%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="x-axis" aria-hidden="true">
+                  <span>2023-10</span>
+                  <span>2024-11</span>
+                  <span>2025-13</span>
+                  <span>2026-1</span>
+                  <span>2027-3</span>
+                </div>
+              </div>
+            </div>
+            <p class="chart-source">数据来源：且慢平台用户数据统计（截至 2025 年末）；过去 5 年牛短熊长背景下，投顾用户盈利占比超过 94%。</p>
+          </section>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>5 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 11 页 -->
+      <article class="slide slide--needsmap">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">财务需求图谱</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <div class="entity-col" aria-hidden="true">
+            <div class="entity entity--person">
+              <span class="entity-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
+              <span>个人</span>
+            </div>
+            <span class="entity-arrow">›</span>
+            <div class="entity entity--family">
+              <span class="entity-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3L3 11h3v9h12v-9h3L12 3zm0 4.5l5 4.5v6H7v-6l5-4.5z"/></svg></span>
+              <span>家庭</span>
+            </div>
+            <span class="entity-arrow">›</span>
+            <div class="entity entity--enterprise">
+              <span class="entity-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="1"/><path d="M8 8V5h8v3M12 8V5"/></svg></span>
+              <span>企业</span>
+            </div>
+          </div>
+          <section class="needs-card">
+            <h2 class="needs-card__title">投资性需求</h2>
+            <div class="needs-tiers">
+              <div class="needs-tier">
+                <div class="need-block need-block--person">境内投资需求</div>
+              </div>
+              <div class="needs-tier">
+                <div class="need-block need-block--family">境外投资需求</div>
+              </div>
+              <div class="needs-tier">
+                <div class="need-block need-block--enterprise">公司投行</div>
+              </div>
+            </div>
+          </section>
+          <section class="needs-card">
+            <h2 class="needs-card__title">保障类需求</h2>
+            <div class="needs-tiers">
+              <div class="needs-tier">
+                <div class="need-row-split">
+                  <div class="need-block need-block--person">重疾医疗保障</div>
+                  <div class="need-block need-block--person">意外保障</div>
+                </div>
+              </div>
+              <div class="needs-tier">
+                <div class="need-row-split">
+                  <div class="need-block need-block--family">资产隔离</div>
+                  <div class="need-block need-block--family">财富传承</div>
+                </div>
+              </div>
+              <div class="needs-tier">
+                <div class="need-block need-block--enterprise">慈善公益信托</div>
+              </div>
+            </div>
+          </section>
+          <section class="needs-card">
+            <h2 class="needs-card__title">家庭办公室</h2>
+            <div class="needs-tiers">
+              <div class="needs-tier">
+                <div class="need-block need-block--person need-block--tall">全权委托</div>
+              </div>
+              <div class="needs-tier">
+                <div class="need-stack">
+                  <div class="need-block need-block--family">境外家族信托</div>
+                  <div class="need-block need-block--family">境内家族信托</div>
+                  <div class="need-block need-block--family">子女教育</div>
+                  <div class="need-block need-block--family">养老规划</div>
+                  <div class="need-block need-block--family">税务咨询</div>
+                </div>
+              </div>
+              <div class="needs-tier">
+                <div class="need-row-split">
+                  <div class="need-block need-block--enterprise">法律咨询</div>
+                  <div class="need-block need-block--enterprise">公司海外金融</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>11 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 12 页 -->
+      <article class="slide slide--process">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">财务规划流程</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <div class="process-arrow" aria-hidden="true">
+            <div class="arrow-seg arrow-seg--1">1.收集资料</div>
+            <div class="arrow-seg arrow-seg--2">2.需求分析</div>
+            <div class="arrow-seg arrow-seg--3">3.方案设计</div>
+            <div class="arrow-seg arrow-seg--4">4.方案呈现</div>
+            <div class="arrow-seg arrow-seg--5">5.执行方案</div>
+            <div class="arrow-seg arrow-seg--6">6.陪伴服务</div>
+          </div>
+          <div class="process-columns">
+            <div class="process-col">
+              <section class="process-card">
+                <ol class="process-list">
+                  <li><span class="num">1.</span><span>家庭结构</span></li>
+                  <li><span class="num">2.</span><span>职业背景</span></li>
+                  <li><span class="num">3.</span><span>家庭经济、责任</span></li>
+                  <li><span class="num">4.</span><span>资产结构</span></li>
+                  <li><span class="num">5.</span><span>体况信息</span></li>
+                  <li><span class="num">6.</span><span>现金流</span></li>
+                  <li><span class="num">7.</span><span>目标愿景</span></li>
+                </ol>
+                <div class="process-icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 48" fill="none"><rect x="8" y="12" width="36" height="28" rx="2" stroke="currentColor" stroke-width="2"/><path d="M48 20h16v14H48z" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="32" r="8" stroke="currentColor" stroke-width="2"/><path d="M54 32h8M58 28v8" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+              </section>
+            </div>
+            <div class="process-col">
+              <section class="process-card">
+                <ol class="process-list">
+                  <li><span class="num">1.</span><span>风险识别与分析</span></li>
+                  <li><span class="num">2.</span><span>所需缺口的测算</span></li>
+                  <li><span class="num">3.</span><span>现金流测算</span></li>
+                  <li><span class="num">4.</span><span>风险偏好</span></li>
+                  <li><span class="num">5.</span><span>资金久期规划</span></li>
+                </ol>
+                <div class="process-icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 48" fill="none"><circle cx="22" cy="18" r="8" stroke="currentColor" stroke-width="2"/><path d="M14 36c0-6 4-10 8-10s8 4 8 10" stroke="currentColor" stroke-width="2"/><rect x="40" y="10" width="28" height="32" rx="2" stroke="currentColor" stroke-width="2"/><path d="M46 22h16M46 28h12M46 34h14" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+              </section>
+            </div>
+            <div class="process-col">
+              <section class="process-card">
+                <ol class="process-list">
+                  <li><span class="num">1.</span><span>险种选择</span></li>
+                  <li><span class="num">2.</span><span>投资组合订制</span></li>
+                  <li><span class="num">3.</span><span>敏感度测试</span></li>
+                  <li><span class="num">4.</span><span>确定初步方案</span></li>
+                  <li><span class="num">5.</span><span>制作报告</span></li>
+                </ol>
+                <div class="process-icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 48" fill="none"><path d="M12 38L28 14l12 16 8-10 20 28H12z" stroke="currentColor" stroke-width="2"/><path d="M52 8l8 6-14 18" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+              </section>
+            </div>
+            <div class="process-col">
+              <section class="process-card">
+                <ol class="process-list">
+                  <li><span class="num">1.</span><span>财务现状分析</span></li>
+                  <li><span class="num">2.</span><span>目标愿景现金流分析</span></li>
+                  <li><span class="num">3.</span><span>财富架构设置</span></li>
+                  <li><span class="num">4.</span><span>多元化投资组合</span></li>
+                  <li><span class="num">5.</span><span>宏观周期</span></li>
+                  <li><span class="num">6.</span><span>持仓现状分析</span></li>
+                </ol>
+                <div class="process-icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 48" fill="none"><rect x="36" y="8" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/><path d="M44 28h16M44 22h12" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="20" r="7" stroke="currentColor" stroke-width="2"/><path d="M10 40c0-8 4-12 8-12s8 4 8 12" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+              </section>
+            </div>
+            <div class="process-col">
+              <section class="process-card">
+                <ol class="process-list">
+                  <li><span class="num">1.</span><span>确定方案内容</span></li>
+                  <li><span class="num">2.</span><span>准备收入证明</span></li>
+                  <li><span class="num">3.</span><span>方案执行</span></li>
+                  <li><span class="num">4.</span><span>认购指引</span></li>
+                </ol>
+                <div class="process-icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 48" fill="none"><path d="M28 10h12l4 6h8v22H20V16h8l4-6z" stroke="currentColor" stroke-width="2"/><rect x="24" y="22" width="20" height="18" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M28 28h12M28 32h10M28 36h8" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+              </section>
+            </div>
+            <div class="process-col">
+              <section class="process-card">
+                <ol class="process-list">
+                  <li><span class="num">1.</span><span>定期财务检视</span></li>
+                  <li><span class="num">2.</span><span>市场资讯沟通</span></li>
+                  <li><span class="num">3.</span><span>动态调整建议</span></li>
+                  <li><span class="num">4.</span><span>其他规划服务</span></li>
+                </ol>
+                <div class="process-icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 48" fill="none"><circle cx="24" cy="22" r="7" stroke="currentColor" stroke-width="2"/><circle cx="52" cy="22" r="7" stroke="currentColor" stroke-width="2"/><path d="M18 36c2-6 6-8 6-8M46 36c2-6 6-8 6-8" stroke="currentColor" stroke-width="2"/><rect x="30" y="30" width="20" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>12 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 24 页 -->
+      <article class="slide slide--summary">
+        <div class="headblock">
+          <div class="head-top">
+            <div class="title-wrap">
+              <span class="title-bar" aria-hidden="true"></span>
+              <h1 class="title">财务分析总结</h1>
+            </div>
+            <a class="logo" href="https://qieman.com" aria-label="且慢">
+              <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+            </a>
+          </div>
+          <p class="page-subtitle">基于上页现金流与回报假设，归纳以下关键财务风险及配套应对思路（定性建议，非具体买卖指令）。</p>
+        </div>
+        <section class="risk-cards">
+          <article class="risk-card">
+            <div class="risk-card__head">
+              <div class="risk-card__title-row">
+                <span class="risk-icon" aria-hidden="true">!</span>
+                <h2 class="risk-card__title">收入稳定性风险</h2>
+              </div>
+              <p class="risk-card__desc">在「零投入期」（48 岁开始），投资组合承受市场下跌的能力变弱，因为没有新增资金进行低位补仓。</p>
+            </div>
+            <div class="strategy-banner"><span class="strategy-banner__icon" aria-hidden="true">💡</span>应对策略</div>
+            <div class="strategy-body">
+              <div class="strategy-item">
+                <span class="check-icon" aria-hidden="true">✓</span>
+                <div>
+                  <p class="strategy-item__title">建立双重安全边际</p>
+                  <p class="strategy-item__text"><strong>目标安全边际：</strong>方案本身已实现 119.6% 的达成率，超额 841.9 万元，这是第一重安全垫。</p>
+                  <p class="strategy-item__text"><strong>支出安全边际：</strong>在年度 150 万支出预算中，可尝试优化节约，将储蓄率从 83% 进一步提升，为收入波动提供缓冲。</p>
+                </div>
+              </div>
+              <div class="strategy-item">
+                <span class="check-icon" aria-hidden="true">✓</span>
+                <div>
+                  <p class="strategy-item__title">设立应急资金池</p>
+                  <p class="strategy-item__text">在流动性账户 100 万元之外，可考虑从后续年度结余中逐步建立一笔 50 万–100 万元的额外应急基金，专门用于应对收入中断风险，与日常流动性账户隔离。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="risk-card">
+            <div class="risk-card__head">
+              <div class="risk-card__title-row">
+                <span class="risk-icon" aria-hidden="true">!</span>
+                <h2 class="risk-card__title">收益率下行风险</h2>
+              </div>
+              <p class="risk-card__desc">关键假设风险，利率中枢的下行导致固收类资产的票息收益逐渐降低。</p>
+            </div>
+            <div class="strategy-banner"><span class="strategy-banner__icon" aria-hidden="true">💡</span>应对策略</div>
+            <div class="strategy-body">
+              <div class="strategy-item">
+                <span class="check-icon" aria-hidden="true">✓</span>
+                <div>
+                  <p class="strategy-item__title">实施动态调整机制</p>
+                  <p class="strategy-item__text"><strong>半年度检视：</strong>每半年对照收益假设检视实际投资回报。若连续不达标，则触发评估，考虑调整资产配置或风险预算。</p>
+                  <p class="strategy-item__text"><strong>事件驱动调整：</strong>如遇重大市场变化或家庭财务状况变动，立即启动专项评估。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="risk-card">
+            <div class="risk-card__head">
+              <div class="risk-card__title-row">
+                <span class="risk-icon" aria-hidden="true">!</span>
+                <h2 class="risk-card__title">通胀超预期风险</h2>
+              </div>
+              <p class="risk-card__desc">概率较小，参考欧美各国的平均通胀率，若通胀率长期高于投资收益率，将实质性降低储备金的购买力。</p>
+            </div>
+            <div class="strategy-banner"><span class="strategy-banner__icon" aria-hidden="true">💡</span>应对策略</div>
+            <div class="strategy-body">
+              <div class="strategy-item">
+                <span class="check-icon" aria-hidden="true">✓</span>
+                <div>
+                  <p class="strategy-item__title">推行多元化与分散化投资</p>
+                  <p class="strategy-item__text"><strong>养老金账户：</strong>构建包含 A 股、港股、美股、国内债券、海外债券等不同地域、不同资产类别的分散化组合，避免单一市场风险。</p>
+                  <p class="strategy-note">亦适用于：市场波动风险</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="risk-card">
+            <div class="risk-card__head">
+              <div class="risk-card__title-row">
+                <span class="risk-icon" aria-hidden="true">!</span>
+                <h2 class="risk-card__title">市场波动风险</h2>
+              </div>
+              <p class="risk-card__desc">在「零投入期」（48 岁开始），投资组合承受市场下跌的能力变弱，因为没有新增资金进行低位补仓。</p>
+            </div>
+            <div class="strategy-banner"><span class="strategy-banner__icon" aria-hidden="true">💡</span>应对策略</div>
+            <div class="strategy-body">
+              <div class="strategy-item">
+                <span class="check-icon" aria-hidden="true">✓</span>
+                <div>
+                  <p class="strategy-item__title">夯实保险保障防线</p>
+                  <p class="strategy-item__text">配置足额的重疾险、定期寿险和高额医疗险。这是应对家庭经济支柱健康风险的成本最低、杠杆最高的工具，能有效防止突发风险击穿整个财务规划。</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>24 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 26 页 -->
+      <article class="slide slide--goals">
+        <div class="headblock">
+          <div class="head-top">
+            <div class="title-wrap">
+              <span class="title-bar" aria-hidden="true"></span>
+              <h1 class="title">家庭财务目标清单</h1>
+            </div>
+            <a class="logo" href="https://qieman.com" aria-label="且慢">
+              <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+            </a>
+          </div>
+          <p class="page-subtitle">人生目标按 <strong>必要型、期望型、梦想型</strong> 三个层级进行划分，将 <strong>客户诉求</strong> 与 <strong>顾问建议</strong> 合并展示，二者均属正式财务目标。</p>
+        </div>
+        <section class="goal-board">
+          <div class="goal-row goal-row--essential">
+            <div class="goal-type">
+              <div class="goal-icon" aria-hidden="true">🏠</div>
+              <h2 class="goal-name">必要型</h2>
+              <p class="goal-desc">家庭财务安全与刚性人生责任，优先获得资金配置</p>
+            </div>
+            <div class="goal-col goal-col--client">
+              <div class="col-label">客户诉求</div>
+              <ul class="goal-list">
+                <li>维持现有生活+教育支出：24万/年</li>
+                <li>维持现有生活+教育支出：24万/年</li>
+                <li>维持现有生活+教育支出：24万/年</li>
+                <li>维持现有生活+教育支出：24万/年</li>
+              </ul>
+            </div>
+            <div class="goal-col goal-col--advisor">
+              <div class="col-label">顾问建议</div>
+              <ul class="goal-list">
+                <li><span class="em">资产增值：</span>确保随时有 3–6 个月的应急资金，约 15–30 万元</li>
+                <li>多条建议多条建议多条建议多条建议多条建议多条建议</li>
+                <li>多条建议多条建议多条建议多条建议多条建议多条建议</li>
+              </ul>
+            </div>
+          </div>
+          <div class="goal-row goal-row--expect">
+            <div class="goal-type">
+              <div class="goal-icon" aria-hidden="true">🧭</div>
+              <h2 class="goal-name">期望型</h2>
+              <p class="goal-desc">家庭财务安全与刚性人生责任，优先获得资金配置</p>
+            </div>
+            <div class="goal-col goal-col--client">
+              <div class="col-label">客户诉求</div>
+              <ul class="goal-list">
+                <li>孩子海外留学计划：研究生 2 年，70 万/人</li>
+                <li>（日韩澳等国家 2025 年购买力）</li>
+              </ul>
+            </div>
+            <div class="goal-col goal-col--advisor">
+              <div class="col-label">顾问建议</div>
+              <ul class="goal-list">
+                <li><span class="em">养老保障：</span>为 10 年后的退休生活储备充足资金</li>
+              </ul>
+            </div>
+          </div>
+          <div class="goal-row goal-row--dream">
+            <div class="goal-type">
+              <div class="goal-icon" aria-hidden="true">🔭</div>
+              <h2 class="goal-name">梦想型</h2>
+              <p class="goal-desc">弹性较高、可延后或缩减的愿景型目标</p>
+            </div>
+            <div class="goal-col goal-col--client">
+              <div class="col-label">客户诉求</div>
+              <ul class="goal-list">
+                <li>夫妻提前退休计划：53 岁后离开职场，</li>
+                <li>额外 14 万/年支配金</li>
+              </ul>
+            </div>
+            <div class="goal-col goal-col--advisor">
+              <div class="col-label">顾问建议</div>
+              <ul class="goal-list">
+                <li><span class="em">资产增值：</span>确保随时有 3–6 个月的应急资金，约 15–30 万元</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>26 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 37 页 -->
+      <article class="slide slide--macro">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">宏观周期</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <section class="main">
+          <div class="panel panel--clock">
+            <h2 class="panel-title">美林时钟（4 阶段）</h2>
+            <div class="panel-body">
+              <div class="clock-diagram" role="img" aria-label="美林时钟四阶段示意图">
+                <span class="axis-label top">通胀上行 ↑</span>
+                <span class="axis-label bottom">通胀下行 ↓</span>
+                <span class="axis-label right">经济上行 ↑</span>
+                <span class="axis-label left">经济下行 ↓</span>
+                <div class="clock-axes" aria-hidden="true"></div>
+                <div class="clock-grid">
+                  <div class="quadrant q-stagflation"><span class="phase">滞胀期</span><span class="asset">现金</span></div>
+                  <div class="quadrant q-overheat"><span class="phase">过热期</span><span class="asset">大宗商品</span></div>
+                  <div class="quadrant q-recession"><span class="phase">衰退期</span><span class="asset">债券</span></div>
+                  <div class="quadrant q-recovery"><span class="phase">复苏期</span><span class="asset">股票</span></div>
+                </div>
+                <div class="clock-center">美林<br>时钟</div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel--assets">
+            <h2 class="panel-title">受益不同宏观环境的相关资产</h2>
+            <div class="panel-body">
+              <div class="asset-list">
+                <div class="asset-row recovery">
+                  <div class="phase-tag">复苏阶段</div>
+                  <div class="asset-content">
+                    <p class="line1">经济上行 / 通胀下行 / 利率下行</p>
+                    <p class="line2">股票（成长 &gt; 价值） / 债券（信用债）</p>
+                  </div>
+                </div>
+                <div class="asset-row prosperity">
+                  <div class="phase-tag">繁荣阶段</div>
+                  <div class="asset-content">
+                    <p class="line1">经济上行 / 通胀上行 / 利率上行</p>
+                    <p class="line2">大宗商品 / 股票（价值）</p>
+                  </div>
+                </div>
+                <div class="asset-row stagflation">
+                  <div class="phase-tag">滞胀阶段</div>
+                  <div class="asset-content">
+                    <p class="line1">经济下行 / 通胀上行 / 利率高位</p>
+                    <p class="line2">现金（货币基金） / 大宗商品</p>
+                  </div>
+                </div>
+                <div class="asset-row recession">
+                  <div class="phase-tag">衰退阶段</div>
+                  <div class="asset-content">
+                    <p class="line1">经济下行 / 通胀下行 / 利率下行</p>
+                    <p class="line2">债券（利率债） / 黄金 / 现金（货币基金）</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="principle">
+          <div class="principle-head">资产配置周期性原理</div>
+          <div class="principle-body">
+            <p class="principle-text">家庭年支出合计 23.45 万，房贷、保费、生活费、教育四类比例较为均衡；剩余 100 万为可投资结余，建议按「稳钱 + 长钱」分层配置，并结合宏观周期动态调整权益与固收比例。复苏期偏好成长与信用债，过热期增配商品与价值股，滞胀期提高现金与抗通胀资产，衰退期以利率债、黄金及货币基金为主。</p>
+            <p class="principle-source">资料来源：盈米启明</p>
+          </div>
+        </section>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>37 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 41 页：风险承受能力评估 -->
+      <article class="slide slide--risk-assess">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">风险承受能力评估</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <section class="risk-level-band">
+            <span class="risk-level-band__bar" aria-hidden="true"></span>
+            <p class="risk-level-band__text">您的风险承受等级：<strong>保守型</strong></p>
+          </section>
+          <div class="risk-assess-cols">
+            <section class="risk-card-panel risk-card-panel--value">
+              <div class="risk-card-panel__head">
+                <span class="risk-card-panel__title">您的抗风险值</span>
+                <span class="risk-card-panel__score">非常高 66分</span>
+              </div>
+              <div class="risk-slider-block">
+                <div class="risk-slider__ends"><span>0</span><span>100</span></div>
+                <div class="risk-slider__track" role="img" aria-label="抗风险值 46 分">
+                  <div class="risk-slider__thumb" style="left: 46%;">
+                    <span class="risk-slider__bubble">46</span>
+                  </div>
+                </div>
+              </div>
+              <div class="risk-sections">
+                <div class="risk-section">
+                  <p class="risk-section__title">风险承受能力</p>
+                  <p class="risk-section__text">专注于投资的长期增值。根据您的测评结果，在可承受波动范围内追求合理回报。</p>
+                  <p class="risk-section__text"><span class="risk-section__hl">您适合【低风险、中低风险、中风险、中高风险】的产品和服务。</span></p>
+                </div>
+                <div class="risk-section">
+                  <p class="risk-section__title">解读说明</p>
+                  <p class="risk-section__text">抗风险值【非常高】的投资者在做财务决策时愿意承担更大甚至很大的风险，以换取潜在的高收益。投资总市值下跌 33% 时多数投资者会感到不安，但对于一部分人可能需要下跌 50% 才会有此感觉。</p>
+                </div>
+                <div class="risk-section">
+                  <p class="risk-section__title">配置偏好</p>
+                  <p class="risk-section__text">根据晨星对全球投资人的风险偏好统计，与您抗风险值同等级【非常高】的投资者，偏好配置 0%（或者不高于 10%）的低风险资产，30%（30%—40%）的中风险资产，70%（50%—70%）的高风险资产。</p>
+                </div>
+              </div>
+            </section>
+            <section class="risk-card-panel risk-card-panel--comfort">
+              <div class="risk-card-panel__head">
+                <span class="risk-card-panel__title">您的舒适范围</span>
+                <span class="risk-card-panel__score">40 ～ 55分</span>
+              </div>
+              <div class="risk-slider-block">
+                <div class="risk-slider__ends"><span>0</span><span>100</span></div>
+                <div class="risk-slider__track" role="img" aria-label="风险舒适范围 40 至 55 分">
+                  <div class="risk-range__zone" style="left: 40%; width: 15%;"></div>
+                  <span class="risk-range__zone-label" style="left: 47.5%;">风险舒适范围</span>
+                </div>
+                <div class="risk-range__ticks">
+                  <span>0</span>
+                  <span>40</span>
+                  <span>55</span>
+                  <span>100</span>
+                </div>
+              </div>
+              <div class="risk-match-box">
+                <p class="risk-match-box__title">账户风险匹配</p>
+                <p class="risk-match-box__text">根据您的抗风险值，建议您将账户的整体风险控制在 60～78 分。您可以立即检测您的账户风险，看看风险是否超标？</p>
+              </div>
+            </section>
+          </div>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>41 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 42 页 -->
+      <article class="slide slide--market">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">国内股票市场展望</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="hero">
+          <h2 class="hero-heading">中期来看，<span class="hl">向上突破</span>的力量蓄势待发</h2>
+          <p class="hero-intro">尽管短期市场仍处震荡整理，但在政策持续呵护、流动性合理充裕与中长期正面因素不断累积的背景下，权益市场向上动能正在积蓄，结构性机会有望逐步展开。</p>
+        </div>
+        <section class="content-card">
+          <div class="points-grid">
+            <div class="points-col">
+              <article class="point-item">
+                <div class="point-num">1</div>
+                <div class="point-body">
+                  <h3 class="point-title">上市公司质量回报双提升方案</h3>
+                  <p class="point-desc">推动完善公司治理、强化信息披露，提升分红回购与股东回报水平，夯实资本市场内在稳定性。</p>
+                </div>
+              </article>
+              <article class="point-item">
+                <div class="point-num">2</div>
+                <div class="point-body">
+                  <h3 class="point-title">放宽险资入市比例</h3>
+                  <p class="point-desc">引导保险等长期资金加大权益配置，助力公募基金行业高质量发展与资本市场资金结构优化。</p>
+                </div>
+              </article>
+              <article class="point-item">
+                <div class="point-num">3</div>
+                <div class="point-body">
+                  <h3 class="point-title">鼓励并购重组</h3>
+                  <p class="point-desc">加快产业整合与资源优化配置，培育新质生产力相关领域龙头企业，提升行业集中度与竞争力。</p>
+                </div>
+              </article>
+              <article class="point-item">
+                <div class="point-num">4</div>
+                <div class="point-body">
+                  <h3 class="point-title">当前上市公司盈利已经处于周期底部</h3>
+                  <p class="point-desc">稳增长政策持续发力，企业盈利有望触底回升，开启新一轮扩张周期，为估值修复提供基本面支撑。</p>
+                </div>
+              </article>
+            </div>
+            <div class="points-col">
+              <article class="point-item">
+                <div class="point-num">5</div>
+                <div class="point-body">
+                  <h3 class="point-title">「十四五」规划即将出炉</h3>
+                  <p class="point-desc">产业政策方向进一步明确，内需、能源环保、科技创新等领域将迎来系统性变革与投资机会。</p>
+                </div>
+              </article>
+              <article class="point-item">
+                <div class="point-num">6</div>
+                <div class="point-body">
+                  <h3 class="point-title">随着我国经济发展产业结构升级，量变引发质变</h3>
+                  <p class="point-desc">多个赛道迎来「DeepSeek 时刻」，从跟跑走向并跑、领跑，全球竞争力与产业话语权持续提升。</p>
+                </div>
+              </article>
+              <article class="point-item">
+                <div class="point-num">7</div>
+                <div class="point-body">
+                  <h3 class="point-title">产业突破多点开花，催化结构性牛市</h3>
+                  <p class="point-desc">AI、高端制造（新能源车、军工、航空航天）、文化（游戏、短视频）、消费（跨境电商、创新药）等方向活跃度提升。</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>42 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 46 页：市场可投资资产及常用配置工具 -->
+      <article class="slide slide--invest-tools">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">市场可投资资产及常用配置工具</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <section class="invest-panel invest-panel--assets">
+            <h2 class="invest-panel__title">市场可投资资产</h2>
+            <div class="invest-assets">
+              <div class="invest-asset invest-asset--stock">
+                <span class="invest-asset__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M4 24L12 14l6 6 10-12" stroke="#52C41A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 8h6v6" stroke="#52C41A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="invest-asset__name">股票</span>
+                <div class="invest-asset__tags">
+                  <span class="invest-tag">A股</span>
+                  <span class="invest-tag">港股</span>
+                  <span class="invest-tag">美股</span>
+                  <span class="invest-tag">新兴市场</span>
+                </div>
+              </div>
+              <div class="invest-asset invest-asset--bond">
+                <span class="invest-asset__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><rect x="6" y="10" width="14" height="16" rx="1" stroke="#E8913A" stroke-width="1.5"/><path d="M10 14h6M10 18h4" stroke="#E8913A" stroke-width="1.2"/><circle cx="24" cy="20" r="5" stroke="#E8913A" stroke-width="1.5"/><path d="M24 17v6M21 20h6" stroke="#E8913A" stroke-width="1"/></svg>
+                </span>
+                <span class="invest-asset__name">债券</span>
+                <div class="invest-asset__tags">
+                  <span class="invest-tag">国债</span>
+                  <span class="invest-tag">信用债</span>
+                  <span class="invest-tag">美元债</span>
+                  <span class="invest-tag">海外债</span>
+                </div>
+              </div>
+              <div class="invest-asset invest-asset--commodity">
+                <span class="invest-asset__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M8 22h16v4H8z" fill="#F5C842"/><path d="M10 18h12v4H10z" fill="#E8B923"/><path d="M12 14h8v4h-8z" fill="#D4A017"/></svg>
+                </span>
+                <span class="invest-asset__name">商品</span>
+                <div class="invest-asset__tags">
+                  <span class="invest-tag">黄金</span>
+                  <span class="invest-tag">原油</span>
+                  <span class="invest-tag">工业金属</span>
+                </div>
+              </div>
+              <div class="invest-asset invest-asset--alt">
+                <span class="invest-asset__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none"><path d="M6 20V12l10-6 10 6v8H6z" stroke="#9B7FD4" stroke-width="1.5" stroke-linejoin="round"/><rect x="12" y="14" width="8" height="10" fill="#C4B5E8" opacity=".5"/></svg>
+                </span>
+                <span class="invest-asset__name">另类</span>
+                <div class="invest-asset__tags">
+                  <span class="invest-tag">房产</span>
+                  <span class="invest-tag">私募证券</span>
+                  <span class="invest-tag">对冲基金</span>
+                  <span class="invest-tag">FoF / MoM</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="invest-panel invest-panel--tools">
+            <h2 class="invest-panel__title">常用配置工具</h2>
+            <div class="invest-table-wrap">
+              <table class="invest-table">
+                <thead>
+                  <tr>
+                    <th>配置工具</th>
+                    <th>工具特点</th>
+                    <th>配置周期</th>
+                    <th>产品分类</th>
+                    <th>资产属性 / 适配人群</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>商业健康险</td>
+                    <td>风险对冲</td>
+                    <td class="invest-cycle--long">长期</td>
+                    <td>定寿险 / 重疾险 / 医疗险 / 意外险</td>
+                    <td>支出性风险对冲</td>
+                  </tr>
+                  <tr>
+                    <td>保险理财</td>
+                    <td>保本锁利</td>
+                    <td class="invest-cycle--long">长期</td>
+                    <td>国内 / 境外 储蓄险 / 分红险</td>
+                    <td>长期稳定确定性 资产隔离 / 财富传承</td>
+                  </tr>
+                  <tr>
+                    <td>银行资产</td>
+                    <td>基础配置</td>
+                    <td class="invest-cycle--short">短期</td>
+                    <td>结构性存款、货币基金</td>
+                    <td>6个月内灵活支出储备</td>
+                  </tr>
+                  <tr>
+                    <td>债券型基金</td>
+                    <td>稳健低波</td>
+                    <td class="invest-cycle--short">中短期</td>
+                    <td>公募 / 标准资管 / 私募证券</td>
+                    <td>低波动稳健增值</td>
+                  </tr>
+                  <tr>
+                    <td>股票型基金</td>
+                    <td>中高波动</td>
+                    <td class="invest-cycle--mid">中期</td>
+                    <td>公募 / 标准资管 / 私募证券</td>
+                    <td>拉长投资周期，承受一定波动；优选资产并动态调整，提高资产投资胜率</td>
+                  </tr>
+                  <tr>
+                    <td>另类型基金</td>
+                    <td>策略分散对冲</td>
+                    <td class="invest-cycle--mid">中期</td>
+                    <td>QDII / 黄金 / 混合 / 私募证券</td>
+                    <td>全球分散与策略对冲；提升组合夏普比</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>46 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 50 页：家庭资产配置方案 -->
+      <article class="slide slide--alloc-plan">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">家庭资产配置方案</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <section class="alloc-card">
+            <p class="alloc-card__lead">阮心家庭可投资资产：<strong>600万</strong></p>
+            <div class="alloc-table-wrap">
+              <table class="alloc-table">
+                <thead>
+                  <tr>
+                    <th>资金分类</th>
+                    <th>资金目标</th>
+                    <th>资金占比</th>
+                    <th>账户目标</th>
+                    <th>大类配置</th>
+                    <th>产品方案</th>
+                    <th>投入金额</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="alloc-row--cash">
+                    <td class="alloc-cat alloc-cat--cash"><span class="alloc-cat__bar" aria-hidden="true"></span>活钱</td>
+                    <td>满足流动性需求</td>
+                    <td>5%</td>
+                    <td>应急金（3~6个月生活费）</td>
+                    <td>100% 货币</td>
+                    <td>货币三佳</td>
+                    <td class="alloc-amt">30万</td>
+                  </tr>
+                  <tr class="alloc-row--short">
+                    <td class="alloc-cat alloc-cat--short"><span class="alloc-cat__bar" aria-hidden="true"></span>短期投资的钱</td>
+                    <td>追求稳健增值</td>
+                    <td>12%</td>
+                    <td>未来1~2年家庭大额支出储备</td>
+                    <td>90% 债券 + 10% 股票</td>
+                    <td>启明睿低波增强</td>
+                    <td class="alloc-amt">70万</td>
+                  </tr>
+                  <tr class="alloc-row--long">
+                    <td class="alloc-cat alloc-cat--long" rowspan="3"><span class="alloc-cat__bar" aria-hidden="true"></span>长期投资的钱</td>
+                    <td rowspan="3">力争更高收益</td>
+                    <td rowspan="3">87%</td>
+                    <td>提前退休计划（稳健）</td>
+                    <td>60% 债券 + 36% 股票 + 4% 商品</td>
+                    <td>且慢定制账户</td>
+                    <td class="alloc-amt">200万</td>
+                  </tr>
+                  <tr class="alloc-row--long">
+                    <td>提前退休计划（稳健）</td>
+                    <td>58% 债券 + 40% 股票 + 2% 商品</td>
+                    <td>且慢定制账户</td>
+                    <td class="alloc-amt">100万</td>
+                  </tr>
+                  <tr class="alloc-row--long">
+                    <td>提前退休计划（进取）</td>
+                    <td>—</td>
+                    <td>私募策略（40%套利、40%中性、10%固收、10%低波CTA）</td>
+                    <td class="alloc-amt">100万</td>
+                  </tr>
+                  <tr class="alloc-row--guard">
+                    <td class="alloc-cat alloc-cat--guard"><span class="alloc-cat__bar" aria-hidden="true"></span>人生保障的钱</td>
+                    <td>应对风险</td>
+                    <td>17%</td>
+                    <td>夫妻养老金补充</td>
+                    <td>—</td>
+                    <td>香港分红险（20万×5年）</td>
+                    <td class="alloc-amt">100万</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>50 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 56 页：定制账户服务体系 -->
+      <article class="slide slide--vip-service">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">定制账户服务体系</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="vip-service-main">
+          <div class="vip-service-col vip-service-col--left">
+            <article class="vip-service-item">
+              <span class="vip-service-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" fill="#E8F4FD"/><path d="M12 26l4-8 4 5 8-12" stroke="#52C41A" stroke-width="1.5" stroke-linecap="round"/><circle cx="26" cy="14" r="5" stroke="#1B88EE" stroke-width="1.3"/><path d="M24 14h4M26 12v4" stroke="#1B88EE" stroke-width="1"/></svg>
+              </span>
+              <div class="vip-service-item__body">
+                <p class="vip-service-item__title">1. 产品筛选</p>
+                <p class="vip-service-item__desc">海内外优质基金 / 产品池精选</p>
+              </div>
+            </article>
+            <article class="vip-service-item">
+              <span class="vip-service-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><rect x="10" y="14" width="20" height="14" rx="3" fill="#69B1F4"/><path d="M14 20h12M16 24h8" stroke="#fff" stroke-width="1.2"/><path d="M12 12h16v4H12z" fill="#1B88EE"/><path d="M8 18v4M32 22v-4" stroke="#FA8C16" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </span>
+              <div class="vip-service-item__body">
+                <p class="vip-service-item__title">2. 资产配置</p>
+                <p class="vip-service-item__desc">多元低相关资产组合搭建</p>
+              </div>
+            </article>
+            <article class="vip-service-item">
+              <span class="vip-service-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><rect x="9" y="11" width="22" height="16" rx="2" fill="#E0EFFA"/><rect x="12" y="14" width="16" height="10" rx="1" fill="#1B88EE" opacity=".25"/><path d="M16 18h8M14 21h12" stroke="#1B88EE" stroke-width="1.2" stroke-linecap="round"/><path d="M22 28l3-3 3 3" stroke="#52C41A" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </span>
+              <div class="vip-service-item__body">
+                <p class="vip-service-item__title">3. 调仓执行</p>
+                <p class="vip-service-item__desc">信号驱动 + 经验校验</p>
+              </div>
+            </article>
+          </div>
+          <div class="vip-service-core" aria-label="且慢VIP定制账户一体化服务体系">
+            <p class="vip-service-core__brand">且慢VIP</p>
+            <p class="vip-service-core__line">定制账户</p>
+            <p class="vip-service-core__line">一体化服务体系</p>
+          </div>
+          <div class="vip-service-col vip-service-col--right">
+            <article class="vip-service-item">
+              <span class="vip-service-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" fill="#E8F4FD"/><rect x="11" y="12" width="8" height="10" rx="1" fill="#69B1F4"/><rect x="21" y="14" width="8" height="8" rx="1" fill="#A088D1"/><path d="M14 26h12" stroke="#1B88EE" stroke-width="1.2"/><circle cx="28" cy="24" r="4" fill="#F5C842"/></svg>
+              </span>
+              <div class="vip-service-item__body">
+                <p class="vip-service-item__title">4. 定期复盘</p>
+                <p class="vip-service-item__desc">季度/年度业绩与风险复盘</p>
+              </div>
+            </article>
+            <article class="vip-service-item">
+              <span class="vip-service-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><path d="M8 28L20 10l12 18H8z" fill="#E0EFFA"/><path d="M14 24h12" stroke="#52C41A" stroke-width="1.5"/><circle cx="28" cy="12" r="6" fill="#DBEBFF"/><path d="M26 18l4 6" stroke="#1B88EE" stroke-width="1.3"/></svg>
+              </span>
+              <div class="vip-service-item__body">
+                <p class="vip-service-item__title">5. 风控监测</p>
+                <p class="vip-service-item__desc">回撤/集中度/流动性实时监控</p>
+              </div>
+            </article>
+            <article class="vip-service-item">
+              <span class="vip-service-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><circle cx="14" cy="18" r="5" fill="#FFE0B2"/><circle cx="26" cy="18" r="5" fill="#C8E4FC"/><path d="M12 24h16" stroke="#1B88EE" stroke-width="1.5" stroke-linecap="round"/><path d="M17 22l3 2 6-4" stroke="#52C41A" stroke-width="1.2" stroke-linecap="round"/><path d="M20 10v3" stroke="#FA440C" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </span>
+              <div class="vip-service-item__body">
+                <p class="vip-service-item__title">6. 投后陪伴</p>
+                <p class="vip-service-item__desc">资深投顾持续解读与回访</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>56 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 57 页：股票对冲策略 -->
+      <article class="slide slide--stock-hedge">
+        <header class="header">
+          <div class="title-wrap">
+            <span class="title-bar" aria-hidden="true"></span>
+            <h1 class="title">股票对冲策略</h1>
+          </div>
+          <a class="logo" href="https://qieman.com" aria-label="且慢">
+            <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+          </a>
+        </header>
+        <div class="main">
+          <section class="stock-hedge-panel">
+            <p class="stock-hedge-intro">股票对冲策略可以根据多空组合风险敞口情况，分为股票市场中性和股票多空两种类型。两者的区别在于前者通过完全对冲市场风险使收益仅来源于个股相对价格变动，而后者允许保留部分市场方向性风险敞口，通过主动调整多空仓位比例在控制风险的同时捕捉市场趋势性收益。</p>
+            <h2 class="stock-hedge-subtitle">多空对冲原理</h2>
+            <p class="stock-hedge-formula" aria-label="阿尔法加贝塔减贝塔等于纯阿尔法">α + β − β = 纯 α</p>
+            <div class="hedge-flow" aria-label="多空对冲原理示意">
+              <article class="hedge-box hedge-box--long">
+                <div class="hedge-box__head">多头组合</div>
+                <div class="hedge-box__body">
+                  <span class="hedge-box__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 36" fill="none"><rect x="6" y="18" width="6" height="12" rx="1" fill="#1B88EE"/><rect x="16" y="12" width="6" height="18" rx="1" fill="#69B1F4"/><rect x="26" y="8" width="6" height="22" rx="1" fill="#9CCBF8"/><rect x="36" y="14" width="6" height="16" rx="1" fill="#C8E4FC"/></svg>
+                  </span>
+                  <p class="hedge-box__text">α + β<br>（精选个股）</p>
+                </div>
+                <div class="hedge-box__foot">收益 ↑</div>
+              </article>
+              <span class="hedge-flow__op" aria-hidden="true">+</span>
+              <article class="hedge-box hedge-box--short">
+                <div class="hedge-box__head">空头组合</div>
+                <div class="hedge-box__body">
+                  <span class="hedge-box__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 36" fill="none"><rect x="6" y="8" width="6" height="22" rx="1" fill="#B8C9DC"/><rect x="16" y="14" width="6" height="16" rx="1" fill="#C5D4E4"/><rect x="26" y="18" width="6" height="12" rx="1" fill="#D4E0EC"/><rect x="36" y="12" width="6" height="18" rx="1" fill="#E0EAF4"/></svg>
+                  </span>
+                  <p class="hedge-box__text">− β<br>（沽空指数）</p>
+                </div>
+                <div class="hedge-box__foot">对冲市场风险</div>
+              </article>
+              <span class="hedge-flow__op" aria-hidden="true">=</span>
+              <article class="hedge-box hedge-box--net">
+                <div class="hedge-box__head">净敞口</div>
+                <div class="hedge-box__body">
+                  <span class="hedge-box__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 36" fill="none"><rect x="8" y="14" width="6" height="14" rx="1" fill="#69B1F4"/><rect x="18" y="10" width="6" height="18" rx="1" fill="#9CCBF8"/><rect x="28" y="16" width="6" height="12" rx="1" fill="#C8E4FC"/><rect x="38" y="12" width="6" height="16" rx="1" fill="#DBEBFF"/></svg>
+                  </span>
+                  <p class="hedge-box__text">纯 α 收益<br>= 个股相对收益</p>
+                </div>
+                <div class="hedge-box__foot">市场中性</div>
+              </article>
+            </div>
+          </section>
+          <div class="stock-hedge-right">
+            <section class="stock-hedge-panel">
+              <h2 class="stock-hedge-panel__title">对冲基金（狭义）策略分类树</h2>
+              <div class="hedge-tree">
+                <div class="hedge-tree__root">对冲基金<br>（狭义）</div>
+                <div class="hedge-tree__rows">
+                  <div class="hedge-tree__row">
+                    <span class="hedge-tree__line hedge-tree__line--neutral" aria-hidden="true"></span>
+                    <span class="hedge-tree__node hedge-tree__node--neutral">市场中性</span>
+                    <div class="hedge-tree__tags">
+                      <span class="hedge-tree__tag hedge-tree__tag--neutral">Alpha 量化</span>
+                      <span class="hedge-tree__tag hedge-tree__tag--neutral">事件驱动</span>
+                      <span class="hedge-tree__tag hedge-tree__tag--neutral">统计套利</span>
+                    </div>
+                  </div>
+                  <div class="hedge-tree__row">
+                    <span class="hedge-tree__line hedge-tree__line--ls" aria-hidden="true"></span>
+                    <span class="hedge-tree__node hedge-tree__node--ls">股票多空</span>
+                    <div class="hedge-tree__tags">
+                      <span class="hedge-tree__tag hedge-tree__tag--ls">灵活对冲</span>
+                      <span class="hedge-tree__tag hedge-tree__tag--ls">行业多空</span>
+                      <span class="hedge-tree__tag hedge-tree__tag--ls">成长/价值轮动</span>
+                    </div>
+                  </div>
+                  <div class="hedge-tree__row">
+                    <span class="hedge-tree__line hedge-tree__line--quant" aria-hidden="true"></span>
+                    <span class="hedge-tree__node hedge-tree__node--quant">量化对冲</span>
+                    <div class="hedge-tree__tags">
+                      <span class="hedge-tree__tag hedge-tree__tag--quant">指数增强+对冲</span>
+                      <span class="hedge-tree__tag hedge-tree__tag--quant">高频量化</span>
+                      <span class="hedge-tree__tag hedge-tree__tag--quant">机器学习因子</span>
+                    </div>
+                  </div>
+                  <div class="hedge-tree__row">
+                    <span class="hedge-tree__line hedge-tree__line--event" aria-hidden="true"></span>
+                    <span class="hedge-tree__node hedge-tree__node--event">事件驱动</span>
+                    <div class="hedge-tree__tags">
+                      <span class="hedge-tree__tag hedge-tree__tag--event">并购套利</span>
+                      <span class="hedge-tree__tag hedge-tree__tag--event">破产重组</span>
+                      <span class="hedge-tree__tag hedge-tree__tag--event">定增/大宗</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="stock-hedge-panel hedge-line-chart">
+              <div class="hedge-line-chart__head">
+                <h2 class="stock-hedge-panel__title">股票对冲产品业绩走势</h2>
+              </div>
+              <div class="hedge-line-chart__body">
+                <div class="hedge-line-y" aria-hidden="true">
+                  <span>50%</span><span>40%</span><span>30%</span><span>20%</span><span>10%</span><span>0%</span>
+                </div>
+                <div class="hedge-line-plot">
+                  <div class="hedge-line-plot__area">
+                    <div class="hedge-line-grid" aria-hidden="true"></div>
+                    <svg class="hedge-line-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <path d="M0,60.5 L20,56.9 L40,52.3 L60,47.7 L80,41.9 L100,33.7" fill="none" stroke="#1890FF" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+                      <path d="M0,34.9 L20,11.6 L40,16.3 L60,30.2 L80,46.5 L100,62.8" fill="none" stroke="#FA8C16" stroke-width="1" stroke-dasharray="3 2" vector-effect="non-scaling-stroke"/>
+                      <path d="M0,41.9 L20,39.5 L40,37.2 L60,39.5 L80,41.9 L100,44.2" fill="none" stroke="#BFBFBF" stroke-width="0.9" stroke-dasharray="2 2" vector-effect="non-scaling-stroke"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="hedge-line-x">
+                  <span>2023-10</span><span>2024-4</span><span>2025-3</span><span>2025-10</span><span>2026-7</span><span>2027-3</span>
+                </div>
+                <div class="hedge-line-legend" aria-label="图例">
+                  <span class="hedge-line-legend__item"><span class="hedge-line-legend__swatch hedge-line-legend__swatch--sf"></span>社融同比</span>
+                  <span class="hedge-line-legend__item"><span class="hedge-line-legend__swatch hedge-line-legend__swatch--m2"></span>M2同比</span>
+                  <span class="hedge-line-legend__item"><span class="hedge-line-legend__swatch hedge-line-legend__swatch--lpr"></span>1Y LPR</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>57 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 64 页：夫妻养老金补充 - 分红储蓄险 -->
+      <article class="slide slide--pension-ins">
+        <div class="headblock">
+          <div class="head-top">
+            <div class="title-wrap">
+              <span class="title-bar" aria-hidden="true"></span>
+              <h1 class="title">夫妻养老金补充 - 分红储蓄险</h1>
+            </div>
+            <a class="logo" href="https://qieman.com" aria-label="且慢">
+              <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+            </a>
+          </div>
+          <p class="page-subtitle">以下测算仅作示例，不作为收益保证或者投资建议。所引用指数在特定期间的收益率表现不能代表未来表现。</p>
+        </div>
+        <div class="main">
+          <div class="pension-ins-cards">
+            <section class="pension-top-card">
+              <div class="pension-top-card__tags">
+                <span class="pension-tag">自身养老补充</span>
+                <span class="pension-tag">孩子们教育储备</span>
+                <span class="pension-tag">专款专用高确定性现金流</span>
+              </div>
+            </section>
+            <section class="pension-top-card">
+              <div class="pension-top-card__row">
+                <div class="pension-top-card__main">
+                  <p class="pension-top-card__label">【境内 / 境外】</p>
+                  <p class="pension-top-card__title">分红 / 增额 储蓄险</p>
+                </div>
+                <div class="pension-top-card__aside">
+                  <span class="pension-badge">IRR ≈ 5-6%</span>
+                </div>
+              </div>
+            </section>
+            <section class="pension-top-card pension-top-card--dashed">
+              <div class="pension-top-card__row">
+                <div class="pension-top-card__main">
+                  <p class="pension-top-card__label">【境外 待补充】 USD 25万 ≈ RMB 180万</p>
+                  <p class="pension-top-card__title pension-top-card__title--lg">USD 5万 × 5年</p>
+                </div>
+                <div class="pension-top-card__aside">
+                  <span class="pension-tag">自身养老 + 孩子教育</span>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="pension-ins-table-wrap">
+            <table class="pension-compare">
+              <thead>
+                <tr>
+                  <th scope="col" aria-hidden="true"></th>
+                  <th scope="col">收益构成</th>
+                  <th scope="col">底层投资</th>
+                  <th scope="col">功能</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pension-row--cn">
+                  <th scope="row">大陆</th>
+                  <td>
+                    <ul>
+                      <li>预期 IRR 可达 2.5%</li>
+                      <li>其中保证部分约 1.5%</li>
+                      <li>9月1日预定利率从 2% 下调至 1.75%，预期 IRR 预计不超过 2.5%</li>
+                      <li>投资账户可分配盈余 70% 给投保人</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>境内固收类 &gt; 70%</li>
+                      <li>权益类 &lt; 30%</li>
+                      <li>不动产或另类投资 5-10%</li>
+                      <li>（根据偿付能力情况调整比例）</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>定向传承</li>
+                      <li>资产隔离</li>
+                      <li>保单贷款</li>
+                      <li>信托对接</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="pension-row--os">
+                  <th scope="row">境外</th>
+                  <td>
+                    <ul>
+                      <li>预期 IRR 可达 6.5%</li>
+                      <li>其中保证部分约 0.5%</li>
+                      <li>投资账户可分配盈余 90% 给投保人</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>全球权益类 50-80%</li>
+                      <li>固收 20-40%</li>
+                      <li>另类资产 10-20%</li>
+                      <li>（保单通常会写投资比例）</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>定向传承</li>
+                      <li>资产隔离</li>
+                      <li>保单贷款</li>
+                      <li>信托对接</li>
+                      <li>货币转换</li>
+                      <li>无限次变更受保人</li>
+                      <li>保单拆分</li>
+                      <li>学业 / 婴儿奖</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>64 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 第 76 页：私募投资流程 -->
+      <article class="slide slide--pe-flow">
+        <div class="headblock">
+          <div class="head-top">
+            <div class="title-wrap">
+              <span class="title-bar" aria-hidden="true"></span>
+              <h1 class="title">私募投资流程</h1>
+            </div>
+            <a class="logo" href="https://qieman.com" aria-label="且慢">
+              <img src="assets/logos/且慢logo-header.svg" width="119" height="46" alt="">
+            </a>
+          </div>
+          <p class="page-subtitle">且慢私募基金的购买流程严格遵循中基协监管要求：合格投资者认证、风险匹配、双录留痕、专户打款、份额确认与投资运作六个环节，每一步均由托管行与监管机构共同把关。</p>
+        </div>
+        <div class="main">
+          <div class="pe-flow" aria-label="私募投资六步流程">
+            <article class="pe-step">
+              <span class="pe-step__badge">01</span>
+              <h2 class="pe-step__title">合格投资者认证</h2>
+              <p class="pe-step__body">金融资产 ≥ 300 万，或近三年年均收入 ≥ 50 万；提交银行 / 信托 / 券商等机构出具的资产证明或单位收入证明。</p>
+            </article>
+            <span class="pe-flow__arrow" aria-hidden="true">›</span>
+            <article class="pe-step">
+              <span class="pe-step__badge">02</span>
+              <h2 class="pe-step__title">风险测评</h2>
+              <p class="pe-step__body">完成 KYC / KYP 风险测评，确认风险承受能力与产品风险等级匹配。</p>
+            </article>
+            <span class="pe-flow__arrow" aria-hidden="true">›</span>
+            <article class="pe-step">
+              <span class="pe-step__badge">03</span>
+              <h2 class="pe-step__title">签署协议</h2>
+              <p class="pe-step__body">线上 / 线下双录留痕；签署基金合同、风险揭示书、合格投资者承诺函。</p>
+            </article>
+            <span class="pe-flow__arrow" aria-hidden="true">›</span>
+            <article class="pe-step">
+              <span class="pe-step__badge">04</span>
+              <h2 class="pe-step__title">打款专户</h2>
+              <p class="pe-step__body">资金转入盈米宝后进行页面申购，由托管银行专户接收，盈米账户不留存任何资金。</p>
+            </article>
+            <span class="pe-flow__arrow" aria-hidden="true">›</span>
+            <article class="pe-step">
+              <span class="pe-step__badge">05</span>
+              <h2 class="pe-step__title">份额确认</h2>
+              <p class="pe-step__body">基金管理人 T+N 工作日确认份额，份额信息同步至中国结算（基金 E 账户可查）。</p>
+            </article>
+            <span class="pe-flow__arrow" aria-hidden="true">›</span>
+            <article class="pe-step">
+              <span class="pe-step__badge">06</span>
+              <h2 class="pe-step__title">投资运作</h2>
+              <p class="pe-step__body">管理人按既定策略投资运作，投后定期披露净值与运作报告，托管行实时监督资金划付。</p>
+            </article>
+          </div>
+          <div class="pe-details">
+            <section class="pe-detail-card">
+              <h3 class="pe-detail-card__title">一、2 年以上投资经历</h3>
+              <p class="pe-detail-card__body">满 2 年以上投资经历（交易金额 ≥ 10 元）：本人名下账户在银行、信托、证券、基金、期货、保险资产管理公司、金融资产投资公司等金融机构以及私募基金管理人处投资于证券、金融产品（非保本）的交易明细证明 / 交易记录截图证明。</p>
+            </section>
+            <section class="pe-detail-card">
+              <h3 class="pe-detail-card__title">二、金融资产证明 - 收入证明</h3>
+              <p class="pe-detail-card__body">年均 40 / 50 万收入：支持完税证明、银行流水、由任职单位出具的收入证明。任职公司加盖公章（如有）提供的近 3 年连续的收入证明，加盖公司公章本人个人资源部门印章；有工资证明并具有有效证明本人为该公司员工，盖章生效时间在 3 个月内。</p>
+            </section>
+            <section class="pe-detail-card">
+              <p class="pe-detail-card__body">应监管要求，购买私募资管需要通过合格投资者认证，需具有 2 年以上投资经历，并满足以下条件之一：</p>
+              <ol class="pe-detail-card__list">
+                <li>家庭金融资产 ≥ 500 万；</li>
+                <li>家庭金融净资产 ≥ 300 万；</li>
+                <li>近 3 年本人年均收入 ≥ 40 万。</li>
+              </ol>
+            </section>
+          </div>
+        </div>
+        <footer class="footer">
+          <p class="disclaimer">声明：本材料中所含来源于客户提供的有限信息，且慢对这些信息的准确性和完整性不做任何保证，结论及相关建议仅供参考，不代表任何确定性的判断。</p>
+          <div class="meta"><span>客户：阮心</span><span>顾问：黎紫瑜</span><span>76 / 85</span></div>
+        </footer>
+      </article>
+
+      <!-- 封底 -->
+      <article class="slide slide--back-cover">
+        <img class="cover-waves" src="assets/cover-bg-pattern.svg" alt="" aria-hidden="true">
+        <div class="back-cover-inner">
+          <a class="back-cover-brand" href="https://qieman.com" aria-label="且慢">
+            <img class="back-cover-brand__logo" src="assets/logos/且慢logo-cover.svg" width="181" height="69" alt="">
+          </a>
+          <div class="back-cover-center">
+            <p class="back-cover-thanks">THANKS!</p>
+            <p class="back-cover-slogan">安放财富 · 静待花开</p>
+          </div>
+          <p class="back-cover-foot">且慢 VIP 投顾 · 家庭财务规划报告 · 2026 年 1 月</p>
+        </div>
+      </article>
+    </div>
+  </div>
+  <script>
+    (function fitDeck() {
+      var viewport = document.querySelector('.deck-viewport');
+      var deck = document.querySelector('.deck');
+      if (!viewport || !deck) return;
+      function apply() {
+        deck.style.transform = 'none';
+        var w = deck.offsetWidth;
+        var h = deck.offsetHeight;
+        if (!w || !h) return;
+        var maxW = viewport.clientWidth;
+        var scale = Math.min(maxW / w, 1);
+        deck.style.transform = 'scale(' + scale + ')';
+        deck.style.transformOrigin = 'top center';
+        viewport.style.height = h * scale + 'px';
+      }
+      apply();
+      window.addEventListener('resize', apply);
+    })();
+  </script>
+</body>
+</html>
