@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[必填] 替换为 PPT 标题 · 盈米基金</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* themes-yingmi.md tokens — 禁止改品牌主色 / 强调橙 */
+  :root {
+    --ymi-brand: #00269A;
+    --ymi-brand-mid: #315EDB;
+    --ymi-brand-soft: #6F8FF2;
+    --ymi-brand-pale: #AFC4FF;
+    --ymi-ink: #333333;
+    --ymi-accent: #FF5100;
+    --ymi-accent-soft: #FF9C73;
+    --ymi-white: #FFFFFF;
+    --ymi-card: #FFFFFF;
+    --ymi-card-border: #EEF2FA;
+    --ymi-shadow: 0 12px 30px rgba(0, 38, 154, 0.08);
+    --ymi-rule: rgba(0, 38, 154, 0.12);
+    --ymi-radius-img: 40px;
+    --ymi-radius-card: 28px;
+    --ymi-safe-x: clamp(48px, 4.27vw, 82px);
+    --ymi-safe-y: clamp(40px, 6.3vh, 68px);
+    --ymi-serif: "Source Han Serif CN", "Source Han Serif SC", "Noto Serif CJK SC", "Noto Serif SC", serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 100%; height: 100%; overflow: hidden;
+    font-family: var(--ymi-serif);
+    background: #00153A;
+    color: var(--ymi-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ============ Deck / Slide（guizang 交互壳） ============ */
+  #deck {
+    position: fixed; inset: 0;
+    height: 100vh; display: flex; flex-wrap: nowrap;
+    transition: transform .85s cubic-bezier(.77, 0, .175, 1);
+    z-index: 10; will-change: transform;
+  }
+  .slide {
+    width: 100vw; height: 100vh; flex: 0 0 100vw;
+    position: relative; overflow: hidden;
+    padding: var(--ymi-safe-y) var(--ymi-safe-x) 9vh;
+    display: flex; flex-direction: column;
+    color: var(--ymi-ink);
+    background-color: #FFFFFF;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  /* 优先使用官方 JPG；无 JPG 时 SVG 兜底 */
+  .slide.cover   { background-image: url("assets/screenshot-backgrounds/style-a/bg-fengmian-01.jpg"), url("assets/backgrounds/bg-fengmian-01.svg"); }
+  .slide.toc,
+  .slide.page    { background-image: url("assets/screenshot-backgrounds/style-a/bg-page-01.jpg"), url("assets/backgrounds/bg-page-01.svg"); }
+  .slide.section { background-image: url("assets/screenshot-backgrounds/style-a/bg-zifengmian-01.jpg"), url("assets/backgrounds/bg-zifengmian-01.svg"); color: var(--ymi-white); }
+  .slide.closing { background-image: url("assets/screenshot-backgrounds/style-a/bg-fengdi-01.jpg"), url("assets/backgrounds/bg-fengdi-01.svg"); color: var(--ymi-white); }
+
+  /* ============ Typography ============ */
+  .t-cover {
+    font-size: clamp(48px, 5.625vw, 108px);
+    font-weight: 700; line-height: 1.18; color: var(--ymi-ink);
+    max-width: 11em;
+  }
+  .t-speaker {
+    font-size: clamp(22px, 2.5vw, 48px);
+    font-weight: 400; color: var(--ymi-ink); margin-top: clamp(28px, 4vh, 52px);
+  }
+  .t-page {
+    font-size: clamp(36px, 4.375vw, 84px);
+    font-weight: 700; line-height: 1.2; color: var(--ymi-ink);
+  }
+  .t-group {
+    font-size: clamp(28px, 3.54vw, 68px);
+    font-weight: 700; line-height: 1.25;
+  }
+  .t-body {
+    font-size: clamp(16px, 1.51vw, 29px);
+    font-weight: 400; line-height: 1.7; color: var(--ymi-ink);
+  }
+  .t-kpi {
+    font-size: clamp(36px, 4.375vw, 84px);
+    font-weight: 400; line-height: 1; color: var(--ymi-accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .t-kpi-label {
+    font-size: clamp(14px, 1.51vw, 29px);
+    font-weight: 400; color: var(--ymi-ink); margin-top: 10px; line-height: 1.4;
+  }
+  .t-toc-num {
+    font-size: clamp(28px, 2.92vw, 56px);
+    font-weight: 400; color: var(--ymi-brand);
+    font-variant-numeric: tabular-nums; text-align: right;
+  }
+  .t-toc-title {
+    font-size: clamp(22px, 2.5vw, 48px);
+    font-weight: 400; color: var(--ymi-ink);
+  }
+  .t-section-num {
+    font-size: clamp(96px, 13.75vw, 264px);
+    font-weight: 400; line-height: .9; color: var(--ymi-white);
+  }
+  .t-section-title {
+    font-size: clamp(36px, 4.375vw, 84px);
+    font-weight: 400; color: var(--ymi-white); margin-top: clamp(18px, 2.6vh, 34px);
+  }
+  .t-closing {
+    font-size: clamp(80px, 13.75vw, 264px);
+    font-weight: 400; line-height: .9; color: var(--ymi-white);
+    letter-spacing: .02em;
+  }
+  .t-closing-sub {
+    font-size: clamp(14px, 1.51vw, 29px);
+    font-weight: 400; color: rgba(255,255,255,.72);
+  }
+  .accent { color: var(--ymi-accent); }
+  .brand  { color: var(--ymi-brand); }
+
+  /* ============ Chrome / Logo ============ */
+  .logo {
+    position: absolute; z-index: 5;
+    height: auto; width: clamp(120px, 10vw, 195px);
+    object-fit: contain;
+  }
+  .logo-tl { top: clamp(40px, 6.5vh, 68px); left: var(--ymi-safe-x); }
+  .logo-tr { top: clamp(40px, 5.5vh, 60px); right: var(--ymi-safe-x); }
+  .logo-center { position: static; width: 195px; }
+
+  /* ============ Media ============ */
+  .frame-img {
+    overflow: hidden; border-radius: var(--ymi-radius-img);
+    background: rgba(0, 38, 154, .04);
+  }
+  .frame-img > img {
+    width: 100%; height: 100%; display: block;
+    object-fit: cover; object-position: center;
+  }
+  .frame-img.r-2x5 { aspect-ratio: 2 / 5; max-height: 68vh; }
+  .frame-img.r-16x9 { aspect-ratio: 16 / 9; max-height: 52vh; }
+  .frame-img.r-3x2 { aspect-ratio: 3 / 2; max-height: 52vh; }
+  .img-slot {
+    border: 1.5px dashed rgba(0, 38, 154, .25);
+    border-radius: var(--ymi-radius-img);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(0, 38, 154, .45);
+    font-size: 12px; letter-spacing: .16em;
+  }
+
+  .card {
+    background: var(--ymi-card);
+    border-radius: var(--ymi-radius-card);
+    border: 1px solid var(--ymi-card-border);
+    box-shadow: var(--ymi-shadow);
+  }
+
+  .nav-safe-bottom { padding-bottom: 2vh; }
+
+  /* ============ Y01 Cover ============ */
+  .layout-cover {
+    display: grid;
+    grid-template-columns: 42% 1fr;
+    height: 100%; align-items: center;
+    padding-top: clamp(60px, 9vh, 100px);
+  }
+  .layout-cover .cover-copy { align-self: center; max-width: 42vw; }
+  .layout-cover .cover-visual {
+    justify-self: end; width: min(54vw, 980px);
+    height: min(70vh, 760px);
+  }
+
+  /* ============ Y02 TOC ============ */
+  .layout-toc {
+    display: grid;
+    grid-template-columns: minmax(220px, 32%) 1fr;
+    gap: 6vw; height: 100%;
+    padding-top: clamp(72px, 10vh, 110px);
+    align-items: start;
+  }
+  .toc-label-zh {
+    font-size: clamp(40px, 4.4vw, 72px); font-weight: 700; color: var(--ymi-ink);
+  }
+  .toc-label-en {
+    margin-top: 12px; font-size: clamp(14px, 1.2vw, 22px);
+    letter-spacing: .28em; color: rgba(51,51,51,.45); text-transform: uppercase;
+  }
+  .toc-list { display: flex; flex-direction: column; gap: clamp(22px, 3.2vh, 36px); }
+  .toc-row {
+    display: grid; grid-template-columns: 3.2em 1fr;
+    gap: clamp(32px, 2.8vw, 52px); align-items: baseline;
+  }
+
+  /* ============ Y03 Section ============ */
+  .layout-section {
+    height: 100%; display: flex; flex-direction: column; justify-content: flex-end;
+    padding-bottom: clamp(120px, 21vh, 228px);
+  }
+
+  /* ============ Y04 Image left / text right ============ */
+  .layout-img-text {
+    display: grid;
+    grid-template-columns: minmax(180px, 26%) 1fr;
+    gap: clamp(40px, 4vw, 72px);
+    height: 100%;
+    padding-top: clamp(72px, 9vh, 96px);
+    align-items: start;
+  }
+  .layout-img-text .body-block { display: flex; flex-direction: column; gap: clamp(24px, 3.2vh, 40px); }
+  .kpi-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2vw; margin-top: clamp(32px, 5vh, 60px);
+  }
+  .kpi-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* ============ Y05 Text left / image right ============ */
+  .layout-text-img {
+    display: grid;
+    grid-template-columns: minmax(280px, 36%) 1fr;
+    gap: clamp(40px, 4.2vw, 78px);
+    height: 100%;
+    padding-top: clamp(72px, 9vh, 96px);
+    align-items: start;
+  }
+  .mission-block { display: flex; flex-direction: column; gap: clamp(28px, 4vh, 48px); margin-top: clamp(28px, 3.5vh, 40px); }
+  .mission-item h3 { margin-bottom: 12px; }
+  .mission-item p { max-width: 28ch; }
+
+  /* ============ Y06 Timeline ============ */
+  .layout-timeline {
+    height: 100%;
+    padding-top: clamp(72px, 9vh, 96px);
+    display: flex; flex-direction: column;
+  }
+  .timeline-stairs {
+    flex: 1; display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2vw; align-items: end;
+    padding: 4vh 0 8vh;
+  }
+  .tl-col { display: flex; flex-direction: column; gap: 1.6vh; min-width: 0; }
+  .tl-col:nth-child(1) { margin-bottom: 0; }
+  .tl-col:nth-child(2) { margin-bottom: 4vh; }
+  .tl-col:nth-child(3) { margin-bottom: 8vh; }
+  .tl-col:nth-child(4) { margin-bottom: 12vh; }
+  .tl-note { font-size: clamp(14px, 1.2vw, 22px); line-height: 1.5; color: var(--ymi-ink); min-height: 4.5em; }
+  .tl-stem {
+    width: 1px; height: 3.2vh; margin-left: 28px;
+    background: var(--ymi-brand-soft);
+  }
+  .tl-bar {
+    border-radius: 14px;
+    background: linear-gradient(90deg, var(--ymi-brand), var(--ymi-brand-soft));
+    color: #fff; padding: 14px 28px;
+    font-size: clamp(16px, 1.9vw, 34px); font-weight: 400;
+    white-space: nowrap;
+  }
+
+  /* ============ Y07 Awards ============ */
+  .layout-awards {
+    height: 100%;
+    padding-top: clamp(72px, 9vh, 96px);
+    display: flex; flex-direction: column;
+    padding-left: clamp(20px, 2vw, 40px);
+    padding-right: clamp(20px, 2vw, 40px);
+  }
+  .awards-lead { margin: 18px 0 28px; max-width: 52ch; }
+  .awards-grid {
+    flex: 1; display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(12px, 1.2vw, 22px);
+    align-content: stretch;
+    max-height: 58vh;
+  }
+  .award-card {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: space-between;
+    padding: 28px 18px 24px;
+    text-align: center;
+  }
+  .award-visual {
+    width: 56%; aspect-ratio: 1; border-radius: 20px;
+    background: linear-gradient(160deg, #EEF3FF, #F8F4F1);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ymi-brand); font-size: 13px; letter-spacing: .12em;
+  }
+  .award-name {
+    margin-top: 18px; font-size: clamp(14px, 1.2vw, 22px);
+    line-height: 1.4; color: var(--ymi-ink);
+  }
+
+  /* ============ Y08 Closing ============ */
+  .layout-closing {
+    height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    transform: translateY(2vh);
+    gap: clamp(24px, 4vh, 48px);
+  }
+  .layout-closing .t-closing { margin-bottom: clamp(40px, 7vh, 100px); }
+
+  /* ============ Y09 KPI Hero ============ */
+  .layout-kpi-hero {
+    height: 100%;
+    padding-top: clamp(72px, 9vh, 96px);
+    display: flex; flex-direction: column;
+  }
+  .kpi-lead { margin-top: 1.2vh; max-width: 48ch; opacity: .85; }
+  .kpi-hero-grid {
+    flex: 1; display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(24px, 3vw, 48px);
+    align-content: center;
+    padding: 4vh 0 2vh;
+  }
+  .kpi-hero-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .kpi-hero-item {
+    min-width: 0;
+    padding: clamp(20px, 3vh, 36px) 0;
+    border-top: 2px solid var(--ymi-brand);
+  }
+  .kpi-hero-item .t-kpi { margin-top: clamp(16px, 2.4vh, 28px); }
+
+  /* ============ Y10 Comparison ============ */
+  .layout-compare {
+    height: 100%;
+    padding-top: clamp(72px, 9vh, 96px);
+    display: flex; flex-direction: column;
+  }
+  .compare-lead { margin: 1.2vh 0 3vh; max-width: 48ch; }
+  .compare-grid {
+    flex: 1; display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 2.4vw, 40px);
+    align-items: stretch;
+    max-height: 58vh;
+  }
+  .compare-col {
+    background: rgba(255,255,255,.72);
+    border: 1px solid var(--ymi-card-border);
+    border-radius: var(--ymi-radius-card);
+    padding: clamp(22px, 3vh, 36px) clamp(22px, 2vw, 36px);
+    box-shadow: var(--ymi-shadow);
+  }
+  .compare-col--accent {
+    border-color: rgba(0, 38, 154, .22);
+    background: linear-gradient(180deg, rgba(175,196,255,.35), rgba(255,255,255,.85));
+  }
+  .compare-tag {
+    display: inline-block;
+    font-size: clamp(12px, 1vw, 16px);
+    letter-spacing: .18em;
+    color: var(--ymi-brand);
+    margin-bottom: 1.2vh;
+  }
+  .compare-col--accent .compare-tag { color: var(--ymi-accent); }
+  .compare-col .t-group { margin-bottom: 2vh; font-size: clamp(24px, 2.6vw, 48px); }
+  .compare-list {
+    list-style: none;
+    display: flex; flex-direction: column;
+    gap: clamp(10px, 1.6vh, 18px);
+  }
+  .compare-list li {
+    position: relative;
+    padding-left: 1.1em;
+    font-size: clamp(15px, 1.35vw, 26px);
+    line-height: 1.55; color: var(--ymi-ink);
+  }
+  .compare-list li::before {
+    content: "";
+    position: absolute; left: 0; top: .55em;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--ymi-brand-soft);
+  }
+  .compare-col--accent .compare-list li::before { background: var(--ymi-accent); }
+
+  /* ============ Y11 Principles ============ */
+  .layout-principles {
+    height: 100%;
+    padding-top: clamp(72px, 9vh, 96px);
+    display: flex; flex-direction: column;
+  }
+  .principles-grid {
+    flex: 1; display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 2.4vw, 40px);
+    align-content: center;
+    padding: 4vh 0 2vh;
+  }
+  .principle {
+    min-width: 0;
+    padding-top: clamp(8px, 1vh, 16px);
+    border-top: 2px solid var(--ymi-brand);
+  }
+  .principle-num {
+    font-size: clamp(28px, 2.8vw, 48px);
+    color: var(--ymi-brand);
+    font-variant-numeric: tabular-nums;
+    margin: 1.2vh 0 1.6vh;
+  }
+  .principle .t-group {
+    margin-bottom: 1.4vh;
+    font-size: clamp(24px, 2.4vw, 44px);
+  }
+  .principle .t-body { max-width: 22ch; }
+
+  /* ============ Y12 Custom（兜底；边距继承 .slide，禁止缩小安全区） ============ */
+  .layout-custom {
+    height: 100%;
+    padding-top: clamp(72px, 9vh, 96px);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: clamp(20px, 2.8vh, 36px);
+    /* 左右不写死 padding：由 .slide 的 --ymi-safe-x 统一承载 */
+  }
+  .layout-custom .custom-body {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2.2vh, 28px);
+  }
+  .layout-custom .custom-body.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(24px, 3vw, 48px);
+    align-content: start;
+  }
+  .layout-custom .custom-body.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(20px, 2.4vw, 40px);
+    align-content: start;
+  }
+  .layout-custom .custom-body.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, auto);
+    gap: clamp(20px, 2.4vw, 36px);
+    align-content: start;
+  }
+
+  .awards-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .awards-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .timeline-stairs.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .timeline-stairs.cols-5 .tl-col:nth-child(5) { margin-bottom: 16vh; }
+
+  /* ============ Nav ============ */
+  #nav {
+    position: fixed; left: 50%; bottom: 2.4vh; transform: translateX(-50%);
+    z-index: 40; display: flex; gap: 10px;
+    padding: 8px 14px; border-radius: 999px;
+    background: rgba(0, 38, 154, .12); backdrop-filter: blur(10px);
+  }
+  #nav .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(0, 38, 154, .28); border: 0; padding: 0; cursor: pointer;
+    transition: all .25s ease;
+  }
+  #nav .dot:hover { transform: scale(1.15); }
+  #nav .dot.active { width: 22px; border-radius: 999px; background: var(--ymi-brand); }
+  body.theme-dark #nav { background: rgba(255,255,255,.16); }
+  body.theme-dark #nav .dot { background: rgba(255,255,255,.35); }
+  body.theme-dark #nav .dot.active { background: #fff; }
+
+  #hint {
+    position: fixed; bottom: 2.8vh; right: 2.4vw; z-index: 40;
+    font-size: 11px; letter-spacing: .14em; color: rgba(51,51,51,.4);
+  }
+  body.theme-dark #hint { color: rgba(255,255,255,.45); }
+
+  #overview {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(0, 21, 58, .92); backdrop-filter: blur(12px);
+    display: none; overflow-y: auto; padding: 4vh 4vw;
+  }
+</style>
+</head>
+<body>
+
+<div id="hint">← → 翻页 · ESC 索引</div>
+
+<div id="deck">
+
+<!-- ============================================================
+     SLIDES_HERE · 粘贴 layouts-yingmi.md 骨架
+     data-layout：优先短码 Y01–Y12
+     背景类：cover | toc | page | section | closing
+     ============================================================ -->
+
+<!-- Y01 封面 -->
+<section class="slide cover" data-layout="Y01" data-theme="light">
+  <img class="logo logo-tl" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-cover">
+    <div class="cover-copy">
+      <h1 class="t-cover">盈米基金商业<br>路演大会</h1>
+      <p class="t-speaker">主讲人：[必填]</p>
+    </div>
+    <div class="cover-visual img-slot" aria-hidden="true">右侧 3D 主视觉区<br>（或由 bg-fengmian-01 承载）</div>
+  </div>
+</section>
+
+<!-- Y02 目录 -->
+<section class="slide toc" data-layout="Y02" data-theme="light">
+  <img class="logo logo-tr" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-toc">
+    <div>
+      <div class="toc-label-zh">目录</div>
+      <div class="toc-label-en">Contents</div>
+    </div>
+    <div class="toc-list">
+      <div class="toc-row"><div class="t-toc-num">01</div><div class="t-toc-title">公司简介</div></div>
+      <div class="toc-row"><div class="t-toc-num">02</div><div class="t-toc-title">使命与愿景</div></div>
+      <div class="toc-row"><div class="t-toc-num">03</div><div class="t-toc-title">核心数据</div></div>
+      <div class="toc-row"><div class="t-toc-num">04</div><div class="t-toc-title">发展历程</div></div>
+      <div class="toc-row"><div class="t-toc-num">05</div><div class="t-toc-title">荣誉奖项</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Y03 子封面 -->
+<section class="slide section" data-layout="Y03" data-theme="dark">
+  <!-- bg-zifengmian-01.jpg 右上角已含 Logo，勿再叠加 img -->
+  <div class="layout-section">
+    <div class="t-section-num">01</div>
+    <div class="t-section-title">公司简介、使命、愿景</div>
+  </div>
+</section>
+
+<!-- Y04 左图右文 -->
+<section class="slide page" data-layout="Y04" data-theme="light">
+  <img class="logo logo-tr" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-img-text nav-safe-bottom">
+    <div class="frame-img r-2x5 img-slot">竖图 2:5<br>images/04-campus.jpg</div>
+    <div class="body-block">
+      <h2 class="t-page">公司简介</h2>
+      <p class="t-body">盈米基金致力于用科技与专业能力，持续提升中国人的长期投资体验。请将此处替换为正式简介文案，建议 5–8 行。</p>
+      <div class="kpi-row">
+        <div><div class="t-kpi">510亿</div><div class="t-kpi-label">管理规模示意</div></div>
+        <div><div class="t-kpi">93%</div><div class="t-kpi-label">客户续费率示意</div></div>
+        <div><div class="t-kpi">10年+</div><div class="t-kpi-label">深耕财富管理</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Y05 左文右图 -->
+<section class="slide page" data-layout="Y05" data-theme="light">
+  <img class="logo logo-tr" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-text-img nav-safe-bottom">
+    <div>
+      <h2 class="t-page">使命与愿景</h2>
+      <div class="mission-block">
+        <div class="mission-item">
+          <h3 class="t-group accent">使命</h3>
+          <p class="t-body">改变中国人买基金的方式。</p>
+        </div>
+        <div class="mission-item">
+          <h3 class="t-group brand">愿景</h3>
+          <p class="t-body">成为值得托付的长期财富伙伴。</p>
+        </div>
+      </div>
+    </div>
+    <div class="frame-img r-16x9 img-slot">横图 16:9<br>images/05-mission.jpg</div>
+  </div>
+</section>
+
+<!-- Y09 KPI 大字报 -->
+<section class="slide page" data-layout="Y09" data-theme="light">
+  <img class="logo logo-tr" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-kpi-hero nav-safe-bottom">
+    <h2 class="t-page">关键数据一览</h2>
+    <p class="t-body kpi-lead">示意口径，正式稿请替换为真实披露数据。</p>
+    <div class="kpi-hero-grid">
+      <div class="kpi-hero-item"><div class="t-kpi">510亿</div><div class="t-kpi-label">管理规模示意</div></div>
+      <div class="kpi-hero-item"><div class="t-kpi">120万+</div><div class="t-kpi-label">服务用户示意</div></div>
+      <div class="kpi-hero-item"><div class="t-kpi">10年+</div><div class="t-kpi-label">深耕财富管理</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Y10 左右对比 -->
+<section class="slide page" data-layout="Y10" data-theme="light">
+  <img class="logo logo-tr" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-compare nav-safe-bottom">
+    <h2 class="t-page">服务方式对比</h2>
+    <p class="t-body compare-lead">示意结构，请替换为真实对比维度。</p>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-tag">BEFORE</div>
+        <h3 class="t-group">分散选基</h3>
+        <ul class="compare-list">
+          <li>追逐短期热点</li>
+          <li>账户分散难管理</li>
+          <li>缺乏持续陪伴</li>
+        </ul>
+      </div>
+      <div class="compare-col compare-col--accent">
+        <div class="compare-tag">AFTER</div>
+        <h3 class="t-group">投顾陪跑</h3>
+        <ul class="compare-list">
+          <li>目标驱动配置</li>
+          <li>账户统一管理</li>
+          <li>长期服务陪伴</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Y11 三列要点 -->
+<section class="slide page" data-layout="Y11" data-theme="light">
+  <img class="logo logo-tr" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-principles nav-safe-bottom">
+    <h2 class="t-page">三大能力</h2>
+    <div class="principles-grid">
+      <div class="principle">
+        <div class="principle-num">01</div>
+        <h3 class="t-group">投研</h3>
+        <p class="t-body">以长期视角构建组合与策略框架。</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">02</div>
+        <h3 class="t-group">科技</h3>
+        <p class="t-body">用系统能力提升服务效率与体验。</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">03</div>
+        <h3 class="t-group">陪伴</h3>
+        <p class="t-body">在市场波动中提供可理解的沟通。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Y12 自定义内页（兜底示例：四象限；边距继承 .slide，勿缩小安全区） -->
+<section class="slide page" data-layout="Y12" data-theme="light">
+  <img class="logo logo-tr" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-custom nav-safe-bottom">
+    <h2 class="t-page">能力地图</h2>
+    <div class="custom-body grid-4">
+      <div class="card" style="padding:clamp(18px,2vh,28px)">
+        <h3 class="t-group brand">投研</h3>
+        <p class="t-body">组合构建与策略框架。</p>
+      </div>
+      <div class="card" style="padding:clamp(18px,2vh,28px)">
+        <h3 class="t-group brand">交易</h3>
+        <p class="t-body">全栈自研交易与清算。</p>
+      </div>
+      <div class="card" style="padding:clamp(18px,2vh,28px)">
+        <h3 class="t-group brand">服务</h3>
+        <p class="t-body">投顾陪伴与账户管理。</p>
+      </div>
+      <div class="card" style="padding:clamp(18px,2vh,28px)">
+        <h3 class="t-group brand">科技</h3>
+        <p class="t-body">AI 与 PaaS 能力沉淀。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Y06 发展历程 -->
+<section class="slide page" data-layout="Y06" data-theme="light">
+  <img class="logo logo-tr" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-timeline nav-safe-bottom">
+    <h2 class="t-page">发展历程</h2>
+    <div class="timeline-stairs">
+      <div class="tl-col">
+        <p class="tl-note">起步与牌照奠基</p>
+        <div class="tl-stem"></div>
+        <div class="tl-bar">2015–2016</div>
+      </div>
+      <div class="tl-col">
+        <p class="tl-note">平台能力建设</p>
+        <div class="tl-stem"></div>
+        <div class="tl-bar">2016–2018</div>
+      </div>
+      <div class="tl-col">
+        <p class="tl-note">且慢投顾上线</p>
+        <div class="tl-stem"></div>
+        <div class="tl-bar">2018–2019</div>
+      </div>
+      <div class="tl-col">
+        <p class="tl-note">规模化与生态扩展</p>
+        <div class="tl-stem"></div>
+        <div class="tl-bar">2019–2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Y07 荣誉奖项 -->
+<section class="slide page" data-layout="Y07" data-theme="light">
+  <img class="logo logo-tr" src="assets/logos/yingmi-logo-regular.svg" alt="盈米基金">
+  <div class="layout-awards nav-safe-bottom">
+    <h2 class="t-page">荣誉<span class="brand">奖项</span></h2>
+    <p class="t-body awards-lead">以下为版式示例，请替换为真实奖项名称与奖杯图。</p>
+    <div class="awards-grid">
+      <div class="card award-card"><div class="award-visual">奖杯</div><div class="award-name">示例奖项名称一</div></div>
+      <div class="card award-card"><div class="award-visual">奖杯</div><div class="award-name">示例奖项名称二</div></div>
+      <div class="card award-card"><div class="award-visual">奖杯</div><div class="award-name">示例奖项名称三</div></div>
+      <div class="card award-card"><div class="award-visual">奖杯</div><div class="award-name">示例奖项名称四</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Y08 封底 -->
+<section class="slide closing" data-layout="Y08" data-theme="dark">
+  <div class="layout-closing">
+    <div class="t-closing">THANKS</div>
+    <img class="logo-center" src="assets/logos/yingmi-logo-white.svg" alt="盈米基金">
+    <p class="t-closing-sub">改变中国人买基金的方式</p>
+  </div>
+</section>
+
+</div>
+
+<div id="nav"></div>
+
+<script>
+(function () {
+  const deck = document.getElementById('deck');
+  const slides = [...deck.querySelectorAll('.slide')];
+  const nav = document.getElementById('nav');
+  const ov = document.createElement('div');
+  ov.id = 'overview';
+  document.body.appendChild(ov);
+
+  let idx = 0;
+  let total = slides.length;
+  let lock = false;
+  let overviewOn = false;
+
+  deck.style.width = (total * 100) + 'vw';
+
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot';
+    b.setAttribute('aria-label', 'Page ' + (i + 1));
+    b.onclick = () => go(i);
+    nav.appendChild(b);
+  });
+
+  function syncTheme() {
+    const el = slides[idx];
+    const dark = el.classList.contains('section') || el.classList.contains('closing') || el.dataset.theme === 'dark';
+    document.body.classList.toggle('theme-dark', dark);
+  }
+
+  function go(n) {
+    if (lock) return;
+    idx = Math.max(0, Math.min(total - 1, n));
+    deck.style.transform = 'translateX(' + (-idx * 100) + 'vw)';
+    nav.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    syncTheme();
+    lock = true;
+    setTimeout(() => { lock = false; }, 700);
+  }
+
+  function buildOverview() {
+    ov.innerHTML = '';
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display:grid;grid-template-columns:repeat(4,1fr);gap:2vh 1.6vw;max-width:90vw;margin:0 auto';
+    slides.forEach((s, i) => {
+      const card = document.createElement('div');
+      card.style.cssText = 'cursor:pointer;border-radius:10px;overflow:hidden;border:2px solid ' + (i === idx ? 'rgba(255,255,255,.85)' : 'rgba(255,255,255,.18)');
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;pointer-events:none;background:#00153A';
+      const clone = s.cloneNode(true);
+      clone.style.cssText = 'width:100vw;height:100vh;transform:scale(0.22);transform-origin:top left;position:absolute;top:0;left:0;pointer-events:none';
+      wrap.appendChild(clone);
+      const label = document.createElement('div');
+      label.style.cssText = 'padding:8px 10px;font-size:12px;letter-spacing:.12em;color:#fff;opacity:.75';
+      label.textContent = (i + 1) + ' / ' + total + ' · ' + (s.dataset.layout || '');
+      card.appendChild(wrap);
+      card.appendChild(label);
+      card.onclick = () => { toggleOverview(); go(i); };
+      grid.appendChild(card);
+    });
+    ov.appendChild(grid);
+  }
+
+  function toggleOverview() {
+    overviewOn = !overviewOn;
+    if (overviewOn) { buildOverview(); ov.style.display = 'block'; }
+    else { ov.style.display = 'none'; }
+  }
+
+  addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { e.preventDefault(); toggleOverview(); return; }
+    if (overviewOn) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ' || e.key === 'ArrowDown') go(idx + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'ArrowUp') go(idx - 1);
+    if (e.key === 'Home') go(0);
+    if (e.key === 'End') go(total - 1);
+  });
+
+  let wheelAcc = 0, wheelTO;
+  addEventListener('wheel', (e) => {
+    if (overviewOn) return;
+    wheelAcc += e.deltaY + e.deltaX;
+    if (Math.abs(wheelAcc) > 50) {
+      go(idx + (wheelAcc > 0 ? 1 : -1));
+      wheelAcc = 0;
+    }
+    clearTimeout(wheelTO);
+    wheelTO = setTimeout(() => { wheelAcc = 0; }, 150);
+  }, { passive: true });
+
+  let tx = 0, ty = 0;
+  addEventListener('touchstart', (e) => {
+    tx = e.touches[0].clientX; ty = e.touches[0].clientY;
+  }, { passive: true });
+  addEventListener('touchend', (e) => {
+    if (overviewOn) return;
+    const dx = e.changedTouches[0].clientX - tx;
+    const dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(idx + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+
+  go(0);
+})();
+</script>
+</body>
+</html>
